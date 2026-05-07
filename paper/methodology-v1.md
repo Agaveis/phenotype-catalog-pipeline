@@ -4,6 +4,7 @@
 AgaveIS
 admin@agaveis.com
 
+**DOI:** [10.5281/zenodo.20075617](https://doi.org/10.5281/zenodo.20075617)
 **Dataset:** https://huggingface.co/datasets/EthnicErotic/phenotype-catalog
 **Code:** https://github.com/Agaveis/phenotype-catalog-pipeline
 **License:** CC BY 4.0

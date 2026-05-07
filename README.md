@@ -1,9 +1,11 @@
 # phenotype-catalog-pipeline
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20075617.svg)](https://doi.org/10.5281/zenodo.20075617)
+
 Reproducibility code for the **PhenotypeCatalog** dataset — a public dataset of 5,668 per-image phenotype observations across 239 ethnic groups, constructed from public-domain Wikipedia photographs.
 
 - **Dataset (CC BY 4.0):** https://huggingface.co/datasets/EthnicErotic/phenotype-catalog
-- **Methodology paper (preprint):** _coming — submitted to arXiv / SocArXiv_
+- **Methodology paper:** [`paper/methodology-v1.pdf`](paper/methodology-v1.pdf) · DOI [10.5281/zenodo.20075617](https://doi.org/10.5281/zenodo.20075617)
 - **Live source catalog:** https://ethnicerotic.com
 - **Browse by region:** https://ethnicerotic.com/world
 
@@ -197,13 +199,23 @@ Image URLs in `notable_people.image_url` and `image_observations.image_url` refe
 If you use this code or the resulting dataset, please cite:
 
 ```bibtex
+@misc{phenotype_catalog_pipeline_2026,
+  title         = {phenotype-catalog-pipeline: Wikipedia-sourced per-image phenotype observations across 239 ethnic groups},
+  author        = {Jacoby, Jason},
+  year          = {2026},
+  publisher     = {Zenodo},
+  version       = {v1.0.0},
+  doi           = {10.5281/zenodo.20075617},
+  url           = {https://doi.org/10.5281/zenodo.20075617}
+}
+
 @misc{ethnicerotic_phenotype_catalog_2026,
-  title         = {Ethnic Erotic Phenotype Catalog},
+  title         = {PhenotypeCatalog: a public dataset of 5,668 per-image phenotype observations},
   author        = {Jacoby, Jason},
   year          = {2026},
   publisher     = {Hugging Face},
   url           = {https://huggingface.co/datasets/EthnicErotic/phenotype-catalog},
-  note          = {Source: \url{https://ethnicerotic.com}; Pipeline: \url{https://github.com/Agaveis/phenotype-catalog-pipeline}}
+  note          = {Pipeline DOI: \url{https://doi.org/10.5281/zenodo.20075617}; Source: \url{https://ethnicerotic.com}}
 }
 ```
 
