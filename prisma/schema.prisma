@@ -1,0 +1,98 @@
+// Prisma schema excerpt — the three tables touched by this pipeline.
+//
+// Source: Sites/EE/nextjs-app/prisma/schema.prisma in the upstream EthnicErotic
+// catalog. Only the tables relevant to the phenotype-observation pipeline are
+// included here; the upstream schema also contains tables for site auth,
+// payments, generation history, etc., that are not part of this artifact.
+//
+// Database: SQL Server (we use AWS RDS in production). The pipeline is not
+// SQL-Server-specific — porting to PostgreSQL or MySQL is a column-type swap
+// (NVARCHAR → TEXT, DateTime2 → TIMESTAMP, etc.).
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlserver"
+  url      = env("DATABASE_URL")
+}
+
+// ────────────────────────────────────────────────────────────────────
+// Group-level catalog (484 rows in the live source). The PhenotypeProfile
+// and ImageObservedDistribution columns are written by this pipeline; the
+// remainder is human-curated upstream and out of scope here.
+// ────────────────────────────────────────────────────────────────────
+model ethniclist {
+  ID                        Int       @id @default(autoincrement())
+  Ethnicity                 String?   @db.NVarChar(255)
+  Language                  String?   @db.NVarChar(255)
+  Homeland                  String?   @db.NVarChar(255)
+  Subgroup                  String?   @db.NVarChar(255)
+  Religion                  String?   @db.NVarChar(255)
+  HomelandRegion            String?   @db.NVarChar(255)
+  Description               String?   @db.NVarChar(Max)
+  Wiki                      String?   @db.NVarChar(255)
+  LanguageCodes             String?   @db.NVarChar(255)
+  ISOCountries              String?   @db.NVarChar(255)
+  PhenotypeProfile          String?   @db.NVarChar(Max)
+  ImageObservedDistribution String?   @db.NVarChar(Max)
+  ImageObservedAt           DateTime? @db.DateTime2
+
+  examples ethnic_examples[]
+
+  @@index([Ethnicity], map: "IX_ethniclist_Ethnicity")
+  @@index([HomelandRegion], map: "IX_ethniclist_Region")
+}
+
+// ────────────────────────────────────────────────────────────────────
+// Notable-people references — one row per person, scraped from each ethnic
+// group's "List of {Ethnicity} people" Wikipedia article. The image_url
+// column is filled in by the URL-discovery stage; analysis is filled in by
+// the vision-LLM stage.
+// ────────────────────────────────────────────────────────────────────
+model ethnic_examples {
+  id            Int      @id @default(autoincrement())
+  ethnic_id     Int
+  name          String   @db.NVarChar(255)
+  known_for     String?  @db.NVarChar(500)
+  birth_year    Int?
+  death_year    Int?
+  reference_url String?  @db.NVarChar(500)
+  image_url     String?  @db.NVarChar(1000)
+  source_type   String   @db.NVarChar(50) @default("wikipedia")
+  created_at    DateTime @default(now()) @db.DateTime2
+
+  ethnic   ethniclist             @relation(fields: [ethnic_id], references: [ID], map: "FK_ethnic_examples_ethnic")
+  analysis ethnic_image_analysis?
+
+  @@index([ethnic_id], map: "IX_ethnic_examples_ethnic")
+}
+
+// ────────────────────────────────────────────────────────────────────
+// Per-image phenotype observations — one row per analyzed image. Written
+// by analyze-images-via-bedrock.mjs. Joined to ethnic_examples 1:1 by
+// example_id; the unique constraint enforces idempotent re-runs.
+// ────────────────────────────────────────────────────────────────────
+model ethnic_image_analysis {
+  id              Int      @id @default(autoincrement())
+  example_id      Int      @unique(map: "UX_image_analysis_example")
+  skin_tone       String?  @db.NVarChar(50)
+  skin_undertone  String?  @db.NVarChar(100)
+  hair_color      String?  @db.NVarChar(100)
+  hair_texture    String?  @db.NVarChar(50)
+  hair_pattern    String?  @db.NVarChar(200)
+  eye_color       String?  @db.NVarChar(50)
+  eye_shape       String?  @db.NVarChar(200)
+  facial_features String?  @db.NVarChar(Max)
+  build           String?  @db.NVarChar(300)
+  visible_extent  String?  @db.NVarChar(50)
+  image_quality   String?  @db.NVarChar(20)
+  obscurations    String?  @db.NVarChar(500)
+  confidence      Float?
+  raw_json        String?  @db.NVarChar(Max)
+  analysis_model  String?  @db.NVarChar(100)
+  analyzed_at     DateTime @default(now()) @db.DateTime2
+
+  example ethnic_examples @relation(fields: [example_id], references: [id], map: "FK_image_analysis_example")
+}
