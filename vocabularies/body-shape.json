@@ -1,0 +1,372 @@
+{
+  "atlas_category": "body-shape",
+  "uberon_id": "UBERON:0000468",
+  "display_name": "Body shape",
+  "version": "1.0.0",
+  "license": "CC-BY-4.0",
+  "description": "Whole-body composite phenotype dimensions: Heath-Carter somatotype, body composition pattern, proportions, frame size, musculature, posture, and lower-limb alignment. This category absorbs the original Height, Weight, Limb, and Knees atlas categories by treating them as composite-body measures rather than discrete body parts. Dimensions are drawn from sports-medicine, public-health, and anthropometric literature. Most dimensions require full-body framing to assess; height and weight require measurement and are flagged not_assessable from photographs.",
+
+  "dimensions": [
+    {
+      "id": "somatotype_endomorphy",
+      "display_name": "Endomorphy (Heath-Carter)",
+      "type": "ordinal",
+      "scale": "heath_carter_1990_1_to_7",
+      "scale_citation": "Carter JEL, Heath BH (1990). Somatotyping — Development and Applications. Cambridge University Press.",
+      "description": "Relative degree of fatness — the endomorphic component of the Heath-Carter somatotype. Higher values indicate greater subcutaneous fat envelope. Originally measured from skinfold sites; visual estimation from photograph correlates moderately.",
+      "values": [
+        {"id": "1", "display_name": "1 — very low", "definition": "Minimal subcutaneous fat; bony landmarks prominent throughout the trunk and limbs."},
+        {"id": "2", "display_name": "2"},
+        {"id": "3", "display_name": "3"},
+        {"id": "4", "display_name": "4 — moderate", "definition": "Average subcutaneous fat envelope; soft-tissue coverage of skeletal landmarks."},
+        {"id": "5", "display_name": "5"},
+        {"id": "6", "display_name": "6"},
+        {"id": "7", "display_name": "7 — very high", "definition": "Pronounced subcutaneous fat envelope; bony landmarks substantially obscured."}
+      ],
+      "observability": {
+        "from_photograph": "high",
+        "requires_unclothed": false,
+        "minimum_visible_extent": "full_body",
+        "notes": "Visual estimation correlates moderately with skinfold-measured values. Treat as soft estimate; ground-truth measurement requires three skinfold sites (triceps, subscapular, supraspinale)."
+      }
+    },
+
+    {
+      "id": "somatotype_mesomorphy",
+      "display_name": "Mesomorphy (Heath-Carter)",
+      "type": "ordinal",
+      "scale": "heath_carter_1990_1_to_7",
+      "scale_citation": "Carter JEL, Heath BH (1990). Somatotyping — Development and Applications. Cambridge University Press.",
+      "description": "Relative musculoskeletal robustness — the mesomorphic component of the Heath-Carter somatotype. Higher values indicate greater muscle mass and skeletal robustness relative to height.",
+      "values": [
+        {"id": "1", "display_name": "1 — very low", "definition": "Slight musculoskeletal development; narrow bone structure."},
+        {"id": "2", "display_name": "2"},
+        {"id": "3", "display_name": "3"},
+        {"id": "4", "display_name": "4 — moderate", "definition": "Average muscle mass and skeletal robustness."},
+        {"id": "5", "display_name": "5"},
+        {"id": "6", "display_name": "6"},
+        {"id": "7", "display_name": "7 — very high", "definition": "Pronounced muscle mass and robust skeletal frame."}
+      ],
+      "observability": {
+        "from_photograph": "high",
+        "requires_unclothed": false,
+        "minimum_visible_extent": "full_body",
+        "notes": "Originally measured from bone breadths and limb girths corrected for skinfold; visual estimation reasonably accurate."
+      }
+    },
+
+    {
+      "id": "somatotype_ectomorphy",
+      "display_name": "Ectomorphy (Heath-Carter)",
+      "type": "ordinal",
+      "scale": "heath_carter_1990_1_to_7",
+      "scale_citation": "Carter JEL, Heath BH (1990). Somatotyping — Development and Applications. Cambridge University Press.",
+      "description": "Relative linearity — the ectomorphic component of the Heath-Carter somatotype. Higher values indicate greater height-for-mass and a more linear physique.",
+      "values": [
+        {"id": "1", "display_name": "1 — very low", "definition": "Compact, low height-for-mass."},
+        {"id": "2", "display_name": "2"},
+        {"id": "3", "display_name": "3"},
+        {"id": "4", "display_name": "4 — moderate", "definition": "Average linearity."},
+        {"id": "5", "display_name": "5"},
+        {"id": "6", "display_name": "6"},
+        {"id": "7", "display_name": "7 — very high", "definition": "Highly linear; long-limbed; high height-for-mass."}
+      ],
+      "observability": {
+        "from_photograph": "high",
+        "requires_unclothed": false,
+        "minimum_visible_extent": "full_body",
+        "notes": "Computed from height-to-cube-root-of-weight ratio (HWR); visual estimation captures the perceptual linearity correlate."
+      }
+    },
+
+    {
+      "id": "somatotype_dominant",
+      "display_name": "Dominant somatotype class",
+      "type": "categorical",
+      "scale": "heath_carter_13_class",
+      "scale_citation": "Carter JEL, Heath BH (1990). Somatotyping — Development and Applications. Cambridge University Press.",
+      "description": "Single-label summary of Heath-Carter somatotype based on which component dominates. Derived from the three component scores; included as a discrete categorical for cross-group comparison.",
+      "values": [
+        {"id": "central", "display_name": "Central", "definition": "All three components within one unit of each other; no single dominance."},
+        {"id": "balanced_endomorph", "display_name": "Balanced endomorph", "definition": "Endomorphy dominant; mesomorphy and ectomorphy approximately equal and lower."},
+        {"id": "mesomorphic_endomorph", "display_name": "Mesomorphic endomorph", "definition": "Endomorphy dominant; mesomorphy second."},
+        {"id": "mesomorph_endomorph", "display_name": "Mesomorph-endomorph", "definition": "Endomorphy and mesomorphy approximately equal and dominant; ectomorphy lower."},
+        {"id": "endomorphic_mesomorph", "display_name": "Endomorphic mesomorph", "definition": "Mesomorphy dominant; endomorphy second."},
+        {"id": "balanced_mesomorph", "display_name": "Balanced mesomorph", "definition": "Mesomorphy dominant; endomorphy and ectomorphy approximately equal and lower."},
+        {"id": "ectomorphic_mesomorph", "display_name": "Ectomorphic mesomorph", "definition": "Mesomorphy dominant; ectomorphy second."},
+        {"id": "mesomorph_ectomorph", "display_name": "Mesomorph-ectomorph", "definition": "Mesomorphy and ectomorphy approximately equal and dominant; endomorphy lower."},
+        {"id": "mesomorphic_ectomorph", "display_name": "Mesomorphic ectomorph", "definition": "Ectomorphy dominant; mesomorphy second."},
+        {"id": "balanced_ectomorph", "display_name": "Balanced ectomorph", "definition": "Ectomorphy dominant; endomorphy and mesomorphy approximately equal and lower."},
+        {"id": "endomorphic_ectomorph", "display_name": "Endomorphic ectomorph", "definition": "Ectomorphy dominant; endomorphy second."},
+        {"id": "endomorph_ectomorph", "display_name": "Endomorph-ectomorph", "definition": "Endomorphy and ectomorphy approximately equal and dominant; mesomorphy lower."},
+        {"id": "ectomorphic_endomorph", "display_name": "Ectomorphic endomorph", "definition": "Endomorphy dominant; ectomorphy second."}
+      ],
+      "observability": {
+        "from_photograph": "high",
+        "requires_unclothed": false,
+        "minimum_visible_extent": "full_body",
+        "notes": "Derived from the three component scores. The model can either output this directly or it can be computed downstream from the three component values."
+      }
+    },
+
+    {
+      "id": "height_cm",
+      "display_name": "Height (cm)",
+      "type": "numeric",
+      "scale": "metric_centimeters",
+      "scale_citation": "Standard anthropometric stature measurement; standing height from sole to vertex.",
+      "description": "Stature in centimeters. Requires direct measurement; not derivable from a single photograph without a calibrated reference object. Included for structured-text use cases (clinical records, athlete databases) where measured values are available.",
+      "observability": {
+        "from_photograph": "not_assessable",
+        "requires_unclothed": false,
+        "minimum_visible_extent": "full_body",
+        "notes": "A photograph alone does not yield reliable height estimates. The dimension is included so external measured values can populate it through structured-text ingestion."
+      }
+    },
+
+    {
+      "id": "weight_kg",
+      "display_name": "Weight (kg)",
+      "type": "numeric",
+      "scale": "metric_kilograms",
+      "scale_citation": "Standard anthropometric body-mass measurement.",
+      "description": "Body mass in kilograms. Requires direct measurement; not derivable from a photograph. Included for structured-text use cases.",
+      "observability": {
+        "from_photograph": "not_assessable",
+        "requires_unclothed": false,
+        "minimum_visible_extent": "full_body"
+      }
+    },
+
+    {
+      "id": "bmi_category",
+      "display_name": "BMI category",
+      "type": "ordinal",
+      "scale": "who_bmi_with_asian_pacific_thresholds",
+      "scale_citation": "WHO (2000). Obesity: preventing and managing the global epidemic. WHO Technical Report Series 894. Asian-Pacific thresholds: WHO Expert Consultation (2004), The Lancet, 363(9403): 157-163.",
+      "description": "WHO BMI category, ordinal. Asian-Pacific population BMI thresholds are lower than the WHO universal thresholds because of higher body-fat percentage at equivalent BMI in those populations; the scale lists both anchor points where they differ.",
+      "values": [
+        {"id": "severe_underweight", "display_name": "Severe underweight", "definition": "BMI < 16.0 kg/m²."},
+        {"id": "underweight", "display_name": "Underweight", "definition": "BMI 16.0–18.4 kg/m²."},
+        {"id": "normal_weight", "display_name": "Normal weight", "definition": "BMI 18.5–24.9 kg/m² (WHO universal); 18.5–22.9 kg/m² (Asian-Pacific)."},
+        {"id": "overweight", "display_name": "Overweight", "definition": "BMI 25.0–29.9 kg/m² (WHO universal); 23.0–27.4 kg/m² (Asian-Pacific)."},
+        {"id": "obese_class_1", "display_name": "Obese class I", "definition": "BMI 30.0–34.9 kg/m² (WHO universal); 27.5–32.4 kg/m² (Asian-Pacific)."},
+        {"id": "obese_class_2", "display_name": "Obese class II", "definition": "BMI 35.0–39.9 kg/m² (WHO universal); 32.5–37.4 kg/m² (Asian-Pacific)."},
+        {"id": "obese_class_3", "display_name": "Obese class III", "definition": "BMI ≥ 40.0 kg/m² (WHO universal); ≥ 37.5 kg/m² (Asian-Pacific)."}
+      ],
+      "observability": {
+        "from_photograph": "low",
+        "requires_unclothed": false,
+        "minimum_visible_extent": "full_body",
+        "notes": "Visual estimation of BMI from a photograph is unreliable across the normal-overweight boundary. Treat as soft estimate at coarse buckets only (e.g. underweight / normal / overweight / obese — without subdividing obese classes from a photo)."
+      }
+    },
+
+    {
+      "id": "whr_estimate",
+      "display_name": "Waist-to-hip ratio (estimate)",
+      "type": "ordinal",
+      "scale": "whr_qualitative",
+      "scale_citation": "WHO (2008). Waist Circumference and Waist-Hip Ratio: Report of a WHO Expert Consultation. Singh D (1993). Adaptive significance of female physical attractiveness: role of waist-to-hip ratio. Journal of Personality and Social Psychology, 65(2): 293-307.",
+      "description": "Visual-estimate categorization of waist-to-hip ratio. Sex-specific clinical thresholds (≥0.85 women, ≥0.90 men) indicate elevated cardiometabolic risk; this scale is a qualitative-bucket equivalent for visual assessment.",
+      "values": [
+        {"id": "low", "display_name": "Low (pronounced waist)", "definition": "Waist substantially narrower than hips; hourglass-equivalent silhouette."},
+        {"id": "moderate", "display_name": "Moderate (defined waist)", "definition": "Waist clearly narrower than hips but not pronounced."},
+        {"id": "high", "display_name": "High (minimal waist definition)", "definition": "Waist approximates or exceeds hip width; rectangular or apple-shaped silhouette."}
+      ],
+      "observability": {
+        "from_photograph": "high",
+        "requires_unclothed": false,
+        "minimum_visible_extent": "full_body",
+        "notes": "Frontal view sufficient; clothing affects accuracy."
+      }
+    },
+
+    {
+      "id": "hip_to_shoulder_ratio",
+      "display_name": "Hip-to-shoulder ratio",
+      "type": "categorical",
+      "scale": "hip_shoulder_qualitative",
+      "scale_citation": "Anthropometric proportional reasoning; relative biacromial-to-biiliac breadth used in sports-medicine and aesthetic-anatomy contexts.",
+      "description": "Relative breadth of the hips compared to the shoulders. A secondary sex characteristic that varies by ethnic group and sex.",
+      "values": [
+        {"id": "narrow_hips", "display_name": "Narrow hips relative to shoulders", "definition": "Inverted-triangle silhouette; biacromial breadth substantially exceeds biiliac breadth."},
+        {"id": "balanced", "display_name": "Balanced", "definition": "Approximately equal hip and shoulder breadth."},
+        {"id": "wide_hips", "display_name": "Wide hips relative to shoulders", "definition": "Pear-shaped silhouette; biiliac breadth approaches or exceeds biacromial breadth."}
+      ],
+      "observability": {
+        "from_photograph": "high",
+        "requires_unclothed": false,
+        "minimum_visible_extent": "full_body"
+      }
+    },
+
+    {
+      "id": "frame_size_estimate",
+      "display_name": "Skeletal frame size",
+      "type": "ordinal",
+      "scale": "frame_size_qualitative",
+      "scale_citation": "Frisancho AR (1984). New standards of weight and body composition by frame size and height for assessment of nutritional status of adults and the elderly. American Journal of Clinical Nutrition, 40(4): 808-819. Grant JP, DeHoog S (1985). Nutritional Assessment in Clinical Care.",
+      "description": "Skeletal frame size, qualitative bucket. Originally measured by elbow breadth or wrist circumference; visual estimation captures the silhouette correlate. Important when interpreting weight and BMI within a population.",
+      "values": [
+        {"id": "small", "display_name": "Small", "definition": "Narrow bone structure; slight wrist and elbow."},
+        {"id": "medium", "display_name": "Medium", "definition": "Average bone structure."},
+        {"id": "large", "display_name": "Large", "definition": "Broad bone structure; thick wrist and elbow."}
+      ],
+      "observability": {
+        "from_photograph": "medium",
+        "requires_unclothed": false,
+        "minimum_visible_extent": "full_body",
+        "notes": "Better estimated from visible wrist/elbow when arms are bare; clothed assessment is approximate."
+      }
+    },
+
+    {
+      "id": "body_composition_pattern",
+      "display_name": "Body composition pattern (fat distribution)",
+      "type": "categorical",
+      "scale": "vague_1956_extended",
+      "scale_citation": "Vague J (1956). The degree of masculine differentiation of obesities: a factor determining predisposition to diabetes, atherosclerosis, gout, and uric calculous disease. American Journal of Clinical Nutrition, 4(1): 20-34. Subsequent literature refined the gynoid/android distinction.",
+      "description": "Pattern of body-fat distribution. Independent dimension from BMI — two individuals with the same BMI can have very different distributions, with different cardiometabolic risk profiles.",
+      "values": [
+        {"id": "gynoid", "display_name": "Gynoid (pear)", "definition": "Fat accumulation predominantly in hips, thighs, and buttocks; lower-body distribution."},
+        {"id": "android", "display_name": "Android (apple)", "definition": "Fat accumulation predominantly in abdominal and visceral regions; upper-body distribution."},
+        {"id": "balanced", "display_name": "Balanced", "definition": "No strong upper-body or lower-body fat preference."},
+        {"id": "extremity_dominant", "display_name": "Extremity-dominant", "definition": "Fat accumulation predominantly in arms and legs rather than trunk."}
+      ],
+      "observability": {
+        "from_photograph": "high",
+        "requires_unclothed": false,
+        "minimum_visible_extent": "full_body"
+      }
+    },
+
+    {
+      "id": "musculature_general",
+      "display_name": "General musculature",
+      "type": "ordinal",
+      "scale": "musculature_qualitative",
+      "scale_citation": "Qualitative scale aligned with sports-medicine training-status descriptors (Untrained, Recreationally Active, Trained, Highly Trained, World-Class) — Mann TN, Lamberts RP, Lambert MI (2013). Sports Medicine, 43(7).",
+      "description": "Visible musculature, ordinal. Captures training status and muscle hypertrophy as observable from photograph.",
+      "values": [
+        {"id": "untrained", "display_name": "Untrained", "definition": "Soft musculature; no visible definition; no evident strength training."},
+        {"id": "light", "display_name": "Lightly active", "definition": "Slight musculature; some tone but no definition."},
+        {"id": "moderate", "display_name": "Moderate", "definition": "Visible muscle tone in major groups; some definition under good lighting."},
+        {"id": "athletic", "display_name": "Athletic", "definition": "Clear definition in major muscle groups; visible separation between groups."},
+        {"id": "muscular", "display_name": "Muscular", "definition": "Pronounced muscle mass and definition; evidence of sustained strength training."},
+        {"id": "hypertrophied", "display_name": "Hypertrophied", "definition": "Bodybuilder-class muscle mass; substantial volumetric hypertrophy."}
+      ],
+      "observability": {
+        "from_photograph": "high",
+        "requires_unclothed": true,
+        "minimum_visible_extent": "torso",
+        "notes": "Definition assessment requires visible musculature; clothed photographs allow only mass estimation."
+      }
+    },
+
+    {
+      "id": "trunk_to_leg_ratio",
+      "display_name": "Trunk-to-leg ratio",
+      "type": "categorical",
+      "scale": "cormic_index_qualitative",
+      "scale_citation": "Cormic index = sitting height / standing height; population norms in Eveleth PB, Tanner JM (1990). Worldwide Variation in Human Growth, 2nd Edition. Cambridge University Press.",
+      "description": "Relative length of trunk versus legs. Anthropologically meaningful — varies systematically across populations, with East Asian populations averaging higher cormic indices (longer trunk relative to legs) and Sub-Saharan African populations averaging lower.",
+      "values": [
+        {"id": "long_trunk_short_legs", "display_name": "Long trunk, shorter legs", "definition": "Cormic index above population mean; trunk dominant."},
+        {"id": "balanced", "display_name": "Balanced", "definition": "Cormic index near population mean."},
+        {"id": "short_trunk_long_legs", "display_name": "Short trunk, longer legs", "definition": "Cormic index below population mean; legs dominant."}
+      ],
+      "observability": {
+        "from_photograph": "high",
+        "requires_unclothed": false,
+        "minimum_visible_extent": "full_body"
+      }
+    },
+
+    {
+      "id": "posture",
+      "display_name": "Posture (sagittal alignment)",
+      "type": "categorical",
+      "scale": "kendall_postural_classification",
+      "scale_citation": "Kendall FP, McCreary EK, Provance PG (2005). Muscles: Testing and Function with Posture and Pain, 5th Edition. Lippincott Williams & Wilkins.",
+      "description": "Habitual sagittal-plane postural alignment as visible from a side-view photograph. Postural deviations are common and meaningful for body-shape assessment.",
+      "values": [
+        {"id": "ideal", "display_name": "Ideal alignment", "definition": "Vertical line through ear, shoulder, hip, knee, and ankle in side view."},
+        {"id": "kyphotic_lordotic", "display_name": "Kyphotic-lordotic", "definition": "Increased thoracic kyphosis and lumbar lordosis; head-forward posture."},
+        {"id": "flat_back", "display_name": "Flat back", "definition": "Reduced lumbar lordosis; flattened lower spine."},
+        {"id": "sway_back", "display_name": "Sway back", "definition": "Pelvis shifted forward of plumb; thoracic spine compensates posteriorly."},
+        {"id": "forward_head", "display_name": "Forward head", "definition": "Head positioned anterior to shoulders without other major deviations."}
+      ],
+      "observability": {
+        "from_photograph": "medium",
+        "requires_unclothed": false,
+        "minimum_visible_extent": "full_body",
+        "notes": "Best assessed from a side-view photograph in habitual standing position; assessment from frontal-only views is unreliable."
+      }
+    },
+
+    {
+      "id": "knee_alignment",
+      "display_name": "Knee alignment (frontal plane)",
+      "type": "categorical",
+      "scale": "tibiofemoral_alignment",
+      "scale_citation": "Cooke TD, Sled EA, Scudamore RA (2007). Frontal plane knee alignment: a call for standardized measurement. Journal of Rheumatology, 34(9): 1796-1801.",
+      "description": "Tibiofemoral alignment in the frontal plane. Absorbed from the original Knees atlas category. Varus and valgus alignment have systematic ethnic-group variation in the orthopedic literature.",
+      "values": [
+        {"id": "neutral", "display_name": "Neutral", "definition": "Tibiofemoral angle approximately 0° in the frontal plane (with normal physiologic valgus); knees and feet aligned."},
+        {"id": "genu_valgum", "display_name": "Genu valgum (knock-knees)", "definition": "Distal femur and proximal tibia angled medially; knees touch when feet apart."},
+        {"id": "genu_varum", "display_name": "Genu varum (bow-legs)", "definition": "Distal femur and proximal tibia angled laterally; gap between knees when feet together."},
+        {"id": "windswept", "display_name": "Windswept", "definition": "Asymmetric — one valgus, one varus."}
+      ],
+      "observability": {
+        "from_photograph": "high",
+        "requires_unclothed": false,
+        "minimum_visible_extent": "full_body",
+        "notes": "Best assessed from frontal full-body view with feet together. Mild physiologic valgus is normal in adults; only deviations are flagged here."
+      }
+    },
+
+    {
+      "id": "knee_morphology",
+      "display_name": "Knee morphology",
+      "type": "categorical",
+      "scale": "patellar_morphology_qualitative",
+      "scale_citation": "Qualitative descriptors for visible knee morphology; absorbed from the original Knees atlas category. No single canonical scale — descriptive vocabulary aligned with anatomic-anthropology usage.",
+      "description": "Visible morphology of the knee region as a soft-tissue silhouette.",
+      "values": [
+        {"id": "square", "display_name": "Square", "definition": "Wider, more boxy knee profile; pronounced patellar prominence within a broader soft-tissue envelope."},
+        {"id": "round", "display_name": "Round", "definition": "Smoother, more rounded knee profile; less distinct patellar outline."},
+        {"id": "prominent_patella", "display_name": "Prominent patella", "definition": "Patella visible as a distinct elevated landmark even at rest."},
+        {"id": "asymmetric", "display_name": "Asymmetric", "definition": "Notable difference between left and right knee morphology."}
+      ],
+      "observability": {
+        "from_photograph": "medium",
+        "requires_unclothed": false,
+        "minimum_visible_extent": "full_body"
+      }
+    }
+  ],
+
+  "aggregation_notes": {
+    "categorical_dimensions_roll_up_as": "frequency distribution",
+    "ordinal_dimensions_roll_up_as": "frequency distribution + median bucket",
+    "minimum_sample_size_for_publication": 10,
+    "small_sample_caveat_threshold": 25,
+    "low_quality_threshold": 0.3,
+    "low_confidence_threshold": 0.55
+  },
+
+  "references": [
+    "Carter JEL, Heath BH (1990). Somatotyping — Development and Applications. Cambridge University Press.",
+    "WHO (2000). Obesity: preventing and managing the global epidemic. WHO Technical Report Series 894.",
+    "WHO Expert Consultation (2004). Appropriate body-mass index for Asian populations and its implications for policy and intervention strategies. The Lancet, 363(9403): 157-163.",
+    "WHO (2008). Waist Circumference and Waist-Hip Ratio: Report of a WHO Expert Consultation.",
+    "Singh D (1993). Adaptive significance of female physical attractiveness: role of waist-to-hip ratio. Journal of Personality and Social Psychology, 65(2): 293-307.",
+    "Frisancho AR (1984). New standards of weight and body composition by frame size and height. American Journal of Clinical Nutrition, 40(4): 808-819.",
+    "Vague J (1956). The degree of masculine differentiation of obesities. American Journal of Clinical Nutrition, 4(1): 20-34.",
+    "Mann TN, Lamberts RP, Lambert MI (2013). High responders and low responders: factors associated with individual variation in response to standardized training. Sports Medicine, 43(7).",
+    "Eveleth PB, Tanner JM (1990). Worldwide Variation in Human Growth, 2nd Edition. Cambridge University Press.",
+    "Kendall FP, McCreary EK, Provance PG (2005). Muscles: Testing and Function with Posture and Pain, 5th Edition. Lippincott Williams & Wilkins.",
+    "Cooke TD, Sled EA, Scudamore RA (2007). Frontal plane knee alignment: a call for standardized measurement. Journal of Rheumatology, 34(9): 1796-1801."
+  ]
+}

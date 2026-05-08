@@ -62,6 +62,13 @@ function pascalCase(s) {
   return s.split(/[_-]/).map((p) => p.charAt(0).toUpperCase() + p.slice(1)).join('');
 }
 
+// Prisma identifiers cannot contain hyphens. Converts atlas_category like
+// "body-shape" into a valid Prisma identifier "body_shape" for use as model
+// names, index names, FK names, etc.
+function prismaIdent(s) {
+  return s.replace(/-/g, '_');
+}
+
 function nvarLength(dim) {
   if (dim.type === 'numeric') return null;
   const maxLen = (dim.values || []).reduce((m, v) => Math.max(m, (v.id || '').length), 0);
@@ -153,12 +160,13 @@ function generatePromptFragment(vocab) {
 
 function generatePrismaModel(vocab) {
   const cat = vocab.atlas_category;
+  const ident = prismaIdent(cat); // hyphen-safe for Prisma identifiers
   const lines = [];
   lines.push(`// ${HEADER_NOTE(cat, vocab.version)}`);
   lines.push('');
-  lines.push(`model ${cat}_observation {`);
+  lines.push(`model ${ident}_observation {`);
   lines.push(`  id                    Int      @id @default(autoincrement())`);
-  lines.push(`  example_id            Int      @unique(map: "UX_${cat}_observation_example")`);
+  lines.push(`  example_id            Int      @unique(map: "UX_${ident}_observation_example")`);
 
   for (const dim of vocab.dimensions) {
     const len = nvarLength(dim);
@@ -181,10 +189,10 @@ function generatePrismaModel(vocab) {
   lines.push(`  analyzed_at           DateTime @default(now()) @db.DateTime2`);
   lines.push('');
   lines.push(
-    `  example ethnic_examples @relation(fields: [example_id], references: [id], map: "FK_${cat}_observation_example")`
+    `  example ethnic_examples @relation(fields: [example_id], references: [id], map: "FK_${ident}_observation_example")`
   );
   lines.push('');
-  lines.push(`  @@index([example_id], map: "IX_${cat}_observation_example")`);
+  lines.push(`  @@index([example_id], map: "IX_${ident}_observation_example")`);
   lines.push(`}`);
   return lines.join('\n');
 }
