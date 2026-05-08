@@ -1,0 +1,139 @@
+{
+  "atlas_category": "pubic-region",
+  "uberon_id": "UBERON:0008337",
+  "display_name": "Pubic region",
+  "version": "1.0.0",
+  "license": "CC-BY-4.0",
+  "observations_source_policy": "internal_only",
+  "description": "Pubic-region phenotype: pubic hair distribution pattern, density, color, texture, and visible grooming state. Mons pubis prominence is captured in the corresponding vulva.json or penis.json suprapubic_fat_pad dimensions and is not duplicated here. The schema is published in the canonical vocabulary for academic transparency; observations from public-domain photographs are not populated and the file carries `observations_source_policy: \"internal_only\"`.",
+
+  "dimensions": [
+    {
+      "id": "pubic_hair_distribution_pattern",
+      "display_name": "Pubic hair distribution pattern (escutcheon)",
+      "type": "categorical",
+      "scale": "escutcheon_shape_qualitative",
+      "scale_citation": "Aligned with descriptors used in dermatologic and endocrinologic literature on pubic-hair escutcheon morphology; Tanner staging (P1-P5) covers developmental progression but not adult escutcheon shape, which this dimension captures.",
+      "description": "Shape of the adult pubic hair distribution above and around the genitals. Sex-correlated (typically inverted-triangle in females, diamond extending up the midline in males) but with substantial individual variation including ethnic-correlated patterns.",
+      "values": [
+        {"id": "absent_prepubertal", "display_name": "Absent / prepubertal (Tanner P1)", "definition": "No terminal pubic hair; only vellus hair."},
+        {"id": "sparse_minimal", "display_name": "Sparse / minimal", "definition": "Limited terminal-hair presence; well below typical Tanner P5 density."},
+        {"id": "triangular_inferior", "display_name": "Triangular, inferior base (typical female)", "definition": "Inverted-triangle pattern with the base above the genitals; minimal extension up the abdominal midline. Tanner female P5."},
+        {"id": "diamond_extending_midline", "display_name": "Diamond / midline extension (typical male)", "definition": "Diamond-shape pattern with terminal hair extending up the abdominal midline toward the umbilicus. Tanner male P5."},
+        {"id": "extended_horizontal", "display_name": "Extended laterally", "definition": "Distribution extending laterally onto inner thigh / hip; common variant in some populations."},
+        {"id": "discrete_patch", "display_name": "Discrete patch", "definition": "Small, sharply demarcated patch only; reduced from typical adult distribution."}
+      ],
+      "observability": {
+        "from_photograph": "not_assessable",
+        "requires_unclothed": true,
+        "minimum_visible_extent": "full_body",
+        "notes": "Visibility heavily affected by grooming. The `pubic_grooming_style_visible` dimension should be assessed concurrently to interpret native distribution."
+      }
+    },
+
+    {
+      "id": "pubic_hair_density",
+      "display_name": "Pubic hair density",
+      "type": "ordinal",
+      "scale": "pubic_hair_density_qualitative",
+      "scale_citation": "Aligned with descriptors used in dermatologic and endocrinologic literature; no single canonical scale beyond Tanner staging which addresses developmental progression rather than adult density variation.",
+      "description": "Density of native pubic hair when ungroomed.",
+      "values": [
+        {"id": "sparse", "display_name": "Sparse", "definition": "Visible terminal hairs scattered with substantial visible skin between."},
+        {"id": "moderate", "display_name": "Moderate", "definition": "Average density; terminal hairs cover most of the distribution area but with visible skin in between."},
+        {"id": "dense", "display_name": "Dense", "definition": "High terminal-hair count; minimal visible skin within the distribution."},
+        {"id": "very_dense", "display_name": "Very dense", "definition": "Extremely high terminal-hair count; covers the entire distribution thickly."}
+      ],
+      "observability": {
+        "from_photograph": "not_assessable",
+        "requires_unclothed": true,
+        "minimum_visible_extent": "full_body",
+        "notes": "Grooming substantially affects observed density; native density assessment requires ungroomed presentation."
+      }
+    },
+
+    {
+      "id": "pubic_hair_color",
+      "display_name": "Pubic hair color",
+      "type": "categorical",
+      "scale": "pubic_hair_color_qualitative",
+      "scale_citation": "Aligned with descriptors used in trichology literature; pubic hair color does not always match scalp hair color (commonly slightly darker; can be substantially different).",
+      "description": "Predominant color of native pubic hair.",
+      "values": [
+        {"id": "matches_scalp", "display_name": "Matches scalp", "definition": "Color similar to scalp hair."},
+        {"id": "darker_than_scalp", "display_name": "Darker than scalp", "definition": "Pubic hair noticeably darker than scalp hair; common variant."},
+        {"id": "lighter_than_scalp", "display_name": "Lighter than scalp", "definition": "Pubic hair noticeably lighter than scalp hair; less common."},
+        {"id": "mixed_partial_gray", "display_name": "Mixed / partial gray", "definition": "Mixed pigmented and gray hairs; common with aging."},
+        {"id": "predominantly_gray", "display_name": "Predominantly gray", "definition": "Majority of hairs gray or white."}
+      ],
+      "observability": {
+        "from_photograph": "not_assessable",
+        "requires_unclothed": true,
+        "minimum_visible_extent": "full_body"
+      }
+    },
+
+    {
+      "id": "pubic_hair_texture",
+      "display_name": "Pubic hair texture",
+      "type": "categorical",
+      "scale": "andre_walker_adapted",
+      "scale_citation": "Andre Walker hair-texture classification (1A-4C) was originally developed for scalp hair; pubic-hair texture descriptors aligned to that vocabulary by trichology and dermatology references.",
+      "description": "Texture of native pubic hair shafts. Pubic hair is typically curlier than scalp hair due to anatomical follicle orientation, but degree of curl varies by individual and population.",
+      "values": [
+        {"id": "straight", "display_name": "Straight (1)", "definition": "No discernible curl; hair lies flat. Less common for pubic hair."},
+        {"id": "wavy", "display_name": "Wavy (2)", "definition": "Loose S-curves; some body."},
+        {"id": "curly", "display_name": "Curly (3)", "definition": "Tight S-curves to spiral curls; the typical pubic-hair pattern."},
+        {"id": "coily", "display_name": "Coily / kinky (4)", "definition": "Tight coils or zig-zag pattern; common in Sub-Saharan African and African-diaspora populations."}
+      ],
+      "observability": {
+        "from_photograph": "not_assessable",
+        "requires_unclothed": true,
+        "minimum_visible_extent": "full_body"
+      }
+    },
+
+    {
+      "id": "pubic_grooming_style_visible",
+      "display_name": "Visible grooming state",
+      "type": "categorical",
+      "scale": "grooming_style_qualitative",
+      "scale_citation": "Aligned with the descriptors used in survey-based pubic-grooming research (Herbenick D et al. 2017, Journal of Sexual Medicine).",
+      "description": "Visible grooming state — not a native phenotype dimension, but observability metadata that affects interpretation of every other dimension in this file. Captured here so that downstream analysis can flag native-phenotype dimensions as unreliable when grooming is detected.",
+      "values": [
+        {"id": "natural_ungroomed", "display_name": "Natural / ungroomed", "definition": "No visible grooming; native distribution and density observable."},
+        {"id": "trimmed", "display_name": "Trimmed", "definition": "Length reduced uniformly; distribution and density close to native but length altered."},
+        {"id": "shaped", "display_name": "Shaped (partial removal)", "definition": "Partial removal in a defined shape (e.g. landing strip, triangle); native distribution not directly observable."},
+        {"id": "fully_removed", "display_name": "Fully removed", "definition": "Complete hair removal; no native phenotype observable from this presentation."},
+        {"id": "unclear", "display_name": "Unclear", "definition": "Image quality or framing prevents grooming-state assessment."}
+      ],
+      "observability": {
+        "from_photograph": "not_assessable",
+        "requires_unclothed": true,
+        "minimum_visible_extent": "full_body",
+        "notes": "Grooming state is observability metadata, not a native phenotype dimension. When grooming is `shaped` or `fully_removed`, the other dimensions in this file should not be populated from the same photograph."
+      }
+    }
+  ],
+
+  "aggregation_notes": {
+    "categorical_dimensions_roll_up_as": "frequency distribution",
+    "ordinal_dimensions_roll_up_as": "frequency distribution + median bucket",
+    "minimum_sample_size_for_publication": 10,
+    "small_sample_caveat_threshold": 25,
+    "low_quality_threshold": 0.3,
+    "low_confidence_threshold": 0.55
+  },
+
+  "data_governance": {
+    "observations_source_policy": "internal_only",
+    "rationale": "Same as vulva.json and penis.json — schema published academically, observations require internal source-cleared sources only."
+  },
+
+  "references": [
+    "Marshall WA, Tanner JM (1969). Variations in pattern of pubertal changes in girls. Archives of Disease in Childhood, 44(235): 291-303.",
+    "Marshall WA, Tanner JM (1970). Variations in the pattern of pubertal changes in boys. Archives of Disease in Childhood, 45(239): 13-23.",
+    "Herbenick D, Schick V, Reece M, Sanders SA, Fortenberry JD (2010). Pubic hair removal among women in the United States: prevalence, methods, and characteristics. Journal of Sexual Medicine, 7(10).",
+    "Herbenick D, Hensel D, Smith NK, Schick V, Reece M, Sanders SA, Fortenberry JD (2017). Pubic hair removal and sexual behavior: findings from a prospective daily diary study of sexually active women in the United States. Journal of Sexual Medicine, 14(8)."
+  ]
+}

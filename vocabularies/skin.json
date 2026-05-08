@@ -1,0 +1,210 @@
+{
+  "atlas_category": "skin",
+  "uberon_id": "UBERON:0002097",
+  "fma_id": "FMA:7163",
+  "display_name": "Skin",
+  "version": "1.0.0",
+  "license": "CC-BY-4.0",
+  "description": "Skin pigmentation, surface morphology, and visible quality — formalizing the Fitzpatrick treatment that previously lived only as a column in the 14-field per-image analysis schema. Captures the dimensions that drive skin-related ethnic variation: Fitzpatrick skin type, undertone, pigmentation pattern, acral pigmentation differential, and visible aging. The Fitzpatrick scale (1988) is the canonical medical reference for skin classification across populations and remains the load-bearing dimension here.",
+
+  "dimensions": [
+    {
+      "id": "fitzpatrick_skin_type",
+      "display_name": "Fitzpatrick skin type",
+      "type": "ordinal",
+      "scale": "fitzpatrick_1988",
+      "scale_citation": "Fitzpatrick TB (1988). The validity and practicality of sun-reactive skin types I through VI. Archives of Dermatology, 124(6): 869-871.",
+      "description": "Six-class ordinal classification of constitutive skin pigmentation, originally developed for sun-reactivity assessment but now the de-facto skin-tone vocabulary in dermatology and computer-vision fairness research.",
+      "values": [
+        {"id": "I", "display_name": "Type I — very fair", "definition": "Always burns, never tans. Pale white skin, often with red or blonde hair, blue/green eyes, freckles. Common in Northern European populations of Celtic / Scandinavian descent."},
+        {"id": "II", "display_name": "Type II — fair", "definition": "Burns easily, tans minimally. Fair skin, light hair, light eyes. Common in Northern European populations."},
+        {"id": "III", "display_name": "Type III — medium", "definition": "Sometimes burns, gradually tans. Light olive to medium skin tone. Common in Mediterranean European, Middle Eastern, and East Asian populations."},
+        {"id": "IV", "display_name": "Type IV — olive / light brown", "definition": "Burns minimally, tans easily and well. Olive to light brown skin. Common in Mediterranean, Middle Eastern, Latin American, Southeast Asian populations."},
+        {"id": "V", "display_name": "Type V — brown", "definition": "Rarely burns, tans deeply. Brown skin tone. Common in South Asian, North African, Middle Eastern, some Latin American populations."},
+        {"id": "VI", "display_name": "Type VI — deeply pigmented brown to black", "definition": "Never burns, deeply pigmented at baseline. Common in Sub-Saharan African, African-diaspora, some South Asian, some Pacific Islander populations."},
+        {"id": "II-III", "display_name": "Range II-III", "definition": "Bridging type used when assessment indicates the subject sits between Types II and III. Acceptable per the original Fitzpatrick description."},
+        {"id": "III-IV", "display_name": "Range III-IV", "definition": "Bridging type used when assessment indicates the subject sits between Types III and IV."},
+        {"id": "IV-V", "display_name": "Range IV-V", "definition": "Bridging type used when assessment indicates the subject sits between Types IV and V."},
+        {"id": "V-VI", "display_name": "Range V-VI", "definition": "Bridging type used when assessment indicates the subject sits between Types V and VI."},
+        {"id": "unclear", "display_name": "Unclear", "definition": "Lighting, image quality, makeup, or other obscuration prevents reliable Fitzpatrick assessment."}
+      ],
+      "observability": {
+        "from_photograph": "high",
+        "requires_unclothed": false,
+        "minimum_visible_extent": "head_only",
+        "notes": "Original Fitzpatrick assessment is questionnaire-based (sunburn / tanning history); visual assessment from photograph is a proxy. Reliability decreases under poor lighting, heavy makeup, B&W photographs, and non-skin obscurations. Use 'unclear' rather than guessing."
+      }
+    },
+
+    {
+      "id": "undertone",
+      "display_name": "Skin undertone",
+      "type": "categorical",
+      "scale": "undertone_qualitative",
+      "scale_citation": "Cosmetic-industry standard color theory; aligned with anatomic descriptors used in Hauben & Mahler (1983) and dermatological literature on hemoglobin vs melanin contributions to skin color.",
+      "description": "Hue character of the skin independent of overall depth (Fitzpatrick). Reflects relative balance of hemoglobin (red), melanin (brown), and carotenoid (yellow) contributions to perceived color.",
+      "values": [
+        {"id": "warm", "display_name": "Warm (yellow / golden)", "definition": "Yellow, peach, or golden cast. Veins on inner wrist appear greenish."},
+        {"id": "cool", "display_name": "Cool (pink / red / blue)", "definition": "Pink, rosy, or bluish cast. Veins on inner wrist appear blue or purple."},
+        {"id": "neutral", "display_name": "Neutral", "definition": "Balanced; neither warm nor cool dominant."},
+        {"id": "olive", "display_name": "Olive", "definition": "Greenish-yellow cast; common in Mediterranean, Middle Eastern, and some South / Southeast Asian populations. Often grouped with warm in cosmetic shorthand but anatomically distinct."},
+        {"id": "unclear", "display_name": "Unclear", "definition": "Lighting or color balance prevents reliable assessment."}
+      ],
+      "observability": {
+        "from_photograph": "medium",
+        "requires_unclothed": false,
+        "minimum_visible_extent": "head_only",
+        "notes": "Highly sensitive to color balance and lighting in the source photograph. White-balanced studio lighting yields reliable assessment; flash photography, fluorescent / mixed lighting, or filtered-image color casts substantially affect this dimension."
+      }
+    },
+
+    {
+      "id": "surface_texture",
+      "display_name": "Surface texture",
+      "type": "ordinal",
+      "scale": "surface_texture_qualitative",
+      "scale_citation": "Aligned with dermatologic surface-texture descriptors and the Visual Roughness scales used in cosmeceutical research (e.g. Robinson 1997).",
+      "description": "Visible surface texture of the facial skin — smoothness or coarseness as observable from a high-resolution close-up.",
+      "values": [
+        {"id": "very_smooth", "display_name": "Very smooth", "definition": "No visible pore structure; flawless surface. Most often a function of image quality / soft-focus / makeup rather than ground-truth skin state."},
+        {"id": "smooth", "display_name": "Smooth", "definition": "Fine, even surface; visible pores small and uniform."},
+        {"id": "normal", "display_name": "Normal", "definition": "Average surface texture; pores visible but not prominent."},
+        {"id": "textured", "display_name": "Textured", "definition": "Visible pore prominence, scarring, or surface irregularity."},
+        {"id": "coarse", "display_name": "Coarse", "definition": "Pronounced surface roughness, visible pore enlargement, or significant surface irregularity."}
+      ],
+      "observability": {
+        "from_photograph": "medium",
+        "requires_unclothed": false,
+        "minimum_visible_extent": "head_only",
+        "notes": "Highly dependent on image resolution and post-processing. Flag confidence low when image is heavily filtered or low-resolution."
+      }
+    },
+
+    {
+      "id": "pigmentation_pattern",
+      "display_name": "Pigmentation pattern",
+      "type": "categorical",
+      "scale": "pigmentation_pattern_qualitative",
+      "scale_citation": "Categorical descriptors aligned with dermatology-textbook treatment of constitutional and acquired pigmentation patterns (Bolognia, Jorizzo, Schaffer — Dermatology, 4th Edition, 2018).",
+      "description": "Distribution pattern of skin pigmentation independent of overall Fitzpatrick depth.",
+      "values": [
+        {"id": "uniform", "display_name": "Uniform", "definition": "Even pigmentation across visible skin; no obvious lighter or darker patches."},
+        {"id": "freckled_ephelides", "display_name": "Freckled (ephelides)", "definition": "Visible ephelides — small, well-circumscribed, sun-induced macules. Concentrated on sun-exposed areas; common in Fitzpatrick I-III."},
+        {"id": "lentigines", "display_name": "Lentigines", "definition": "Larger, persistent macules independent of sun exposure. Common with photoaging; can also be constitutional."},
+        {"id": "mottled", "display_name": "Mottled", "definition": "Irregular patches of varying pigmentation without a single named pattern."},
+        {"id": "melasma_centrofacial", "display_name": "Melasma — centrofacial", "definition": "Hyperpigmented patches across the central face (forehead, cheeks, upper lip, chin); common in Fitzpatrick III-V."},
+        {"id": "post_inflammatory_hyperpigmentation", "display_name": "Post-inflammatory hyperpigmentation (PIH)", "definition": "Darker patches following inflammation; common in Fitzpatrick IV-VI."},
+        {"id": "vitiliginous", "display_name": "Vitiligo / depigmented patches", "definition": "Visible loss of pigmentation in well-circumscribed patches."},
+        {"id": "unclear", "display_name": "Unclear", "definition": "Image conditions prevent reliable assessment."}
+      ],
+      "observability": {
+        "from_photograph": "high",
+        "requires_unclothed": false,
+        "minimum_visible_extent": "head_only"
+      }
+    },
+
+    {
+      "id": "freckling_density",
+      "display_name": "Freckling density",
+      "type": "ordinal",
+      "scale": "freckle_density_qualitative",
+      "scale_citation": "Aligned with the visual-grading approach used in MC1R polymorphism / freckle phenotype research (Bastiaens et al. 2001). No single canonical scale; descriptive bucket vocabulary.",
+      "description": "Density of visible freckles (ephelides) on the face. A separate dimension from pigmentation_pattern because freckling density varies continuously and is meaningful even within the freckled category.",
+      "values": [
+        {"id": "none", "display_name": "None", "definition": "No discernible freckles."},
+        {"id": "few", "display_name": "Few", "definition": "Sparse freckles, scattered, easy to count individually."},
+        {"id": "moderate", "display_name": "Moderate", "definition": "Clearly freckled but countable in clusters."},
+        {"id": "heavy", "display_name": "Heavy", "definition": "Dense freckling; individual freckles begin to merge into larger pigmented areas."}
+      ],
+      "observability": {
+        "from_photograph": "high",
+        "requires_unclothed": false,
+        "minimum_visible_extent": "head_only"
+      }
+    },
+
+    {
+      "id": "acral_pigmentation_difference",
+      "display_name": "Acral pigmentation differential",
+      "type": "categorical",
+      "scale": "acral_pigmentation_qualitative",
+      "scale_citation": "Constitutional palmar / plantar pigmentation differential well-documented in dermatology textbooks; relevant ethnic-anthropology dimension. Bolognia, Jorizzo, Schaffer — Dermatology, 4th Edition, 2018.",
+      "description": "Difference between palmar/plantar (acral) skin pigmentation and overall body pigmentation. Strong constitutional dimension in higher-Fitzpatrick populations: palms and soles are typically substantially lighter than the rest of the body in Fitzpatrick V-VI individuals, and this differential is itself a phenotype dimension.",
+      "values": [
+        {"id": "minimal", "display_name": "Minimal differential", "definition": "Palmar/plantar skin tone similar to overall body tone; typical in lower Fitzpatrick types where the differential is small in absolute terms."},
+        {"id": "moderate", "display_name": "Moderate differential", "definition": "Palms and soles visibly lighter than body skin; differential ~1-2 Fitzpatrick steps."},
+        {"id": "marked", "display_name": "Marked differential", "definition": "Palms and soles substantially lighter than body skin; differential 2+ Fitzpatrick steps. Typical in Fitzpatrick V-VI populations."},
+        {"id": "not_assessable", "display_name": "Not assessable", "definition": "Hands and feet not visible in photograph."}
+      ],
+      "observability": {
+        "from_photograph": "low",
+        "requires_unclothed": false,
+        "minimum_visible_extent": "torso",
+        "notes": "Requires hands or feet to be visible; head/shoulders portraits cannot assess this dimension. Treat as photo-assessable only when palms or soles appear in frame."
+      }
+    },
+
+    {
+      "id": "visible_photoaging",
+      "display_name": "Visible photoaging",
+      "type": "ordinal",
+      "scale": "glogau_1996",
+      "scale_citation": "Glogau RG (1996). Aesthetic and anatomic analysis of the aging skin. Seminars in Cutaneous Medicine and Surgery, 15(3): 134-138.",
+      "description": "Glogau classification of photoaging severity, ordinal I-IV. Captures the visible cumulative effect of UV exposure on skin morphology — fine lines, deeper rhytides, dyschromia, and skin laxity.",
+      "values": [
+        {"id": "none_glogau_0", "display_name": "None (subclinical)", "definition": "No visible photoaging; smooth, even-toned skin. Typical of younger subjects with limited UV exposure."},
+        {"id": "glogau_I", "display_name": "Glogau I — early photoaging", "definition": "Mild dyschromia; minimal wrinkles. No visible keratoses. Typical age range 20s-30s."},
+        {"id": "glogau_II", "display_name": "Glogau II — early-moderate photoaging", "definition": "Wrinkles in motion only ('expression lines'). Some lentigines visible. Typical age range 30s-40s."},
+        {"id": "glogau_III", "display_name": "Glogau III — advanced photoaging", "definition": "Wrinkles at rest. Visible dyschromia and telangiectasias. Typical age range 50s-60s."},
+        {"id": "glogau_IV", "display_name": "Glogau IV — severe photoaging", "definition": "Wrinkles throughout; sallow color; possible actinic keratoses. Typical age range 60s-70s+."}
+      ],
+      "observability": {
+        "from_photograph": "medium",
+        "requires_unclothed": false,
+        "minimum_visible_extent": "head_only",
+        "notes": "Best assessed under neutral lighting without heavy filtering or post-processing. Heavy makeup or beauty-filtering can mask grades II-III; high-resolution unfiltered photography is required for confident assessment."
+      }
+    },
+
+    {
+      "id": "erythema_baseline",
+      "display_name": "Baseline erythema (visible redness)",
+      "type": "ordinal",
+      "scale": "erythema_qualitative",
+      "scale_citation": "Aligned with the Clinician's Erythema Assessment (CEA) scale used in rosacea grading (Tan J et al. 2014, Journal of the American Academy of Dermatology, 71). Adapted to non-rosacea baseline assessment by treating CEA grades 0-1 as constitutional.",
+      "description": "Visible facial redness independent of inflammatory state. Captures both constitutional ruddiness (common in Northern European populations) and rosacea-spectrum erythema as a continuum.",
+      "values": [
+        {"id": "absent", "display_name": "Absent", "definition": "No visible erythema; even baseline tone."},
+        {"id": "mild", "display_name": "Mild", "definition": "Subtle pink/red flush, particularly on cheeks; constitutional ruddiness."},
+        {"id": "moderate", "display_name": "Moderate", "definition": "Clear visible erythema across cheeks, central face; possible early rosacea."},
+        {"id": "marked", "display_name": "Marked", "definition": "Pronounced redness with visible telangiectasias; rosacea-spectrum erythema."}
+      ],
+      "observability": {
+        "from_photograph": "medium",
+        "requires_unclothed": false,
+        "minimum_visible_extent": "head_only",
+        "notes": "Highly sensitive to color balance, lighting, and post-processing. Confidence should reflect the lighting quality of the source image."
+      }
+    }
+  ],
+
+  "aggregation_notes": {
+    "categorical_dimensions_roll_up_as": "frequency distribution",
+    "ordinal_dimensions_roll_up_as": "frequency distribution + median bucket",
+    "minimum_sample_size_for_publication": 10,
+    "small_sample_caveat_threshold": 25,
+    "low_quality_threshold": 0.3,
+    "low_confidence_threshold": 0.55
+  },
+
+  "references": [
+    "Fitzpatrick TB (1988). The validity and practicality of sun-reactive skin types I through VI. Archives of Dermatology, 124(6): 869-871.",
+    "Hauben DJ, Mahler D (1983). A reappraisal of the importance of areolar pigmentation. Plastic and Reconstructive Surgery, 71(6).",
+    "Glogau RG (1996). Aesthetic and anatomic analysis of the aging skin. Seminars in Cutaneous Medicine and Surgery, 15(3): 134-138.",
+    "Bolognia JL, Jorizzo JL, Schaffer JV (eds.) (2018). Dermatology, 4th Edition. Elsevier.",
+    "Bastiaens M, Hoefnagel J, Westendorp R, Vermeer BJ, Bouwes Bavinck JN (2001). Solar lentigines are strongly related to sun exposure in contrast to ephelides. Pigment Cell Research, 14(5): 316-320.",
+    "Robinson MK (1997). Population differences in skin structure and physiology and the susceptibility to irritant and allergic contact dermatitis. Archives of Dermatological Research, 289(8).",
+    "Tan J, Liu H, Leyden JJ, Leoni MJ (2014). Reliability of Clinician Erythema Assessment grading scale. Journal of the American Academy of Dermatology, 71(4)."
+  ]
+}

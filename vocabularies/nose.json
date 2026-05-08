@@ -1,0 +1,327 @@
+{
+  "atlas_category": "nose",
+  "uberon_id": "UBERON:0000004",
+  "fma_id": "FMA:46472",
+  "display_name": "Nose",
+  "version": "1.0.0",
+  "license": "CC-BY-4.0",
+  "description": "External nasal anatomy: bridge, tip, nostrils, columella, alar base, and overall proportions. Dimensions are drawn primarily from craniofacial anthropometry (Farkas 1994) and rhinoplasty classification literature (Tardy, Daniel, Rohrich, Ofodile, McKinney). The nose is the facial structure with the most pronounced ethnic-group variation; this vocabulary intentionally captures the dimensions that drive that variation. Most dimensions are observable from a high-quality frontal photograph; sagittal-plane dimensions (bridge profile, tip rotation, columella, radix, nasolabial angle) benefit substantially from a side-view photograph.",
+
+  "dimensions": [
+    {
+      "id": "bridge_profile",
+      "display_name": "Bridge profile (sagittal)",
+      "type": "categorical",
+      "scale": "rhinoplasty_dorsal_profile",
+      "scale_citation": "Tardy ME (1997). Rhinoplasty: The Art and the Science. WB Saunders. Profile classification synthesized across Tardy, Daniel RK (2002), and Rohrich RJ et al. (2002).",
+      "description": "Shape of the nasal dorsum in the sagittal (side-view) plane. The single most ethnically-variant nasal dimension.",
+      "values": [
+        {"id": "straight", "display_name": "Straight", "definition": "Linear dorsum from radix to tip; no convex or concave deviation."},
+        {"id": "convex_aquiline", "display_name": "Convex / aquiline (Roman)", "definition": "Pronounced dorsal hump; the dorsum is convex above the tip. Common in Mediterranean, Middle Eastern, and some indigenous American populations."},
+        {"id": "convex_mild", "display_name": "Mildly convex", "definition": "Subtle dorsal convexity without a frank hump."},
+        {"id": "concave_snub", "display_name": "Concave / snub", "definition": "Saddle-shaped dorsum with depression below the radix. Common in some East Asian populations and in post-traumatic noses."},
+        {"id": "concave_mild", "display_name": "Mildly concave", "definition": "Slight dorsal concavity without frank saddle deformity."},
+        {"id": "wavy_sigmoid", "display_name": "Wavy / sigmoid", "definition": "Dorsum has both convex and concave segments — typically a hump followed by a supratip depression."}
+      ],
+      "observability": {
+        "from_photograph": "high",
+        "requires_unclothed": false,
+        "minimum_visible_extent": "head_only",
+        "notes": "Best assessed from a side-view (lateral) photograph. Frontal view alone allows only coarse classification; supplement with three-quarter view when available."
+      }
+    },
+
+    {
+      "id": "bridge_height",
+      "display_name": "Bridge height",
+      "type": "ordinal",
+      "scale": "nasal_dorsum_height_qualitative",
+      "scale_citation": "McKinney P, Stalnecker ML (1984). Surgical correction of the Asian nose. Plastic and Reconstructive Surgery, 73(1). Categorical descriptors aligned with subsequent rhinoplasty literature on ethnic-population dorsum heights.",
+      "description": "Vertical projection of the nasal dorsum from the facial plane. A primary axis of ethnic variation independent of bridge profile shape.",
+      "values": [
+        {"id": "flat_low", "display_name": "Flat / low-set", "definition": "Dorsum sits close to the facial plane; minimal projection. Common in East Asian, some Sub-Saharan African, and some indigenous populations."},
+        {"id": "medium", "display_name": "Medium", "definition": "Average dorsal projection."},
+        {"id": "prominent_high", "display_name": "Prominent / high-set", "definition": "Marked dorsal projection. Common in European, Mediterranean, Middle Eastern, and some indigenous American populations."}
+      ],
+      "observability": {
+        "from_photograph": "high",
+        "requires_unclothed": false,
+        "minimum_visible_extent": "head_only",
+        "notes": "Best assessed from side view; frontal view captures only width, not height. Independent of bridge_profile — a flat bridge can still be straight, concave, or mildly convex."
+      }
+    },
+
+    {
+      "id": "bridge_width",
+      "display_name": "Bridge width",
+      "type": "ordinal",
+      "scale": "nasal_dorsum_width_qualitative",
+      "scale_citation": "Farkas LG (1994). Anthropometry of the Head and Face, 2nd Edition. Raven Press. Width thresholds proportional to intercanthal distance.",
+      "description": "Width of the nasal dorsum at the mid-dorsum point, relative to the intercanthal distance.",
+      "values": [
+        {"id": "narrow", "display_name": "Narrow", "definition": "Mid-dorsum width less than approximately 60% of intercanthal distance."},
+        {"id": "medium", "display_name": "Medium", "definition": "Mid-dorsum width approximately 60-80% of intercanthal distance."},
+        {"id": "wide", "display_name": "Wide", "definition": "Mid-dorsum width approximately equal to or exceeding intercanthal distance."}
+      ],
+      "observability": {
+        "from_photograph": "high",
+        "requires_unclothed": false,
+        "minimum_visible_extent": "head_only"
+      }
+    },
+
+    {
+      "id": "tip_projection",
+      "display_name": "Tip projection",
+      "type": "ordinal",
+      "scale": "goode_ratio_qualitative",
+      "scale_citation": "Goode RL (1989). A method of tip projection measurement, in Powell N, Humphreys B (eds.), Proportions of the Aesthetic Face. Thieme. Goode's ratio: ratio of tip projection to nasal length, with ~0.55-0.60 considered aesthetically balanced.",
+      "description": "Anterior projection of the nasal tip from the facial plane. Goode's ratio (tip projection / nasal length) ~0.55-0.60 is the aesthetic reference; this scale is a qualitative-bucket equivalent.",
+      "values": [
+        {"id": "under_projected", "display_name": "Under-projected", "definition": "Tip projection ratio significantly below 0.55. Tip sits close to the facial plane."},
+        {"id": "balanced", "display_name": "Balanced", "definition": "Tip projection ratio approximately 0.55-0.60. Within Goode aesthetic reference."},
+        {"id": "over_projected", "display_name": "Over-projected", "definition": "Tip projection ratio significantly above 0.60. Pinocchio-type extension forward of the facial plane."}
+      ],
+      "observability": {
+        "from_photograph": "high",
+        "requires_unclothed": false,
+        "minimum_visible_extent": "head_only",
+        "notes": "Requires lateral or three-quarter view for reliable assessment; frontal view alone is unreliable."
+      }
+    },
+
+    {
+      "id": "tip_rotation",
+      "display_name": "Tip rotation (nasolabial angle)",
+      "type": "categorical",
+      "scale": "nasolabial_angle_categorical",
+      "scale_citation": "Powell N, Humphreys B (1984). Proportions of the Aesthetic Face. Thieme. Reference values: ~90-95° men, ~100-105° women.",
+      "description": "Rotational orientation of the nasal tip relative to the upper lip, captured by the nasolabial angle.",
+      "values": [
+        {"id": "downturned", "display_name": "Downturned (acute)", "definition": "Nasolabial angle below ~85°; tip points downward. Tip droops below the columella line."},
+        {"id": "neutral_male_range", "display_name": "Neutral, male-typical range", "definition": "Nasolabial angle approximately 85-95°. Aesthetic reference for male physiognomy."},
+        {"id": "neutral_female_range", "display_name": "Neutral, female-typical range", "definition": "Nasolabial angle approximately 95-105°. Aesthetic reference for female physiognomy."},
+        {"id": "upturned", "display_name": "Upturned (obtuse)", "definition": "Nasolabial angle above ~110°; tip points upward. Pixie / piggy nose appearance."}
+      ],
+      "observability": {
+        "from_photograph": "medium",
+        "requires_unclothed": false,
+        "minimum_visible_extent": "head_only",
+        "notes": "Requires lateral or three-quarter view. Difficult to distinguish neutral_male from neutral_female ranges from photo alone — confidence should be lower for that distinction."
+      }
+    },
+
+    {
+      "id": "tip_shape",
+      "display_name": "Tip shape and definition",
+      "type": "categorical",
+      "scale": "rohrich_tip_morphology",
+      "scale_citation": "Rohrich RJ, Liu JH (2007). The dynamic role of the lower lateral cartilage in tip aesthetics. Plastic and Reconstructive Surgery, 120(6). Daniel RK (1992). The nasal tip: anatomy and aesthetics. Plastic and Reconstructive Surgery, 89(2).",
+      "description": "Morphology and definition of the nasal tip — encompassing both shape (the silhouette) and definition (visibility of the lower lateral cartilage anatomy).",
+      "values": [
+        {"id": "bulbous_round", "display_name": "Bulbous / round", "definition": "Wide, fleshy, rounded tip with little visible cartilage definition."},
+        {"id": "boxy", "display_name": "Boxy", "definition": "Wide tip with two distinct domes visible — a flat or slightly concave roof between left and right tip-defining points."},
+        {"id": "defined_refined", "display_name": "Defined / refined", "definition": "Tip has clear definition with visible tip-defining points but is not pointed; smooth supratip break."},
+        {"id": "pinched_pointed", "display_name": "Pinched / pointed", "definition": "Narrow, pointed tip with very tight cartilage definition; alar collapse risk in surgical context."},
+        {"id": "bifid", "display_name": "Bifid", "definition": "Visible vertical cleft between left and right tip domes; intercrural groove prominent."},
+        {"id": "hooked_drooping", "display_name": "Hooked / drooping", "definition": "Tip projects downward with a hook at the apex; columella sits below the alar base."},
+        {"id": "asymmetric", "display_name": "Asymmetric", "definition": "Notable left-right tip asymmetry as the dominant feature."}
+      ],
+      "observability": {
+        "from_photograph": "high",
+        "requires_unclothed": false,
+        "minimum_visible_extent": "head_only"
+      }
+    },
+
+    {
+      "id": "nostril_shape",
+      "display_name": "Nostril shape",
+      "type": "categorical",
+      "scale": "farkas_nostril_typology",
+      "scale_citation": "Farkas LG (1994). Anthropometry of the Head and Face, 2nd Edition. Raven Press.",
+      "description": "Shape of the nostril aperture as visible from inferior view. Significant ethnic variation — round vs oval predominantly maps to West African vs European populations.",
+      "values": [
+        {"id": "round", "display_name": "Round", "definition": "Nostril aperture approximately circular; long axis approximately equal to short axis."},
+        {"id": "oval_horizontal", "display_name": "Oval, horizontal", "definition": "Long axis of nostril roughly parallel to the alar base; common in some Sub-Saharan African populations."},
+        {"id": "oval_vertical", "display_name": "Oval, vertical", "definition": "Long axis approximately perpendicular to alar base; common in European populations."},
+        {"id": "teardrop", "display_name": "Teardrop", "definition": "Tapered nostril shape, narrower at the tip and wider at the base."},
+        {"id": "narrow_slit", "display_name": "Narrow slit", "definition": "Tightly compressed nostril; minimal aperture area."},
+        {"id": "flared", "display_name": "Flared", "definition": "Nostrils visibly flared outward; alar lobule projects laterally."}
+      ],
+      "observability": {
+        "from_photograph": "high",
+        "requires_unclothed": false,
+        "minimum_visible_extent": "head_only",
+        "notes": "Best assessed from inferior view (worm's-eye); frontal view captures shape but may compress the long-axis perception."
+      }
+    },
+
+    {
+      "id": "nostril_visibility_frontal",
+      "display_name": "Nostril visibility (frontal view)",
+      "type": "ordinal",
+      "scale": "nostril_show_qualitative",
+      "scale_citation": "Standard rhinoplasty consultation descriptor; quantitative reference values in Sheen JH, Sheen AP (1987). Aesthetic Rhinoplasty, 2nd Edition.",
+      "description": "Degree to which nostrils are visible in straight frontal view. A function of tip rotation, columellar show, and head posture; relevant ethnic-anthropology dimension on its own.",
+      "values": [
+        {"id": "minimal", "display_name": "Minimal", "definition": "Nostrils barely or not visible from straight frontal view."},
+        {"id": "moderate", "display_name": "Moderate", "definition": "Nostril aperture partly visible from frontal view."},
+        {"id": "significant", "display_name": "Significant", "definition": "Full nostril aperture visible from frontal view; consistent with upturned tip rotation or hyperprojected nasal tip."}
+      ],
+      "observability": {
+        "from_photograph": "high",
+        "requires_unclothed": false,
+        "minimum_visible_extent": "head_only"
+      }
+    },
+
+    {
+      "id": "alar_width",
+      "display_name": "Alar base width",
+      "type": "ordinal",
+      "scale": "ferreras_garcia_alar_base_qualitative",
+      "scale_citation": "Farkas LG (1994). Anthropometry of the Head and Face, 2nd Edition. Reference: alar base width (al-al) approximately equal to intercanthal distance (en-en) is an aesthetic norm in European populations; deviates in other populations.",
+      "description": "Width of the nasal base measured between the most lateral points of the alae. The aesthetic reference is alar base width approximately equal to intercanthal distance, but this norm is European-derived and does not apply across all populations.",
+      "values": [
+        {"id": "narrow", "display_name": "Narrow", "definition": "Alar base width substantially less than intercanthal distance."},
+        {"id": "balanced", "display_name": "Balanced", "definition": "Alar base width approximately equal to intercanthal distance."},
+        {"id": "wide", "display_name": "Wide", "definition": "Alar base width substantially greater than intercanthal distance. Common in Sub-Saharan African and some indigenous populations; the European-norm-derived aesthetic descriptor 'wide' should not be read as deviation from a universal ideal."}
+      ],
+      "observability": {
+        "from_photograph": "high",
+        "requires_unclothed": false,
+        "minimum_visible_extent": "head_only"
+      }
+    },
+
+    {
+      "id": "columella_shape",
+      "display_name": "Columella shape",
+      "type": "categorical",
+      "scale": "columellar_show_classification",
+      "scale_citation": "Gunter JP, Rohrich RJ, Friedman RM (1996). Classification and correction of alar-columellar discrepancies in rhinoplasty. Plastic and Reconstructive Surgery, 97(3).",
+      "description": "Shape and position of the columella relative to the alar margin in lateral view.",
+      "values": [
+        {"id": "straight_balanced", "display_name": "Straight, balanced", "definition": "Columella sits at the level of the alar margin in lateral view; straight axis."},
+        {"id": "hanging", "display_name": "Hanging", "definition": "Columella projects below the alar margin; columellar show greater than approximately 4mm in lateral view."},
+        {"id": "retracted", "display_name": "Retracted", "definition": "Columella sits above the alar margin; minimal or no columellar show."},
+        {"id": "deviated", "display_name": "Deviated", "definition": "Columella visibly off the midline axis (left or right)."}
+      ],
+      "observability": {
+        "from_photograph": "medium",
+        "requires_unclothed": false,
+        "minimum_visible_extent": "head_only",
+        "notes": "Best assessed from lateral view."
+      }
+    },
+
+    {
+      "id": "nasal_length",
+      "display_name": "Nasal length (proportional)",
+      "type": "ordinal",
+      "scale": "facial_thirds_proportion",
+      "scale_citation": "Farkas LG (1994). Anthropometry of the Head and Face, 2nd Edition. Aesthetic reference: nasal length (radix to subnasale) approximates the lower facial third (subnasale to menton).",
+      "description": "Length of the nose from radix (nasion) to subnasale, expressed proportionally relative to the lower facial third.",
+      "values": [
+        {"id": "short", "display_name": "Short", "definition": "Nasal length less than ~90% of lower facial third."},
+        {"id": "balanced", "display_name": "Balanced", "definition": "Nasal length approximately 90-110% of lower facial third (Farkas aesthetic reference)."},
+        {"id": "long", "display_name": "Long", "definition": "Nasal length greater than ~110% of lower facial third."}
+      ],
+      "observability": {
+        "from_photograph": "high",
+        "requires_unclothed": false,
+        "minimum_visible_extent": "head_only"
+      }
+    },
+
+    {
+      "id": "radix_depth",
+      "display_name": "Radix depth",
+      "type": "ordinal",
+      "scale": "radix_depth_qualitative",
+      "scale_citation": "Daniel RK, Lessard ML (1984). Rhinoplasty: a graded aesthetic-anatomical approach. Annals of Plastic Surgery, 13(5). Hinderer KH classification.",
+      "description": "Depth of the nasofrontal angle at the radix — the depression where the nasal dorsum meets the forehead.",
+      "values": [
+        {"id": "deep", "display_name": "Deep", "definition": "Pronounced depression at the radix; angle approximately 115-130°. Common in European populations."},
+        {"id": "moderate", "display_name": "Moderate", "definition": "Visible but not pronounced depression."},
+        {"id": "shallow", "display_name": "Shallow", "definition": "Subtle depression; angle exceeds approximately 140°."},
+        {"id": "continuous", "display_name": "Continuous (no break)", "definition": "Dorsum continuous with the forehead with no perceptible break. Common in some indigenous American and Sub-Saharan African populations."}
+      ],
+      "observability": {
+        "from_photograph": "medium",
+        "requires_unclothed": false,
+        "minimum_visible_extent": "head_only",
+        "notes": "Best assessed from lateral view; frontal view alone allows only crude classification."
+      }
+    },
+
+    {
+      "id": "dorsal_hump",
+      "display_name": "Dorsal hump",
+      "type": "categorical",
+      "scale": "dorsal_hump_qualitative",
+      "scale_citation": "Tardy ME (1997). Rhinoplasty: The Art and the Science. Hump morphology classification.",
+      "description": "Presence and prominence of a dorsal hump independent of overall bridge profile shape.",
+      "values": [
+        {"id": "absent", "display_name": "Absent", "definition": "No discernible bony or cartilaginous hump."},
+        {"id": "mild", "display_name": "Mild", "definition": "Subtle hump; visible only on close inspection or in lateral view."},
+        {"id": "moderate", "display_name": "Moderate", "definition": "Clearly visible hump in lateral view; aesthetic concern for many surgical patients."},
+        {"id": "pronounced", "display_name": "Pronounced", "definition": "Substantial hump dominating the dorsal silhouette."}
+      ],
+      "observability": {
+        "from_photograph": "medium",
+        "requires_unclothed": false,
+        "minimum_visible_extent": "head_only",
+        "notes": "Best assessed from lateral view; redundant with bridge_profile when bridge_profile = convex_aquiline, but distinct when small humps coexist with otherwise straight or mildly convex bridges."
+      }
+    },
+
+    {
+      "id": "deviation_axis",
+      "display_name": "Nasal deviation / asymmetry",
+      "type": "categorical",
+      "scale": "rohrich_deviation_classification",
+      "scale_citation": "Rohrich RJ, Gunter JP, Deuber MA, Adams WP (2002). The deviated nose: optimizing results using a simplified classification and algorithmic approach. Plastic and Reconstructive Surgery, 110(6).",
+      "description": "Deviation of the nasal axis from midline, classified by the shape of the deviation.",
+      "values": [
+        {"id": "straight", "display_name": "Straight", "definition": "Nasal axis aligned with facial midline; no significant deviation."},
+        {"id": "mild_deviation", "display_name": "Mild deviation", "definition": "Subtle deviation visible only on close inspection."},
+        {"id": "c_shape", "display_name": "C-shaped", "definition": "Nasal axis curves in a single arc to one side."},
+        {"id": "s_shape", "display_name": "S-shaped (sigmoid)", "definition": "Nasal axis has two opposite curves — typically deviated upper third one direction and lower third the opposite."},
+        {"id": "tilted", "display_name": "Tilted (off-axis but straight)", "definition": "Nasal axis is straight but tilted off the facial midline."},
+        {"id": "post_traumatic", "display_name": "Post-traumatic / saddle", "definition": "Visible deformity consistent with prior trauma — typically dorsal saddle, deviated tip, or alar collapse."}
+      ],
+      "observability": {
+        "from_photograph": "high",
+        "requires_unclothed": false,
+        "minimum_visible_extent": "head_only",
+        "notes": "Best assessed from frontal view with neutral head posture."
+      }
+    }
+  ],
+
+  "aggregation_notes": {
+    "categorical_dimensions_roll_up_as": "frequency distribution",
+    "ordinal_dimensions_roll_up_as": "frequency distribution + median bucket",
+    "minimum_sample_size_for_publication": 10,
+    "small_sample_caveat_threshold": 25,
+    "low_quality_threshold": 0.3,
+    "low_confidence_threshold": 0.55
+  },
+
+  "references": [
+    "Farkas LG (1994). Anthropometry of the Head and Face, 2nd Edition. Raven Press.",
+    "Tardy ME (1997). Rhinoplasty: The Art and the Science. WB Saunders.",
+    "Daniel RK (1992). The nasal tip: anatomy and aesthetics. Plastic and Reconstructive Surgery, 89(2).",
+    "Daniel RK, Lessard ML (1984). Rhinoplasty: a graded aesthetic-anatomical approach. Annals of Plastic Surgery, 13(5).",
+    "Rohrich RJ, Liu JH (2007). The dynamic role of the lower lateral cartilage in tip aesthetics. Plastic and Reconstructive Surgery, 120(6).",
+    "Rohrich RJ, Gunter JP, Deuber MA, Adams WP (2002). The deviated nose: optimizing results using a simplified classification and algorithmic approach. Plastic and Reconstructive Surgery, 110(6).",
+    "Gunter JP, Rohrich RJ, Friedman RM (1996). Classification and correction of alar-columellar discrepancies in rhinoplasty. Plastic and Reconstructive Surgery, 97(3).",
+    "Goode RL (1989). A method of tip projection measurement, in Powell N, Humphreys B (eds.), Proportions of the Aesthetic Face. Thieme.",
+    "Powell N, Humphreys B (1984). Proportions of the Aesthetic Face. Thieme.",
+    "McKinney P, Stalnecker ML (1984). Surgical correction of the Asian nose. Plastic and Reconstructive Surgery, 73(1).",
+    "Ofodile FA, Bokhari F (1995). The African-American nose. Plastic and Reconstructive Surgery, 95(5). [classic ethnic-anthropology paper on West African / African-American nasal anatomy]",
+    "Sheen JH, Sheen AP (1987). Aesthetic Rhinoplasty, 2nd Edition. CV Mosby."
+  ]
+}

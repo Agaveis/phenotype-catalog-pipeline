@@ -1,0 +1,38 @@
+// Auto-generated from vocabularies/eyes.json (v1.0.0). Do not edit by hand. Regenerate via: node scripts/generate-from-vocabulary.mjs
+
+model eyes_observation {
+  id                    Int      @id @default(autoincrement())
+  example_id            Int      @unique(map: "UX_eyes_observation_example")
+  eye_color             String?  @db.NVarChar(50)
+  eye_shape             String?  @db.NVarChar(50)
+  eyelid_crease_type    String?  @db.NVarChar(50)
+  epicanthic_fold       String?  @db.NVarChar(100)
+  palpebral_fissure_slant  String?  @db.NVarChar(50)
+  palpebral_fissure_length  String?  @db.NVarChar(50)
+  intercanthal_distance  String?  @db.NVarChar(50)
+  brow_ridge_prominence  String?  @db.NVarChar(50)
+  eyebrow_density       String?  @db.NVarChar(50)
+  eyebrow_shape         String?  @db.NVarChar(50)
+  tear_trough_dark_circles  String?  @db.NVarChar(50)
+  eye_protrusion        String?  @db.NVarChar(50)
+  eye_color_confidence  Float?
+  eye_shape_confidence  Float?
+  eyelid_crease_type_confidence  Float?
+  epicanthic_fold_confidence  Float?
+  palpebral_fissure_slant_confidence  Float?
+  palpebral_fissure_length_confidence  Float?
+  intercanthal_distance_confidence  Float?
+  brow_ridge_prominence_confidence  Float?
+  eyebrow_density_confidence  Float?
+  eyebrow_shape_confidence  Float?
+  tear_trough_dark_circles_confidence  Float?
+  eye_protrusion_confidence  Float?
+  vocabulary_source     String   @default("canonical") @db.NVarChar(50)
+  vocabulary_version    String   @default("1.0.0") @db.NVarChar(20)
+  analysis_model        String?  @db.NVarChar(100)
+  analyzed_at           DateTime @default(now()) @db.DateTime2
+
+  example ethnic_examples @relation(fields: [example_id], references: [id], map: "FK_eyes_observation_example")
+
+  @@index([example_id], map: "IX_eyes_observation_example")
+}

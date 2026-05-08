@@ -1,0 +1,256 @@
+{
+  "atlas_category": "penis",
+  "uberon_id": "UBERON:0000989",
+  "fma_id": "FMA:9707",
+  "display_name": "Penis",
+  "version": "1.0.0",
+  "license": "CC-BY-4.0",
+  "observations_source_policy": "internal_only",
+  "description": "External penile anatomy: shaft, glans, foreskin, vasculature, curvature, and scrotal morphology. Dimensions are drawn from urology, sexual medicine, and aesthetic-anatomy literature (Wessells, Veale, Hodgson, Yachia, Kelâmi). The schema is published in the canonical vocabulary for academic transparency and ontology interoperability; **observations against these dimensions are not populated from public-domain photographs**, are not exported to the HuggingFace dataset, and any data collection requires explicit consent and source documentation. See the `observations_source_policy: \"internal_only\"` file-level flag and the README's two-layer extension model.",
+
+  "dimensions": [
+    {
+      "id": "flaccid_length_cm",
+      "display_name": "Flaccid length (cm)",
+      "type": "numeric",
+      "scale": "wessells_1996_pubic_to_glans_tip",
+      "scale_citation": "Wessells H, Lue TF, McAninch JW (1996). Penile length in the flaccid and erect states: guidelines for penile augmentation. Journal of Urology, 156(3): 995-997.",
+      "description": "Stretched flaccid length measured from the pubic bone to the tip of the glans, with the suprapubic fat pad fully compressed. Wessells's protocol is the standard urologic measurement.",
+      "observability": {
+        "from_photograph": "not_assessable",
+        "requires_unclothed": true,
+        "minimum_visible_extent": "full_body",
+        "notes": "Reliable measurement requires direct measurement with a calibrated ruler; photographs do not provide a stable scale reference. Included for structured-text ingestion from clinical or self-reported records."
+      }
+    },
+
+    {
+      "id": "erect_length_cm",
+      "display_name": "Erect length (cm)",
+      "type": "numeric",
+      "scale": "veale_2015_pubic_to_glans_tip",
+      "scale_citation": "Veale D, Miles S, Bramley S, Muir G, Hodsoll J (2015). Am I normal? A systematic review and construction of nomograms for flaccid and erect penis length and circumference in up to 15,521 men. BJU International, 115(6): 978-986.",
+      "description": "Erect length measured from the pubic bone to the tip of the glans. The Veale 2015 systematic review provides population-level nomograms with mean ~13.12 cm and SD ~1.66 cm across the analyzed cohort.",
+      "observability": {
+        "from_photograph": "not_assessable",
+        "requires_unclothed": true,
+        "minimum_visible_extent": "full_body"
+      }
+    },
+
+    {
+      "id": "flaccid_girth_cm",
+      "display_name": "Flaccid girth (cm)",
+      "type": "numeric",
+      "scale": "veale_2015_mid_shaft_circumference",
+      "scale_citation": "Veale D et al. (2015). BJU International, 115(6): 978-986. Mid-shaft circumference protocol.",
+      "description": "Mid-shaft circumference measured in flaccid state.",
+      "observability": {
+        "from_photograph": "not_assessable",
+        "requires_unclothed": true,
+        "minimum_visible_extent": "full_body"
+      }
+    },
+
+    {
+      "id": "erect_girth_cm",
+      "display_name": "Erect girth (cm)",
+      "type": "numeric",
+      "scale": "veale_2015_mid_shaft_circumference",
+      "scale_citation": "Veale D et al. (2015). BJU International, 115(6): 978-986.",
+      "description": "Mid-shaft circumference measured in erect state. Veale 2015 nomogram mean ~11.66 cm, SD ~1.10 cm.",
+      "observability": {
+        "from_photograph": "not_assessable",
+        "requires_unclothed": true,
+        "minimum_visible_extent": "full_body"
+      }
+    },
+
+    {
+      "id": "glans_morphology",
+      "display_name": "Glans morphology",
+      "type": "categorical",
+      "scale": "glans_shape_qualitative",
+      "scale_citation": "Aesthetic-urology and reconstructive-urology descriptors; aligned with terminology used in the Bondil et al. literature on penile aesthetics.",
+      "description": "Shape of the glans penis as a soft-tissue silhouette.",
+      "values": [
+        {"id": "acorn", "display_name": "Acorn", "definition": "Tapered conical glans with a clear coronal ridge; the most common morphology."},
+        {"id": "mushroom", "display_name": "Mushroom", "definition": "Glans wider than the shaft below it, with a pronounced coronal ridge that overhangs the shaft circumference."},
+        {"id": "conical", "display_name": "Conical / pointed", "definition": "Smoothly tapered glans with minimal coronal ridge prominence."},
+        {"id": "blunt_rounded", "display_name": "Blunt / rounded", "definition": "Rounded glans without strong taper; coronal ridge subtle."},
+        {"id": "asymmetric", "display_name": "Asymmetric", "definition": "Notable left-right glans asymmetry as the dominant feature."}
+      ],
+      "observability": {
+        "from_photograph": "not_assessable",
+        "requires_unclothed": true,
+        "minimum_visible_extent": "full_body"
+      }
+    },
+
+    {
+      "id": "circumcision_status",
+      "display_name": "Circumcision status",
+      "type": "categorical",
+      "scale": "circumcision_status_qualitative",
+      "scale_citation": "Standard urologic terminology.",
+      "description": "Status of foreskin presence and surgical history.",
+      "values": [
+        {"id": "intact", "display_name": "Intact (uncircumcised)", "definition": "Full foreskin present and functional."},
+        {"id": "circumcised_low", "display_name": "Circumcised — low-and-loose", "definition": "Circumcision performed leaving more residual penile shaft skin."},
+        {"id": "circumcised_high_tight", "display_name": "Circumcised — high-and-tight", "definition": "Circumcision performed with most or all foreskin removed; tight residual skin."},
+        {"id": "partial", "display_name": "Partial / subincision / non-standard", "definition": "Foreskin partially altered through circumcision style or other procedure."}
+      ],
+      "observability": {
+        "from_photograph": "not_assessable",
+        "requires_unclothed": true,
+        "minimum_visible_extent": "full_body"
+      }
+    },
+
+    {
+      "id": "foreskin_morphology",
+      "display_name": "Foreskin morphology (when intact)",
+      "type": "categorical",
+      "scale": "foreskin_length_qualitative",
+      "scale_citation": "Aligned with foreskin-anatomy descriptors used in pediatric-urology and circumcision literature; Hodgson NB and subsequent classifications.",
+      "description": "Morphology of the foreskin in intact subjects. N/A when circumcised.",
+      "values": [
+        {"id": "long", "display_name": "Long (excess overhang)", "definition": "Foreskin extends substantially beyond the glans tip when flaccid; redundant prepuce."},
+        {"id": "average", "display_name": "Average", "definition": "Foreskin covers the glans when flaccid with modest overhang; retracts cleanly."},
+        {"id": "short", "display_name": "Short", "definition": "Foreskin partially covers the glans when flaccid; glans visible at rest."},
+        {"id": "phimotic_tight", "display_name": "Tight (phimotic)", "definition": "Foreskin cannot easily retract over the glans; clinical phimosis spectrum."},
+        {"id": "n_a_circumcised", "display_name": "Not applicable (circumcised)", "definition": "No foreskin present."}
+      ],
+      "observability": {
+        "from_photograph": "not_assessable",
+        "requires_unclothed": true,
+        "minimum_visible_extent": "full_body"
+      }
+    },
+
+    {
+      "id": "curvature_severity",
+      "display_name": "Curvature severity",
+      "type": "ordinal",
+      "scale": "yachia_kelami_curvature",
+      "scale_citation": "Yachia D (1990). Treatment of curvature of the penis: a new operative technique. Journal of Urology, 143(1). Kelâmi A (1983). Classification of congenital and acquired penile deviation. Urologia Internationalis, 38(4).",
+      "description": "Severity of penile curvature, measured along the angular deviation from straight axis. Used for both congenital curvature and Peyronie's disease assessment.",
+      "values": [
+        {"id": "none_straight", "display_name": "None / straight", "definition": "Less than approximately 10° deviation; visually straight axis."},
+        {"id": "mild", "display_name": "Mild", "definition": "Approximately 10-30° deviation; functional, no surgical indication typically."},
+        {"id": "moderate", "display_name": "Moderate", "definition": "Approximately 30-60° deviation; may affect intercourse comfort; commonly the surgical-consideration threshold."},
+        {"id": "severe", "display_name": "Severe", "definition": "Greater than approximately 60° deviation; substantial functional impact."}
+      ],
+      "observability": {
+        "from_photograph": "not_assessable",
+        "requires_unclothed": true,
+        "minimum_visible_extent": "full_body"
+      }
+    },
+
+    {
+      "id": "curvature_direction",
+      "display_name": "Curvature direction",
+      "type": "categorical",
+      "scale": "curvature_direction_qualitative",
+      "scale_citation": "Standard urologic terminology aligned with Kelâmi (1983) and Yachia (1990) directional classifications.",
+      "description": "Direction of curvature deviation when present.",
+      "values": [
+        {"id": "none_straight", "display_name": "None / straight"},
+        {"id": "ventral_downward", "display_name": "Ventral (downward)", "definition": "Curves toward the underside; most common direction in congenital curvature."},
+        {"id": "dorsal_upward", "display_name": "Dorsal (upward)", "definition": "Curves toward the upper side."},
+        {"id": "lateral_left", "display_name": "Lateral left", "definition": "Curves to the subject's left."},
+        {"id": "lateral_right", "display_name": "Lateral right", "definition": "Curves to the subject's right."},
+        {"id": "multiplane_complex", "display_name": "Multiplane / complex", "definition": "Curvature has components in more than one plane (e.g. ventral + lateral); Peyronie's disease commonly produces complex deviations."}
+      ],
+      "observability": {
+        "from_photograph": "not_assessable",
+        "requires_unclothed": true,
+        "minimum_visible_extent": "full_body"
+      }
+    },
+
+    {
+      "id": "scrotal_position",
+      "display_name": "Scrotal hang / position",
+      "type": "ordinal",
+      "scale": "scrotal_position_qualitative",
+      "scale_citation": "Aligned with descriptors used in the urology / scrotoplasty literature; no single canonical scale.",
+      "description": "Position of the scrotum relative to the inguinal region — affected by cremasteric tone, ambient temperature, and constitutional anatomy.",
+      "values": [
+        {"id": "high_tight", "display_name": "High / tight", "definition": "Scrotum sits high and tight against the perineum; cremasteric contraction or constitutional pattern."},
+        {"id": "normal", "display_name": "Normal", "definition": "Average scrotal hang."},
+        {"id": "low_pendulous", "display_name": "Low / pendulous", "definition": "Scrotum hangs significantly below the base of the penis; relaxed cremasteric state or constitutional pattern."}
+      ],
+      "observability": {
+        "from_photograph": "not_assessable",
+        "requires_unclothed": true,
+        "minimum_visible_extent": "full_body"
+      }
+    },
+
+    {
+      "id": "suprapubic_fat_pad",
+      "display_name": "Suprapubic fat pad",
+      "type": "ordinal",
+      "scale": "suprapubic_fat_qualitative",
+      "scale_citation": "Aligned with the descriptors used in penile-augmentation and bariatric-urology literature on apparent vs measured length differential.",
+      "description": "Subcutaneous fat over the pubic bone. Significantly affects apparent (visible) penile length without changing measured (Wessells-protocol) length. Captured here because the differential between apparent and measured length is itself a constitutional dimension.",
+      "values": [
+        {"id": "absent", "display_name": "Absent / minimal", "definition": "Pubic bone palpable just under skin; minimal subcutaneous fat."},
+        {"id": "mild", "display_name": "Mild", "definition": "Modest fat pad; minor reduction of apparent length vs measured."},
+        {"id": "moderate", "display_name": "Moderate", "definition": "Visible fat pad; noticeable apparent-vs-measured length differential."},
+        {"id": "marked", "display_name": "Marked", "definition": "Pronounced suprapubic fat pad; substantial apparent length reduction. Common with elevated BMI."}
+      ],
+      "observability": {
+        "from_photograph": "not_assessable",
+        "requires_unclothed": true,
+        "minimum_visible_extent": "full_body"
+      }
+    },
+
+    {
+      "id": "vascularity_visibility",
+      "display_name": "Vascularity visibility",
+      "type": "ordinal",
+      "scale": "surface_vascularity_qualitative",
+      "scale_citation": "Surface anatomy descriptor aligned with andrology / sexual-medicine clinical examination terminology.",
+      "description": "Visibility of surface veins on the penile shaft. Constitutional variation correlated with overall body fat percentage, vascular morphology, and erection state.",
+      "values": [
+        {"id": "none_visible", "display_name": "None visible", "definition": "Surface veins not visible at rest or under engorgement."},
+        {"id": "minimal", "display_name": "Minimal", "definition": "Subtle vein outline under engorgement only."},
+        {"id": "moderate", "display_name": "Moderate", "definition": "Visible vein pattern under engorgement."},
+        {"id": "prominent", "display_name": "Prominent", "definition": "Pronounced vein pattern visible at rest and under engorgement; common with low body-fat percentage."}
+      ],
+      "observability": {
+        "from_photograph": "not_assessable",
+        "requires_unclothed": true,
+        "minimum_visible_extent": "full_body"
+      }
+    }
+  ],
+
+  "aggregation_notes": {
+    "categorical_dimensions_roll_up_as": "frequency distribution",
+    "ordinal_dimensions_roll_up_as": "frequency distribution + median bucket",
+    "numeric_dimensions_roll_up_as": "mean + median + min + max",
+    "minimum_sample_size_for_publication": 10,
+    "small_sample_caveat_threshold": 25,
+    "low_quality_threshold": 0.3,
+    "low_confidence_threshold": 0.55
+  },
+
+  "data_governance": {
+    "observations_source_policy": "internal_only",
+    "rationale": "The schema is published academically (citation-backed, ontology-interoperable, defensible to reviewers), but observations from public-domain photographs are not appropriate for several reasons: (a) Wikipedia and similar public-domain sources contain no photographs of this anatomy; (b) adult-content sources have consent + provenance issues that make them inappropriate for academic dataset construction; (c) populating per-image observations from clinical photographs requires explicit IRB-equivalent consent that an open dataset cannot guarantee. Internal product use against this schema can populate observations through consent-cleared internal sources via the EE-monorepo extension layer; those observations are filtered out of the HuggingFace dataset export by the `vocabulary_source != 'canonical'` boundary."
+  },
+
+  "references": [
+    "Wessells H, Lue TF, McAninch JW (1996). Penile length in the flaccid and erect states: guidelines for penile augmentation. Journal of Urology, 156(3): 995-997.",
+    "Veale D, Miles S, Bramley S, Muir G, Hodsoll J (2015). Am I normal? A systematic review and construction of nomograms for flaccid and erect penis length and circumference in up to 15,521 men. BJU International, 115(6): 978-986.",
+    "Yachia D (1990). Treatment of curvature of the penis: a new operative technique. Journal of Urology, 143(1).",
+    "Kelâmi A (1983). Classification of congenital and acquired penile deviation. Urologia Internationalis, 38(4).",
+    "Hodgson NB (1981). Use of vascularized flaps in hypospadias repair. Urologic Clinics of North America, 8(3).",
+    "Bondil P, Costa P, Daures JP, Louis JF, Navratil H (1992). Clinical study of the longitudinal deformation of the flaccid penis and of its variations with aging. European Urology, 21(4)."
+  ]
+}

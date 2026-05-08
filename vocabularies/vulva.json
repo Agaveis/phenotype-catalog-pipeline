@@ -1,0 +1,209 @@
+{
+  "atlas_category": "vulva",
+  "uberon_id": "UBERON:0000997",
+  "fma_id": "FMA:20462",
+  "display_name": "Vulva",
+  "version": "1.0.0",
+  "license": "CC-BY-4.0",
+  "observations_source_policy": "internal_only",
+  "description": "External female genital anatomy: mons pubis, labia majora, labia minora, clitoral hood, perineum. Dimensions are drawn from aesthetic-gynecology and plastic-surgery literature (Hodgkinson, Motakef, Felicio, Lloyd) and from the Lloyd 2005 study of female genital morphological variation. The schema is published in the canonical vocabulary for academic transparency and ontology interoperability; **observations against these dimensions are not populated from public-domain photographs**, are not exported to the HuggingFace dataset, and any data collection requires explicit consent and source documentation. See the `observations_source_policy: \"internal_only\"` file-level flag and the README's two-layer extension model.",
+
+  "dimensions": [
+    {
+      "id": "labia_majora_size",
+      "display_name": "Labia majora — size",
+      "type": "ordinal",
+      "scale": "labia_majora_size_qualitative",
+      "scale_citation": "Lloyd J, Crouch NS, Minto CL, Liao LM, Creighton SM (2005). Female genital appearance: 'normality' unfolds. BJOG, 112(5): 643-646.",
+      "description": "Relative size of the labia majora envelope from the mons pubis to the perineum.",
+      "values": [
+        {"id": "small_atrophic", "display_name": "Small / atrophic", "definition": "Limited subcutaneous fullness; minimal coverage of underlying structures. Common with low body-fat percentage and after menopause."},
+        {"id": "moderate", "display_name": "Moderate", "definition": "Average labia majora fullness."},
+        {"id": "full", "display_name": "Full", "definition": "Pronounced subcutaneous fullness; substantial coverage of underlying structures."}
+      ],
+      "observability": {
+        "from_photograph": "not_assessable",
+        "requires_unclothed": true,
+        "minimum_visible_extent": "full_body"
+      }
+    },
+
+    {
+      "id": "labia_majora_pigmentation",
+      "display_name": "Labia majora — pigmentation",
+      "type": "ordinal",
+      "scale": "labial_pigmentation_qualitative",
+      "scale_citation": "Pigmentation differential common in dermatology and aesthetic-gynecology literature; aligned with the descriptors used in Hauben & Mahler 1983-style relative-pigmentation analysis.",
+      "description": "Pigmentation of the labia majora relative to surrounding pubic / inner-thigh skin.",
+      "values": [
+        {"id": "matches_surrounding", "display_name": "Matches surrounding skin", "definition": "Labial pigmentation similar to surrounding pubic skin."},
+        {"id": "moderately_darker", "display_name": "Moderately darker", "definition": "Visible darkening of labial skin relative to surrounding."},
+        {"id": "markedly_darker", "display_name": "Markedly darker", "definition": "Strongly pigmented labia substantially darker than surrounding skin. Constitutional in some populations; also age- and hormone-related."}
+      ],
+      "observability": {
+        "from_photograph": "not_assessable",
+        "requires_unclothed": true,
+        "minimum_visible_extent": "full_body"
+      }
+    },
+
+    {
+      "id": "labia_minora_protrusion",
+      "display_name": "Labia minora — protrusion",
+      "type": "categorical",
+      "scale": "motakef_2015",
+      "scale_citation": "Motakef S, Rodriguez-Feliz J, Chung MT, Ingargiola MJ, Wong VW, Patel A (2015). Vaginal labiaplasty: current practices and a simplified classification system for labial protrusion. Plastic and Reconstructive Surgery, 135(3): 774-788.",
+      "description": "Position of the labia minora edge relative to the labia majora edge. The Motakef simplified classification is the contemporary standard.",
+      "values": [
+        {"id": "class_1_no_protrusion", "display_name": "Class I — no protrusion", "definition": "Labia minora contained entirely within the labia majora; not visible at rest with legs together."},
+        {"id": "class_2_protrusion_under_3cm", "display_name": "Class II — protrusion <3 cm", "definition": "Labia minora protrude beyond the labia majora by less than approximately 3 cm."},
+        {"id": "class_3_protrusion_over_3cm", "display_name": "Class III — protrusion ≥3 cm", "definition": "Labia minora protrude beyond the labia majora by approximately 3 cm or more."},
+        {"id": "asymmetric", "display_name": "Asymmetric", "definition": "Notable left-right protrusion difference as the dominant feature."}
+      ],
+      "observability": {
+        "from_photograph": "not_assessable",
+        "requires_unclothed": true,
+        "minimum_visible_extent": "full_body"
+      }
+    },
+
+    {
+      "id": "labia_minora_morphology",
+      "display_name": "Labia minora — morphology",
+      "type": "categorical",
+      "scale": "labia_minora_shape_qualitative",
+      "scale_citation": "Aesthetic-gynecology shape descriptors aligned with Felicio (1992) and subsequent classification literature.",
+      "description": "Edge morphology and contour of the labia minora.",
+      "values": [
+        {"id": "smooth_edged", "display_name": "Smooth-edged", "definition": "Even, smooth labial edges without significant ruffling or scalloping."},
+        {"id": "ruffled", "display_name": "Ruffled / scalloped", "definition": "Visible scalloping or rippling along the labial edge."},
+        {"id": "thickened", "display_name": "Thickened", "definition": "Visibly thicker labial tissue along the edge."},
+        {"id": "thin_attenuated", "display_name": "Thin / attenuated", "definition": "Reduced labial tissue thickness."}
+      ],
+      "observability": {
+        "from_photograph": "not_assessable",
+        "requires_unclothed": true,
+        "minimum_visible_extent": "full_body"
+      }
+    },
+
+    {
+      "id": "labial_symmetry",
+      "display_name": "Labial symmetry",
+      "type": "ordinal",
+      "scale": "labial_symmetry_qualitative",
+      "scale_citation": "Aligned with surgical-gynecology symmetry descriptors.",
+      "description": "Degree of left-right labial symmetry. Substantial constitutional asymmetry is common; this dimension captures the visible degree.",
+      "values": [
+        {"id": "symmetric", "display_name": "Symmetric", "definition": "No discernible left-right asymmetry."},
+        {"id": "mild_asymmetry", "display_name": "Mild asymmetry", "definition": "Subtle left-right size or shape difference."},
+        {"id": "moderate_asymmetry", "display_name": "Moderate asymmetry", "definition": "Clearly visible left-right difference."},
+        {"id": "marked_asymmetry", "display_name": "Marked asymmetry", "definition": "Substantial left-right divergence; one side notably larger or differently shaped."}
+      ],
+      "observability": {
+        "from_photograph": "not_assessable",
+        "requires_unclothed": true,
+        "minimum_visible_extent": "full_body"
+      }
+    },
+
+    {
+      "id": "clitoral_hood_morphology",
+      "display_name": "Clitoral hood morphology",
+      "type": "categorical",
+      "scale": "clitoral_hood_qualitative",
+      "scale_citation": "Aesthetic-gynecology descriptors; aligned with the Hodgkinson tradition and subsequent labiaplasty / hoodoplasty literature.",
+      "description": "Coverage of the clitoral glans by the prepuce (clitoral hood).",
+      "values": [
+        {"id": "covered", "display_name": "Covered", "definition": "Glans fully concealed by prepuce at rest."},
+        {"id": "partial_exposure", "display_name": "Partially exposed", "definition": "Glans partially visible at rest; prepuce covers a portion."},
+        {"id": "fully_exposed", "display_name": "Fully exposed", "definition": "Glans visible at rest; minimal prepuce coverage."},
+        {"id": "redundant_hooded", "display_name": "Redundant / hooded", "definition": "Pronounced prepuce with excess folds; multiple visible folds laterally."}
+      ],
+      "observability": {
+        "from_photograph": "not_assessable",
+        "requires_unclothed": true,
+        "minimum_visible_extent": "full_body"
+      }
+    },
+
+    {
+      "id": "mons_pubis_prominence",
+      "display_name": "Mons pubis prominence",
+      "type": "ordinal",
+      "scale": "mons_prominence_qualitative",
+      "scale_citation": "Aligned with body-contouring and abdominoplasty literature on suprapubic / mons-pubis fullness.",
+      "description": "Anterior projection of the mons pubis from the pubic bone, primarily a function of subcutaneous fat.",
+      "values": [
+        {"id": "flat", "display_name": "Flat", "definition": "Minimal subcutaneous fullness; pubic bone palpable just under skin."},
+        {"id": "moderate", "display_name": "Moderate", "definition": "Average mons pubis prominence."},
+        {"id": "prominent", "display_name": "Prominent", "definition": "Substantial subcutaneous fullness; pronounced anterior projection. Common with elevated BMI."}
+      ],
+      "observability": {
+        "from_photograph": "not_assessable",
+        "requires_unclothed": true,
+        "minimum_visible_extent": "full_body"
+      }
+    },
+
+    {
+      "id": "perineal_distance",
+      "display_name": "Perineal distance",
+      "type": "ordinal",
+      "scale": "perineal_body_qualitative",
+      "scale_citation": "Aligned with obstetric and pelvic-floor literature on perineal-body length (PBL).",
+      "description": "Distance from posterior fourchette to anterior anal margin (perineal body length).",
+      "values": [
+        {"id": "short", "display_name": "Short", "definition": "Perineal body shorter than approximately 2.5 cm."},
+        {"id": "normal", "display_name": "Normal", "definition": "Perineal body approximately 2.5-4 cm."},
+        {"id": "long", "display_name": "Long", "definition": "Perineal body longer than approximately 4 cm."}
+      ],
+      "observability": {
+        "from_photograph": "not_assessable",
+        "requires_unclothed": true,
+        "minimum_visible_extent": "full_body"
+      }
+    },
+
+    {
+      "id": "introitus_visibility_at_rest",
+      "display_name": "Introitus visibility at rest",
+      "type": "ordinal",
+      "scale": "introitus_visibility_qualitative",
+      "scale_citation": "Aligned with pelvic-anatomy descriptors used in obstetric / aesthetic-gynecology literature on labial morphology.",
+      "description": "Visibility of the vaginal introitus at rest, a function of labial size and protrusion together.",
+      "values": [
+        {"id": "concealed", "display_name": "Concealed", "definition": "Introitus not visible at rest with legs together; fully covered by labia."},
+        {"id": "partial_visible", "display_name": "Partially visible", "definition": "Introitus partially visible; labia minora separated or short."},
+        {"id": "exposed", "display_name": "Exposed", "definition": "Introitus visible at rest; minimal labial coverage."}
+      ],
+      "observability": {
+        "from_photograph": "not_assessable",
+        "requires_unclothed": true,
+        "minimum_visible_extent": "full_body"
+      }
+    }
+  ],
+
+  "aggregation_notes": {
+    "categorical_dimensions_roll_up_as": "frequency distribution",
+    "ordinal_dimensions_roll_up_as": "frequency distribution + median bucket",
+    "minimum_sample_size_for_publication": 10,
+    "small_sample_caveat_threshold": 25,
+    "low_quality_threshold": 0.3,
+    "low_confidence_threshold": 0.55
+  },
+
+  "data_governance": {
+    "observations_source_policy": "internal_only",
+    "rationale": "Schema is published academically (citation-backed, ontology-interoperable, defensible to reviewers), but observations from public-domain photographs are not appropriate for this anatomy. Wikipedia and similar public-domain sources contain no relevant photographs; adult-content sources have consent + provenance issues that make them inappropriate for academic dataset construction; clinical-photograph populations require IRB-equivalent consent. Internal product use against this schema can populate observations through consent-cleared internal sources via the EE-monorepo extension layer; those observations are filtered out of the HuggingFace dataset export by the `vocabulary_source != 'canonical'` boundary."
+  },
+
+  "references": [
+    "Lloyd J, Crouch NS, Minto CL, Liao LM, Creighton SM (2005). Female genital appearance: 'normality' unfolds. BJOG, 112(5): 643-646.",
+    "Motakef S, Rodriguez-Feliz J, Chung MT, Ingargiola MJ, Wong VW, Patel A (2015). Vaginal labiaplasty: current practices and a simplified classification system for labial protrusion. Plastic and Reconstructive Surgery, 135(3): 774-788.",
+    "Hodgkinson DJ, Hait G (1984). Aesthetic vaginal labioplasty. Plastic and Reconstructive Surgery, 74(3): 414-416.",
+    "Felicio Y de A (1992). Labial surgery. Aesthetic Surgery Journal, 27(3).",
+    "Hauben DJ, Mahler D (1983). A reappraisal of the importance of areolar pigmentation. Plastic and Reconstructive Surgery, 71(6)."
+  ]
+}

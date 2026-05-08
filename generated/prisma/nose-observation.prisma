@@ -1,0 +1,42 @@
+// Auto-generated from vocabularies/nose.json (v1.0.0). Do not edit by hand. Regenerate via: node scripts/generate-from-vocabulary.mjs
+
+model nose_observation {
+  id                    Int      @id @default(autoincrement())
+  example_id            Int      @unique(map: "UX_nose_observation_example")
+  bridge_profile        String?  @db.NVarChar(50)
+  bridge_height         String?  @db.NVarChar(50)
+  bridge_width          String?  @db.NVarChar(50)
+  tip_projection        String?  @db.NVarChar(50)
+  tip_rotation          String?  @db.NVarChar(50)
+  tip_shape             String?  @db.NVarChar(50)
+  nostril_shape         String?  @db.NVarChar(50)
+  nostril_visibility_frontal  String?  @db.NVarChar(50)
+  alar_width            String?  @db.NVarChar(50)
+  columella_shape       String?  @db.NVarChar(50)
+  nasal_length          String?  @db.NVarChar(50)
+  radix_depth           String?  @db.NVarChar(50)
+  dorsal_hump           String?  @db.NVarChar(50)
+  deviation_axis        String?  @db.NVarChar(50)
+  bridge_profile_confidence  Float?
+  bridge_height_confidence  Float?
+  bridge_width_confidence  Float?
+  tip_projection_confidence  Float?
+  tip_rotation_confidence  Float?
+  tip_shape_confidence  Float?
+  nostril_shape_confidence  Float?
+  nostril_visibility_frontal_confidence  Float?
+  alar_width_confidence  Float?
+  columella_shape_confidence  Float?
+  nasal_length_confidence  Float?
+  radix_depth_confidence  Float?
+  dorsal_hump_confidence  Float?
+  deviation_axis_confidence  Float?
+  vocabulary_source     String   @default("canonical") @db.NVarChar(50)
+  vocabulary_version    String   @default("1.0.0") @db.NVarChar(20)
+  analysis_model        String?  @db.NVarChar(100)
+  analyzed_at           DateTime @default(now()) @db.DateTime2
+
+  example ethnic_examples @relation(fields: [example_id], references: [id], map: "FK_nose_observation_example")
+
+  @@index([example_id], map: "IX_nose_observation_example")
+}

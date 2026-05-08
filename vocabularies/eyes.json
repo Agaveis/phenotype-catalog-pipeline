@@ -1,0 +1,297 @@
+{
+  "atlas_category": "eyes",
+  "uberon_id": "UBERON:0000970",
+  "fma_id": "FMA:54448",
+  "display_name": "Eyes",
+  "version": "1.0.0",
+  "license": "CC-BY-4.0",
+  "description": "Periocular phenotype: eye globe, eyelid morphology, palpebral fissure metrics, epicanthic fold, brow ridge, eyebrow morphology, and tear-trough region. Absorbs the original Eyelids and Eye Color atlas categories per the granularity decision (eye color is a single dimension, eyelid morphology is tightly coupled to eye morphology, brow region is the soft-tissue continuation of orbital anatomy). Dimensions are drawn from craniofacial anthropometry (Farkas), oculoplastic surgery (Putterman, McCord), Asian-eyelid-surgery classification literature (McCurdy, Liu, Chen), and dermatology / aging-face literature for the brow and tear-trough dimensions.",
+
+  "dimensions": [
+    {
+      "id": "eye_color",
+      "display_name": "Iris color",
+      "type": "categorical",
+      "scale": "iris_color_qualitative",
+      "scale_citation": "Sturm RA, Larsson M (2009). Genetics of human iris colour and patterns. Pigment Cell & Melanoma Research, 22(5). Categorical descriptors aligned with the OCA2/HERC2 phenotype literature.",
+      "description": "Predominant color of the iris. Heterochromia is captured as its own value; mixed colors (e.g. hazel, blue-green) get distinct buckets.",
+      "values": [
+        {"id": "very_dark_brown", "display_name": "Very dark brown / black-appearing", "definition": "Iris appears nearly black under typical lighting; high melanin content. Common in East Asian, South Asian, Sub-Saharan African, and indigenous populations."},
+        {"id": "brown", "display_name": "Brown", "definition": "Medium to dark brown iris; visible iris detail."},
+        {"id": "light_brown", "display_name": "Light brown", "definition": "Lighter brown with visible warmth; sometimes called amber when more golden."},
+        {"id": "amber", "display_name": "Amber / honey", "definition": "Golden-yellow to copper iris; relatively rare. Distinct from light brown by the warmth of the hue."},
+        {"id": "hazel", "display_name": "Hazel", "definition": "Mixed brown and green/gold; central iris differs in color from peripheral iris (central heterochromia)."},
+        {"id": "green", "display_name": "Green", "definition": "True green; uncommon globally, concentrated in Northern and Eastern European populations."},
+        {"id": "blue_green", "display_name": "Blue-green", "definition": "Mixed blue and green with neither dominant."},
+        {"id": "blue", "display_name": "Blue", "definition": "True blue; highest frequency in Northern European populations, decreases southward."},
+        {"id": "gray", "display_name": "Gray", "definition": "Gray to gray-blue iris; lower stromal melanin than blue."},
+        {"id": "violet", "display_name": "Violet", "definition": "Rare; very low melanin with red light scattering combined with blue stroma."},
+        {"id": "heterochromia", "display_name": "Heterochromia", "definition": "Two different iris colors — either between eyes (heterochromia iridis) or within one iris (sectoral heterochromia)."},
+        {"id": "unclear", "display_name": "Unclear", "definition": "Lighting, image quality, or angle prevents reliable iris-color assessment."}
+      ],
+      "observability": {
+        "from_photograph": "high",
+        "requires_unclothed": false,
+        "minimum_visible_extent": "head_only",
+        "notes": "Eye color is sensitive to lighting — flash photography and bright daylight can wash out lighter colors; low-light photography can darken lighter eyes toward gray or hazel. Confidence should reflect lighting quality."
+      }
+    },
+
+    {
+      "id": "eye_shape",
+      "display_name": "Eye shape",
+      "type": "categorical",
+      "scale": "eye_shape_qualitative",
+      "scale_citation": "Aligned with oculoplastic-surgery descriptors and aesthetic-anatomy literature (McCord CD Jr, Codner MA — Eyelid and Periorbital Surgery, 2nd Edition, 2016).",
+      "description": "Overall shape of the visible eye, considering the silhouette of the upper and lower lid margins together. Independent dimension from eyelid_crease_type and epicanthic_fold, which capture finer morphological variation.",
+      "values": [
+        {"id": "almond", "display_name": "Almond", "definition": "Slightly elongated horizontal axis; mild taper at lateral and medial canthi. Considered the aesthetic reference shape."},
+        {"id": "round", "display_name": "Round", "definition": "Vertical and horizontal axes approximately equal; minimal canthal taper. Visible sclera above and below the iris."},
+        {"id": "hooded", "display_name": "Hooded", "definition": "Upper lid skin descends over the lid crease, partially or fully covering the upper lid platform. Often associated with periorbital aging but can be constitutional."},
+        {"id": "monolid", "display_name": "Monolid (no visible crease)", "definition": "Smooth upper lid with no visible supratarsal crease. Common in East Asian populations; associated with single eyelid morphology."},
+        {"id": "deep_set", "display_name": "Deep-set", "definition": "Eye sits deep within the orbital socket; pronounced shadow above the upper lid. Brow ridge typically prominent."},
+        {"id": "protruding", "display_name": "Protruding", "definition": "Eye sits forward of the orbital socket; sclera visible around the entire iris circumference. Constitutional or proptotic."},
+        {"id": "downturned", "display_name": "Downturned", "definition": "Lateral canthus sits below the medial canthus; outer corner droops downward."},
+        {"id": "upturned", "display_name": "Upturned", "definition": "Lateral canthus sits above the medial canthus; outer corner angles upward. Common in East Asian populations and as an aging-related lid laxity sign."},
+        {"id": "asymmetric", "display_name": "Asymmetric", "definition": "Notable left-right shape difference as the dominant feature."}
+      ],
+      "observability": {
+        "from_photograph": "high",
+        "requires_unclothed": false,
+        "minimum_visible_extent": "head_only"
+      }
+    },
+
+    {
+      "id": "eyelid_crease_type",
+      "display_name": "Upper eyelid crease type",
+      "type": "categorical",
+      "scale": "mccurdy_chen_eyelid_crease",
+      "scale_citation": "McCurdy JA Jr (2005). Cosmetic surgery of the Asian face. Thieme. Chen WP (2007). Asian Blepharoplasty and the Eyelid Crease. Butterworth-Heinemann.",
+      "description": "Morphology of the upper eyelid supratarsal crease. The single most ethnically-variant periocular dimension. The Asian-ophthalmology / Asian-blepharoplasty literature provides the canonical classification system, distinguishing several functional and aesthetic patterns.",
+      "values": [
+        {"id": "single_no_crease", "display_name": "Single eyelid (monolid, no crease)", "definition": "No visible supratarsal crease; smooth upper lid skin. Approximately 50% of East Asian populations."},
+        {"id": "double_low", "display_name": "Double, low (~3-5mm above lash line)", "definition": "Crease present but sits low on the lid, close to the lash line. Common in East Asian populations with double lids."},
+        {"id": "double_medium", "display_name": "Double, medium (~6-9mm)", "definition": "Mid-position crease; common reference range for European-population eyelids."},
+        {"id": "double_high", "display_name": "Double, high (>9mm)", "definition": "High crease position; substantial visible upper lid platform between lash line and crease."},
+        {"id": "partial_incomplete", "display_name": "Partial / incomplete", "definition": "Crease present medially but fades or disappears laterally — or vice versa."},
+        {"id": "multiple_crease", "display_name": "Multiple creases", "definition": "Two or more visible creases on the same lid; commonly age-related but can be constitutional."},
+        {"id": "asymmetric", "display_name": "Asymmetric (single one side, double other)", "definition": "One eye is single and the other double — common variation, particularly in East Asian populations."}
+      ],
+      "observability": {
+        "from_photograph": "high",
+        "requires_unclothed": false,
+        "minimum_visible_extent": "head_only",
+        "notes": "Best assessed when subject is looking straight ahead with relaxed brow; raised brow can artificially expose creases that aren't typically visible."
+      }
+    },
+
+    {
+      "id": "epicanthic_fold",
+      "display_name": "Epicanthic fold",
+      "type": "categorical",
+      "scale": "duke_elder_epicanthus_classification",
+      "scale_citation": "Duke-Elder S (1964). System of Ophthalmology, Volume III. CV Mosby. The classical four-type Duke-Elder classification (tarsalis, palpebralis, supraciliaris, inversus) remains the standard ophthalmologic vocabulary.",
+      "description": "Presence and morphology of the epicanthic fold — the skin fold of the upper eyelid that may cover the medial canthus. Significant ethnic variation; high prevalence in East Asian, Central Asian, and indigenous American populations.",
+      "values": [
+        {"id": "absent", "display_name": "Absent", "definition": "No epicanthic fold; medial canthus clearly visible."},
+        {"id": "epicanthus_tarsalis", "display_name": "Tarsalis", "definition": "Fold begins at the upper lid skin and inserts on the lower lid, covering the medial canthus. The most common epicanthic-fold variant in East Asian populations."},
+        {"id": "epicanthus_palpebralis", "display_name": "Palpebralis", "definition": "Fold extends from the upper to the lower lid, covering the medial canthus more symmetrically."},
+        {"id": "epicanthus_supraciliaris", "display_name": "Supraciliaris", "definition": "Fold originates at the eyebrow region and continues down to the lacrimal region. Less common; more characteristic of some Inuit and indigenous American populations."},
+        {"id": "epicanthus_inversus", "display_name": "Inversus", "definition": "Fold begins at the lower lid and extends upward; partial coverage of the medial canthus from below. Often associated with telecanthus / blepharophimosis syndrome."},
+        {"id": "partial_residual", "display_name": "Partial / residual", "definition": "Subtle fold residue; medial canthus partially obscured but not fully covered. Can be developmental remnant or post-blepharoplasty result."}
+      ],
+      "observability": {
+        "from_photograph": "high",
+        "requires_unclothed": false,
+        "minimum_visible_extent": "head_only"
+      }
+    },
+
+    {
+      "id": "palpebral_fissure_slant",
+      "display_name": "Palpebral fissure slant",
+      "type": "categorical",
+      "scale": "fissure_axis_qualitative",
+      "scale_citation": "Farkas LG (1994). Anthropometry of the Head and Face, 2nd Edition. Reference: palpebral fissure axis approximately 10° upslant from horizontal in the European-population aesthetic norm.",
+      "description": "Angle of the palpebral fissure axis (line from medial to lateral canthus) relative to horizontal. Significant ethnic variation; East Asian populations average steeper upslant than European populations.",
+      "values": [
+        {"id": "horizontal", "display_name": "Horizontal", "definition": "Lateral canthus at the same level as medial canthus; axis approximately 0°."},
+        {"id": "slight_upslant", "display_name": "Slight upslant", "definition": "Lateral canthus slightly higher than medial; ~5-10° above horizontal. Within the European aesthetic reference range."},
+        {"id": "marked_upslant", "display_name": "Marked upslant", "definition": "Lateral canthus substantially higher than medial; >10° above horizontal. Common in East Asian populations."},
+        {"id": "slight_downslant", "display_name": "Slight downslant", "definition": "Lateral canthus slightly below medial; visible fatigue or aging appearance."},
+        {"id": "marked_downslant", "display_name": "Marked downslant", "definition": "Lateral canthus substantially below medial. Associated with genetic syndromes or significant lid laxity."}
+      ],
+      "observability": {
+        "from_photograph": "high",
+        "requires_unclothed": false,
+        "minimum_visible_extent": "head_only",
+        "notes": "Best assessed from a directly-frontal photograph with neutral head posture; head-tilt artifacts can be misread as slant."
+      }
+    },
+
+    {
+      "id": "palpebral_fissure_length",
+      "display_name": "Palpebral fissure length",
+      "type": "ordinal",
+      "scale": "palpebral_fissure_length_qualitative",
+      "scale_citation": "Farkas LG (1994). Anthropometry of the Head and Face, 2nd Edition. Reference: en-ex (medial-canthus to lateral-canthus distance) approximately 28-32mm in adult European-population norms.",
+      "description": "Length of the palpebral fissure (medial canthus to lateral canthus), expressed proportionally relative to intercanthal distance.",
+      "values": [
+        {"id": "short", "display_name": "Short", "definition": "Fissure length less than intercanthal distance; small visible eye."},
+        {"id": "normal", "display_name": "Normal", "definition": "Fissure length approximately equal to intercanthal distance."},
+        {"id": "long", "display_name": "Long", "definition": "Fissure length greater than intercanthal distance; large visible eye."}
+      ],
+      "observability": {
+        "from_photograph": "high",
+        "requires_unclothed": false,
+        "minimum_visible_extent": "head_only"
+      }
+    },
+
+    {
+      "id": "intercanthal_distance",
+      "display_name": "Intercanthal distance",
+      "type": "ordinal",
+      "scale": "intercanthal_distance_qualitative",
+      "scale_citation": "Farkas LG (1994). Anthropometry of the Head and Face, 2nd Edition. Reference: en-en (medial-to-medial canthus distance) approximately 30-34mm in adult European-population norms; relative reference is en-en ≈ palpebral fissure length.",
+      "description": "Distance between the medial canthi, expressed proportionally relative to palpebral fissure length. Captures telecanthus (wide-set eyes) at one extreme.",
+      "values": [
+        {"id": "narrow", "display_name": "Narrow (close-set)", "definition": "Intercanthal distance less than approximately 90% of palpebral fissure length."},
+        {"id": "normal", "display_name": "Normal", "definition": "Intercanthal distance approximately equal to palpebral fissure length (Farkas European-population norm)."},
+        {"id": "wide_telecanthus", "display_name": "Wide (telecanthus)", "definition": "Intercanthal distance substantially greater than palpebral fissure length. Constitutional in some populations; pathologic in genetic syndromes."}
+      ],
+      "observability": {
+        "from_photograph": "high",
+        "requires_unclothed": false,
+        "minimum_visible_extent": "head_only"
+      }
+    },
+
+    {
+      "id": "brow_ridge_prominence",
+      "display_name": "Brow ridge (supraorbital ridge) prominence",
+      "type": "ordinal",
+      "scale": "supraorbital_ridge_qualitative",
+      "scale_citation": "Aligned with craniofacial-anthropology descriptors of supraorbital torus development. Sex-correlated (more prominent in adult males) and with population-level variation.",
+      "description": "Prominence of the supraorbital bony ridge above the eyes. Sex-correlated and with population-level variation.",
+      "values": [
+        {"id": "flat", "display_name": "Flat", "definition": "No visible bony prominence above the orbital rim; smooth transition between orbit and forehead."},
+        {"id": "moderate", "display_name": "Moderate", "definition": "Visible but not pronounced supraorbital ridge."},
+        {"id": "prominent", "display_name": "Prominent", "definition": "Strongly visible supraorbital torus; deep-set appearance to the eyes."}
+      ],
+      "observability": {
+        "from_photograph": "medium",
+        "requires_unclothed": false,
+        "minimum_visible_extent": "head_only",
+        "notes": "Best assessed from lateral or three-quarter view; frontal view alone can underestimate prominence."
+      }
+    },
+
+    {
+      "id": "eyebrow_density",
+      "display_name": "Eyebrow density",
+      "type": "ordinal",
+      "scale": "eyebrow_density_qualitative",
+      "scale_citation": "Aligned with cosmetic-and-dermatology descriptors of brow density; no single canonical scale.",
+      "description": "Density of native eyebrow hair, untreated. Cosmetic shaping (waxing, threading, microblading, tattooing) affects observed density and should reduce confidence.",
+      "values": [
+        {"id": "sparse", "display_name": "Sparse", "definition": "Few visible hairs; gaps within the brow body."},
+        {"id": "thin", "display_name": "Thin", "definition": "Brow visible but light density throughout."},
+        {"id": "normal", "display_name": "Normal", "definition": "Average density."},
+        {"id": "dense", "display_name": "Dense", "definition": "Thick, full brow with little visible skin within the brow body."},
+        {"id": "very_dense", "display_name": "Very dense", "definition": "Brow extends into bushy or unibrow territory; high terminal-hair count."}
+      ],
+      "observability": {
+        "from_photograph": "high",
+        "requires_unclothed": false,
+        "minimum_visible_extent": "head_only",
+        "notes": "Cosmetic shaping confounds native-density assessment. If brow shows clear evidence of grooming, observation should reflect the visible state and confidence should reflect the uncertainty about native density."
+      }
+    },
+
+    {
+      "id": "eyebrow_shape",
+      "display_name": "Eyebrow shape",
+      "type": "categorical",
+      "scale": "eyebrow_shape_qualitative",
+      "scale_citation": "Cosmetic-industry shape vocabulary aligned with brow-aesthetics literature (Westmore brow-mapping, etc.).",
+      "description": "Overall arch and shape of the eyebrow as visible in the photograph.",
+      "values": [
+        {"id": "straight", "display_name": "Straight", "definition": "Minimal arch; nearly horizontal brow line."},
+        {"id": "soft_arch", "display_name": "Soft arch", "definition": "Gentle, gradual arch; arch peak in the lateral two-thirds."},
+        {"id": "high_arch", "display_name": "High arch", "definition": "Pronounced arch with a clear peak; stronger lateral-tail descent."},
+        {"id": "rounded", "display_name": "Rounded", "definition": "Curved brow without a distinct arch peak; smooth crescent shape."},
+        {"id": "flat_descending", "display_name": "Flat / descending", "definition": "No arch; brow descends laterally toward the temple."},
+        {"id": "asymmetric", "display_name": "Asymmetric", "definition": "Notable left-right brow shape difference."}
+      ],
+      "observability": {
+        "from_photograph": "high",
+        "requires_unclothed": false,
+        "minimum_visible_extent": "head_only",
+        "notes": "Cosmetic shaping affects observation; flag when shaping is visible."
+      }
+    },
+
+    {
+      "id": "tear_trough_dark_circles",
+      "display_name": "Tear-trough / infraorbital darkness",
+      "type": "ordinal",
+      "scale": "infraorbital_darkness_qualitative",
+      "scale_citation": "Aligned with the Hirmand classification of tear-trough deformity (Hirmand H — Plastic and Reconstructive Surgery, 2010, 125(2)) for visible severity.",
+      "description": "Visible darkness or hollowness in the infraorbital region (under-eye). Constitutional in some ethnic groups (notably South Asian, Mediterranean populations); also age-related and lifestyle-related.",
+      "values": [
+        {"id": "absent", "display_name": "Absent", "definition": "No discernible darkness or hollowness."},
+        {"id": "mild", "display_name": "Mild", "definition": "Subtle pigmentation or shallow tear-trough; not the dominant feature of the periorbital region."},
+        {"id": "moderate", "display_name": "Moderate", "definition": "Clearly visible darkness or hollowness; periorbital region appears tired."},
+        {"id": "marked", "display_name": "Marked", "definition": "Pronounced infraorbital pigmentation or deep tear-trough; significant aesthetic concern in cosmetic-medicine context."}
+      ],
+      "observability": {
+        "from_photograph": "high",
+        "requires_unclothed": false,
+        "minimum_visible_extent": "head_only",
+        "notes": "Lighting affects assessment substantially — overhead lighting can artificially deepen tear-trough shadows."
+      }
+    },
+
+    {
+      "id": "eye_protrusion",
+      "display_name": "Eye protrusion (anteroposterior)",
+      "type": "categorical",
+      "scale": "eye_protrusion_qualitative",
+      "scale_citation": "Aligned with ophthalmologic exophthalmometry descriptors (Hertel exophthalmometry); qualitative-bucket equivalent for visual assessment.",
+      "description": "Anteroposterior position of the globe relative to the orbital rim. Constitutional variation; pathologic at the extremes (proptosis / enophthalmos).",
+      "values": [
+        {"id": "recessed", "display_name": "Recessed (enophthalmic-leaning)", "definition": "Globe sits posterior to the orbital rim; deep-set appearance."},
+        {"id": "normal", "display_name": "Normal", "definition": "Globe at typical orbital rim position."},
+        {"id": "prominent", "display_name": "Prominent (proptotic-leaning)", "definition": "Globe sits anterior to the orbital rim; visible sclera around the iris circumference."}
+      ],
+      "observability": {
+        "from_photograph": "medium",
+        "requires_unclothed": false,
+        "minimum_visible_extent": "head_only",
+        "notes": "Best assessed from lateral view. Differential diagnosis between constitutional prominence and pathologic proptosis (e.g. thyroid eye disease) is outside the scope of phenotype observation."
+      }
+    }
+  ],
+
+  "aggregation_notes": {
+    "categorical_dimensions_roll_up_as": "frequency distribution",
+    "ordinal_dimensions_roll_up_as": "frequency distribution + median bucket",
+    "minimum_sample_size_for_publication": 10,
+    "small_sample_caveat_threshold": 25,
+    "low_quality_threshold": 0.3,
+    "low_confidence_threshold": 0.55
+  },
+
+  "references": [
+    "Farkas LG (1994). Anthropometry of the Head and Face, 2nd Edition. Raven Press.",
+    "Duke-Elder S (1964). System of Ophthalmology, Volume III. CV Mosby.",
+    "Sturm RA, Larsson M (2009). Genetics of human iris colour and patterns. Pigment Cell & Melanoma Research, 22(5).",
+    "McCurdy JA Jr (2005). Cosmetic surgery of the Asian face. Thieme.",
+    "Chen WP (2007). Asian Blepharoplasty and the Eyelid Crease. Butterworth-Heinemann.",
+    "McCord CD Jr, Codner MA (2016). Eyelid and Periorbital Surgery, 2nd Edition. Quality Medical Publishing.",
+    "Hirmand H (2010). Anatomy and nonsurgical correction of the tear trough deformity. Plastic and Reconstructive Surgery, 125(2).",
+    "Putterman AM (1999). Cosmetic Oculoplastic Surgery, 3rd Edition. WB Saunders."
+  ]
+}
