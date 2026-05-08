@@ -1,0 +1,34 @@
+// Auto-generated from vocabularies/lips-and-mouth.json (v1.0.0). Do not edit by hand. Regenerate via: node scripts/generate-from-vocabulary.mjs
+
+model lips_and_mouth_observation {
+  id                    Int      @id @default(autoincrement())
+  example_id            Int      @unique(map: "UX_lips_and_mouth_observation_example")
+  lip_volume_overall    String?  @db.NVarChar(50)
+  upper_to_lower_lip_ratio  String?  @db.NVarChar(100)
+  cupids_bow            String?  @db.NVarChar(50)
+  philtrum              String?  @db.NVarChar(50)
+  mouth_width           String?  @db.NVarChar(50)
+  lip_corner_orientation  String?  @db.NVarChar(50)
+  vermilion_border      String?  @db.NVarChar(50)
+  dental_visibility     String?  @db.NVarChar(50)
+  dental_alignment      String?  @db.NVarChar(100)
+  tongue_morphology     String?  @db.NVarChar(50)
+  lip_volume_overall_confidence  Float?
+  upper_to_lower_lip_ratio_confidence  Float?
+  cupids_bow_confidence  Float?
+  philtrum_confidence   Float?
+  mouth_width_confidence  Float?
+  lip_corner_orientation_confidence  Float?
+  vermilion_border_confidence  Float?
+  dental_visibility_confidence  Float?
+  dental_alignment_confidence  Float?
+  tongue_morphology_confidence  Float?
+  vocabulary_source     String   @default("canonical") @db.NVarChar(50)
+  vocabulary_version    String   @default("1.0.0") @db.NVarChar(20)
+  analysis_model        String?  @db.NVarChar(100)
+  analyzed_at           DateTime @default(now()) @db.DateTime2
+
+  example ethnic_examples @relation(fields: [example_id], references: [id], map: "FK_lips_and_mouth_observation_example")
+
+  @@index([example_id], map: "IX_lips_and_mouth_observation_example")
+}

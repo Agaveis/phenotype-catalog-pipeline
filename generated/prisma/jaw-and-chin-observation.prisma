@@ -1,0 +1,30 @@
+// Auto-generated from vocabularies/jaw-and-chin.json (v1.0.0). Do not edit by hand. Regenerate via: node scripts/generate-from-vocabulary.mjs
+
+model jaw_and_chin_observation {
+  id                    Int      @id @default(autoincrement())
+  example_id            Int      @unique(map: "UX_jaw_and_chin_observation_example")
+  jaw_width_bigonial    String?  @db.NVarChar(50)
+  mandibular_angle      String?  @db.NVarChar(50)
+  masseter_prominence   String?  @db.NVarChar(50)
+  chin_projection       String?  @db.NVarChar(50)
+  chin_shape_frontal    String?  @db.NVarChar(50)
+  chin_height           String?  @db.NVarChar(50)
+  submental_definition  String?  @db.NVarChar(100)
+  mandibular_contour_definition  String?  @db.NVarChar(50)
+  jaw_width_bigonial_confidence  Float?
+  mandibular_angle_confidence  Float?
+  masseter_prominence_confidence  Float?
+  chin_projection_confidence  Float?
+  chin_shape_frontal_confidence  Float?
+  chin_height_confidence  Float?
+  submental_definition_confidence  Float?
+  mandibular_contour_definition_confidence  Float?
+  vocabulary_source     String   @default("canonical") @db.NVarChar(50)
+  vocabulary_version    String   @default("1.0.0") @db.NVarChar(20)
+  analysis_model        String?  @db.NVarChar(100)
+  analyzed_at           DateTime @default(now()) @db.DateTime2
+
+  example ethnic_examples @relation(fields: [example_id], references: [id], map: "FK_jaw_and_chin_observation_example")
+
+  @@index([example_id], map: "IX_jaw_and_chin_observation_example")
+}

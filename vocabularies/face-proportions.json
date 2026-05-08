@@ -1,0 +1,136 @@
+{
+  "atlas_category": "face-proportions",
+  "uberon_id": "UBERON:0001456",
+  "fma_id": "FMA:24728",
+  "display_name": "Face proportions",
+  "version": "1.0.0",
+  "license": "CC-BY-4.0",
+  "description": "Whole-face proportional dimensions: face shape, facial-thirds balance, cheekbone prominence, malar projection, midface morphology, forehead. Captures the macro-level face morphology that's not localized to any single feature. Dimensions draw from craniofacial anthropometry (Farkas), facial-aesthetics literature (Powell-Humphreys, Ricketts), and contemporary aesthetic-medicine references on the diverse-patient-population face.",
+
+  "dimensions": [
+    {
+      "id": "face_shape",
+      "display_name": "Overall face shape",
+      "type": "categorical",
+      "scale": "face_shape_qualitative",
+      "scale_citation": "Aligned with cosmetology-and-anthropometry shape descriptors used in styling and forensic-anthropology literature.",
+      "description": "Macro-level shape of the face derived from facial outline (forehead width, cheekbone width, jaw width, face length).",
+      "values": [
+        {"id": "oval", "display_name": "Oval", "definition": "Length approximately 1.5x width; balanced forehead and jaw with widest point at cheekbones."},
+        {"id": "round", "display_name": "Round", "definition": "Length and width approximately equal; soft jaw and forehead curves."},
+        {"id": "square", "display_name": "Square", "definition": "Length and width approximately equal; angular jaw and forehead."},
+        {"id": "heart", "display_name": "Heart", "definition": "Wide forehead, narrow jaw, often with a pointed chin."},
+        {"id": "diamond", "display_name": "Diamond", "definition": "Narrow forehead and jaw with widest point at cheekbones; pronounced cheek prominence."},
+        {"id": "oblong_long", "display_name": "Oblong / long", "definition": "Length substantially greater than width; balanced forehead and jaw."},
+        {"id": "triangular_inverted", "display_name": "Triangular (inverted)", "definition": "Wide jaw, narrow forehead — opposite of heart-shape."},
+        {"id": "asymmetric", "display_name": "Asymmetric", "definition": "Notable left-right facial asymmetry as the dominant feature."}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_only"}
+    },
+    {
+      "id": "facial_thirds_balance",
+      "display_name": "Facial thirds balance",
+      "type": "categorical",
+      "scale": "facial_thirds_qualitative",
+      "scale_citation": "Farkas LG (1994). Anthropometry of the Head and Face, 2nd Edition. Aesthetic reference: upper third (trichion-glabella), middle third (glabella-subnasale), lower third (subnasale-menton) approximately equal in the European-population norm.",
+      "description": "Relative proportions of the three classical facial thirds.",
+      "values": [
+        {"id": "balanced_thirds", "display_name": "Balanced thirds", "definition": "All three vertical thirds approximately equal."},
+        {"id": "long_upper", "display_name": "Long upper third", "definition": "Forehead substantially longer than the other thirds."},
+        {"id": "long_middle", "display_name": "Long middle third", "definition": "Midface (glabella to subnasale) substantially longer."},
+        {"id": "long_lower", "display_name": "Long lower third", "definition": "Lower face (subnasale to menton) substantially longer; common with prognathism or chin elongation."},
+        {"id": "short_upper", "display_name": "Short upper third", "definition": "Low hairline; reduced forehead height."},
+        {"id": "short_lower", "display_name": "Short lower third", "definition": "Reduced lower-face vertical dimension; common with retrognathia."}
+      ],
+      "observability": {"from_photograph": "medium", "requires_unclothed": false, "minimum_visible_extent": "head_only", "notes": "Hairline position can be obscured by hairstyle; trichion may not be reliably visible."}
+    },
+    {
+      "id": "cheekbone_prominence",
+      "display_name": "Cheekbone (zygomatic) prominence",
+      "type": "ordinal",
+      "scale": "zygomatic_prominence_qualitative",
+      "scale_citation": "Aligned with the malar-augmentation literature; Ricketts esthetic plane references the malar region.",
+      "description": "Anterior projection of the zygomatic prominence.",
+      "values": [
+        {"id": "flat_minimal", "display_name": "Flat / minimal", "definition": "Cheekbones not visible as a discrete landmark."},
+        {"id": "moderate", "display_name": "Moderate", "definition": "Cheekbones visible but not prominent."},
+        {"id": "high_prominent", "display_name": "High / prominent", "definition": "Pronounced anterior projection; defined cheekbone landmarks. Common in some East Asian, indigenous American, and Slavic populations."}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_only"}
+    },
+    {
+      "id": "cheekbone_width",
+      "display_name": "Cheekbone width (bizygomatic breadth)",
+      "type": "ordinal",
+      "scale": "bizygomatic_breadth_qualitative",
+      "scale_citation": "Farkas LG (1994). Reference: bizygomatic breadth (zy-zy) is typically the widest face dimension in the European-population norm.",
+      "description": "Width of the face at the cheekbones, proportional to face height.",
+      "values": [
+        {"id": "narrow", "display_name": "Narrow", "definition": "Bizygomatic breadth narrow relative to face height."},
+        {"id": "balanced", "display_name": "Balanced", "definition": "Bizygomatic breadth in proportional reference range."},
+        {"id": "wide", "display_name": "Wide", "definition": "Bizygomatic breadth substantially wide; common in East Asian and indigenous populations."}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_only"}
+    },
+    {
+      "id": "midface_morphology",
+      "display_name": "Midface morphology",
+      "type": "categorical",
+      "scale": "midface_qualitative",
+      "scale_citation": "Aligned with facial-aging and aesthetic-medicine descriptors of the midface region.",
+      "description": "Soft-tissue contour of the midface (the region between the lower eyelid and the upper lip).",
+      "values": [
+        {"id": "full_youthful", "display_name": "Full / youthful", "definition": "Anterior midface fullness; smooth nasolabial fold; defined cheek apple."},
+        {"id": "balanced", "display_name": "Balanced", "definition": "Average midface fullness."},
+        {"id": "flattened_aged", "display_name": "Flattened / aged", "definition": "Reduced midface fullness; deepened nasolabial fold; visible tear-trough; mid-cheek descent."},
+        {"id": "very_full", "display_name": "Very full", "definition": "Pronounced anterior midface fullness — constitutional or augmented."}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_only"}
+    },
+    {
+      "id": "forehead_height",
+      "display_name": "Forehead height",
+      "type": "ordinal",
+      "scale": "forehead_height_proportional",
+      "scale_citation": "Farkas LG (1994). Anthropometry of the Head and Face. Reference: forehead height (trichion to glabella) approximately equal to the other facial thirds in the aesthetic norm.",
+      "description": "Vertical dimension of the forehead from hairline (trichion) to glabella, proportional to lower facial thirds.",
+      "values": [
+        {"id": "low", "display_name": "Low", "definition": "Forehead height substantially below proportional reference; low hairline."},
+        {"id": "balanced", "display_name": "Balanced", "definition": "Forehead height approximately matches other facial thirds."},
+        {"id": "tall", "display_name": "Tall", "definition": "Forehead height substantially above proportional reference; high hairline or recession."}
+      ],
+      "observability": {"from_photograph": "medium", "requires_unclothed": false, "minimum_visible_extent": "head_only", "notes": "Hairstyle and grooming substantially affect visible forehead height; observation should reflect visible state."}
+    },
+    {
+      "id": "forehead_shape",
+      "display_name": "Forehead shape (sagittal)",
+      "type": "categorical",
+      "scale": "forehead_shape_qualitative",
+      "scale_citation": "Aligned with aesthetic-medicine descriptors of forehead morphology used in fillers / forehead-augmentation context.",
+      "description": "Profile shape of the forehead in lateral view.",
+      "values": [
+        {"id": "rounded_convex", "display_name": "Rounded / convex", "definition": "Smoothly rounded forehead profile; soft slope."},
+        {"id": "flat_vertical", "display_name": "Flat / vertical", "definition": "Forehead nearly vertical in profile; minimal anterior curvature."},
+        {"id": "sloping", "display_name": "Sloping (posterior)", "definition": "Forehead slopes posteriorly from glabella; common in male morphology with prominent supraorbital ridges."},
+        {"id": "bossing", "display_name": "Frontal bossing", "definition": "Pronounced anterior projection of the frontal bone; less common variant."}
+      ],
+      "observability": {"from_photograph": "medium", "requires_unclothed": false, "minimum_visible_extent": "head_only", "notes": "Best assessed from lateral view."}
+    }
+  ],
+
+  "aggregation_notes": {
+    "categorical_dimensions_roll_up_as": "frequency distribution",
+    "ordinal_dimensions_roll_up_as": "frequency distribution + median bucket",
+    "minimum_sample_size_for_publication": 10,
+    "small_sample_caveat_threshold": 25,
+    "low_quality_threshold": 0.3,
+    "low_confidence_threshold": 0.55
+  },
+
+  "references": [
+    "Farkas LG (1994). Anthropometry of the Head and Face, 2nd Edition. Raven Press.",
+    "Powell N, Humphreys B (1984). Proportions of the Aesthetic Face. Thieme.",
+    "Ricketts RM (1982). Divine proportion in facial esthetics. Clinics in Plastic Surgery, 9(4): 401-422.",
+    "Sundaram H, Liew S, Signorini M, et al. (2016). Global aesthetics consensus: hyaluronic acid fillers and botulinum toxin type A — recommendations for combined treatment and optimizing outcomes in diverse patient populations. Plastic and Reconstructive Surgery, 137(5)."
+  ]
+}

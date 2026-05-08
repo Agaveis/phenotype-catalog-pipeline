@@ -1,0 +1,128 @@
+{
+  "atlas_category": "butt",
+  "uberon_id": "UBERON:0001783",
+  "fma_id": "FMA:64910",
+  "display_name": "Butt (gluteal region)",
+  "version": "1.0.0",
+  "license": "CC-BY-4.0",
+  "description": "Gluteal-region morphology: shape, size, projection, gluteal-fold definition, and transitions to surrounding regions. Dimensions are drawn from gluteal-aesthetic-surgery literature (Cuenca-Guerra, Mendieta, Roberts) which has produced the contemporary classification systems for buttock shape and proportions. Significant ethnic and individual variation; the Mendieta four-class system is the most-cited classification for buttock shape in plastic-surgery literature.",
+
+  "dimensions": [
+    {
+      "id": "buttock_shape_mendieta",
+      "display_name": "Buttock shape (Mendieta)",
+      "type": "categorical",
+      "scale": "mendieta_four_class",
+      "scale_citation": "Mendieta CG (2007). Classification system for gluteal evaluation. Clinics in Plastic Surgery, 34(3): 333-346.",
+      "description": "Four-class buttock-shape classification developed for gluteal-aesthetic surgery, based on the silhouette from a posterior view.",
+      "values": [
+        {"id": "round_A_shape", "display_name": "A-shape (square below, narrow above)", "definition": "Wider at the lower buttock; trapezoidal silhouette with the wider edge inferior."},
+        {"id": "v_shape", "display_name": "V-shape (wide above, narrow below)", "definition": "Wider at the upper buttock; trapezoidal silhouette with the wider edge superior."},
+        {"id": "round", "display_name": "Round", "definition": "Approximately circular silhouette; aesthetic-surgery reference shape."},
+        {"id": "square", "display_name": "Square", "definition": "Approximately rectangular silhouette with similar width across upper and lower."}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "torso", "notes": "Best assessed from posterior view."}
+    },
+    {
+      "id": "buttock_size",
+      "display_name": "Buttock size (relative)",
+      "type": "ordinal",
+      "scale": "buttock_size_qualitative",
+      "scale_citation": "Aligned with gluteal-aesthetic descriptors used in body-contouring literature (Roberts TL et al. Aesthetic Surgery Journal).",
+      "description": "Overall buttock size relative to body proportions.",
+      "values": [
+        {"id": "small", "display_name": "Small", "definition": "Limited gluteal mass; minimal projection from the trunk silhouette."},
+        {"id": "moderate", "display_name": "Moderate", "definition": "Average gluteal mass."},
+        {"id": "full", "display_name": "Full", "definition": "Pronounced gluteal mass."},
+        {"id": "very_full", "display_name": "Very full", "definition": "Substantial gluteal mass; dominant feature of the trunk silhouette. Constitutional, athletic, or augmented."}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "torso"}
+    },
+    {
+      "id": "buttock_projection",
+      "display_name": "Buttock projection (lateral view)",
+      "type": "ordinal",
+      "scale": "buttock_projection_qualitative",
+      "scale_citation": "Aligned with gluteal-aesthetic descriptors used in lateral-view-based aesthetic assessment.",
+      "description": "Posterior projection of the buttock from the sacral plane in lateral view.",
+      "values": [
+        {"id": "flat", "display_name": "Flat", "definition": "Minimal posterior projection."},
+        {"id": "moderate", "display_name": "Moderate", "definition": "Standard posterior projection."},
+        {"id": "high_projection", "display_name": "High projection", "definition": "Pronounced posterior projection; 'shelf-like' silhouette in lateral view."}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "torso", "notes": "Best assessed from lateral view; frontal view alone cannot resolve projection."}
+    },
+    {
+      "id": "gluteal_fold_definition",
+      "display_name": "Gluteal fold definition",
+      "type": "ordinal",
+      "scale": "gluteal_fold_qualitative",
+      "scale_citation": "Aligned with descriptors used in gluteal-aesthetic-surgery literature on the gluteal-thigh transition.",
+      "description": "Sharpness of the gluteal fold (the crease between the buttock and the posterior thigh).",
+      "values": [
+        {"id": "sharp_defined", "display_name": "Sharp / defined", "definition": "Clear, crisp gluteal fold as a discrete landmark."},
+        {"id": "moderate", "display_name": "Moderate"},
+        {"id": "soft_blended", "display_name": "Soft / blended", "definition": "Gradual buttock-to-thigh transition; reduced fold definition."}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "torso"}
+    },
+    {
+      "id": "lateral_concavity",
+      "display_name": "Lateral hip concavity (hip dip)",
+      "type": "categorical",
+      "scale": "trochanteric_depression_qualitative",
+      "scale_citation": "Aligned with descriptors used in gluteal-augmentation literature on lateral hip morphology.",
+      "description": "Visible depression at the lateral hip ('hip dip' / 'violin hip') between the iliac crest and the greater trochanter.",
+      "values": [
+        {"id": "absent", "display_name": "Absent", "definition": "Smooth lateral hip silhouette without visible depression."},
+        {"id": "subtle", "display_name": "Subtle", "definition": "Slight visible depression."},
+        {"id": "pronounced", "display_name": "Pronounced", "definition": "Distinct depression; common skeletal-anatomy variant."}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "torso"}
+    },
+    {
+      "id": "buttock_to_hip_ratio",
+      "display_name": "Buttock-to-hip silhouette",
+      "type": "categorical",
+      "scale": "gluteal_hip_silhouette_qualitative",
+      "scale_citation": "Aligned with descriptors used in BBL (Brazilian Butt Lift) aesthetic literature.",
+      "description": "Relationship between buttock width and hip width in the posterior silhouette.",
+      "values": [
+        {"id": "hourglass_pronounced", "display_name": "Hourglass (pronounced waist)", "definition": "Buttock projection substantially wider than waist creating an hourglass posterior silhouette."},
+        {"id": "balanced", "display_name": "Balanced"},
+        {"id": "narrow_continuous", "display_name": "Narrow / continuous", "definition": "Minimal buttock-to-hip transition; rectangular silhouette."}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "torso"}
+    },
+    {
+      "id": "asymmetry",
+      "display_name": "Buttock asymmetry",
+      "type": "ordinal",
+      "scale": "buttock_symmetry_qualitative",
+      "scale_citation": "Aligned with surgical-gynecology and gluteal-aesthetic descriptors of bilateral asymmetry.",
+      "description": "Degree of left-right buttock asymmetry.",
+      "values": [
+        {"id": "symmetric", "display_name": "Symmetric"},
+        {"id": "mild_asymmetry", "display_name": "Mild"},
+        {"id": "moderate_asymmetry", "display_name": "Moderate"},
+        {"id": "marked_asymmetry", "display_name": "Marked"}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "torso"}
+    }
+  ],
+
+  "aggregation_notes": {
+    "categorical_dimensions_roll_up_as": "frequency distribution",
+    "ordinal_dimensions_roll_up_as": "frequency distribution + median bucket",
+    "minimum_sample_size_for_publication": 10,
+    "small_sample_caveat_threshold": 25,
+    "low_quality_threshold": 0.3,
+    "low_confidence_threshold": 0.55
+  },
+
+  "references": [
+    "Mendieta CG (2007). Classification system for gluteal evaluation. Clinics in Plastic Surgery, 34(3): 333-346.",
+    "Cuenca-Guerra R, Quezada J (2004). What makes buttocks beautiful? A review and classification of the determinants of gluteal beauty and the surgical techniques to achieve them. Aesthetic Plastic Surgery, 28(5): 340-347.",
+    "Roberts TL III, Toledo LS, Badin AZ (2001). Augmentation of the buttocks by micro fat grafting. Aesthetic Surgery Journal, 21(4)."
+  ]
+}

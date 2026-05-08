@@ -1,0 +1,131 @@
+{
+  "atlas_category": "feet",
+  "uberon_id": "UBERON:0002387",
+  "fma_id": "FMA:9664",
+  "display_name": "Feet",
+  "version": "1.0.0",
+  "license": "CC-BY-4.0",
+  "description": "Foot morphology: foot size, arch height, toe length pattern, midfoot width, heel and ankle morphology, nail shape. The toe-length-pattern dimension (Greek / Egyptian / Roman / Square) is the canonical anthropometric foot-typology classification, dating to classical-art conventions and used in modern podiatry literature.",
+
+  "dimensions": [
+    {
+      "id": "foot_size_relative",
+      "display_name": "Foot size (relative to body)",
+      "type": "ordinal",
+      "scale": "foot_size_qualitative",
+      "scale_citation": "Aligned with anthropometric foot-length proportions (typical ratio ~14-15% of body height).",
+      "description": "Foot length relative to body height.",
+      "values": [
+        {"id": "small", "display_name": "Small"},
+        {"id": "average", "display_name": "Average"},
+        {"id": "large", "display_name": "Large"}
+      ],
+      "observability": {"from_photograph": "medium", "requires_unclothed": false, "minimum_visible_extent": "full_body"}
+    },
+    {
+      "id": "arch_height",
+      "display_name": "Arch height (medial longitudinal)",
+      "type": "ordinal",
+      "scale": "arch_index_qualitative",
+      "scale_citation": "Cavanagh PR, Rodgers MM (1987). The arch index: a useful measure from footprints. Journal of Biomechanics, 20(5): 547-551. Original quantitative scale; this dimension uses three qualitative buckets aligned with the clinical classification of high-arch / normal / flat-foot.",
+      "description": "Height of the medial longitudinal arch when standing.",
+      "values": [
+        {"id": "flat_pes_planus", "display_name": "Flat (pes planus)", "definition": "Reduced or absent arch; medial border of foot rests near the floor."},
+        {"id": "normal", "display_name": "Normal"},
+        {"id": "high_pes_cavus", "display_name": "High (pes cavus)", "definition": "Pronounced arch; reduced foot-floor contact area."}
+      ],
+      "observability": {"from_photograph": "medium", "requires_unclothed": true, "minimum_visible_extent": "full_body", "notes": "Best assessed from medial view of the bare foot; from above with shoes on, only crude approximation is possible."}
+    },
+    {
+      "id": "toe_length_pattern",
+      "display_name": "Toe length pattern",
+      "type": "categorical",
+      "scale": "toe_typology_classical",
+      "scale_citation": "Classical anthropometric foot typology described in podiatry literature; Hawes MR, Sovak D, Miyashita M, Kang SJ, Yoshihuku Y, Tanaka S (1994). Ethnic differences in forefoot shape and the determination of shoe comfort. Ergonomics, 37(1).",
+      "description": "Relative length of the great toe (hallux) versus the second toe and remaining toes. Classical names derive from frequencies in art conventions; modern usage is descriptive.",
+      "values": [
+        {"id": "egyptian", "display_name": "Egyptian", "definition": "Hallux longest; toes decrease in length from first to fifth in a straight diagonal. Most common pattern globally."},
+        {"id": "greek_morton", "display_name": "Greek (Morton's)", "definition": "Second toe longer than hallux; common variant. Sometimes associated with biomechanical foot-strike patterns."},
+        {"id": "roman_square", "display_name": "Roman / square", "definition": "First three toes approximately equal in length, then sharp drop. Less common variant."},
+        {"id": "stretched_long", "display_name": "Stretched (long-toed)", "definition": "All toes long relative to forefoot length."},
+        {"id": "asymmetric", "display_name": "Asymmetric", "definition": "Notable left-right toe-pattern asymmetry."}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": true, "minimum_visible_extent": "full_body"}
+    },
+    {
+      "id": "forefoot_width",
+      "display_name": "Forefoot width",
+      "type": "ordinal",
+      "scale": "forefoot_width_qualitative",
+      "scale_citation": "Aligned with shoe-fitting and ergonomics descriptors of forefoot breadth.",
+      "description": "Width of the forefoot at the metatarsal heads relative to foot length.",
+      "values": [
+        {"id": "narrow", "display_name": "Narrow"},
+        {"id": "average", "display_name": "Average"},
+        {"id": "wide", "display_name": "Wide", "definition": "Broad metatarsal width; common variant in some populations."}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": true, "minimum_visible_extent": "full_body"}
+    },
+    {
+      "id": "heel_morphology",
+      "display_name": "Heel morphology",
+      "type": "categorical",
+      "scale": "heel_qualitative",
+      "scale_citation": "Aligned with podiatric descriptors of calcaneal soft-tissue silhouette.",
+      "description": "Soft-tissue heel silhouette in lateral view.",
+      "values": [
+        {"id": "narrow", "display_name": "Narrow"},
+        {"id": "balanced", "display_name": "Balanced"},
+        {"id": "broad", "display_name": "Broad"},
+        {"id": "haglund_prominent", "display_name": "Haglund's prominence", "definition": "Visible posterior superior calcaneal prominence; clinical Haglund deformity."}
+      ],
+      "observability": {"from_photograph": "medium", "requires_unclothed": true, "minimum_visible_extent": "full_body"}
+    },
+    {
+      "id": "hallux_alignment",
+      "display_name": "Hallux alignment",
+      "type": "categorical",
+      "scale": "hallux_alignment_qualitative",
+      "scale_citation": "Manchester scale for hallux valgus visual grading; Garrow AP, Papageorgiou A, Silman AJ et al. (2001). The grading of hallux valgus. The Manchester Scale. Journal of the American Podiatric Medical Association, 91(2).",
+      "description": "Alignment of the great toe relative to the foot's longitudinal axis. Clinical hallux valgus when significantly deviated medially.",
+      "values": [
+        {"id": "neutral", "display_name": "Neutral"},
+        {"id": "mild_valgus", "display_name": "Mild hallux valgus", "definition": "Subtle medial deviation; no overlap with adjacent toes."},
+        {"id": "moderate_valgus", "display_name": "Moderate hallux valgus", "definition": "Clear medial deviation; bunion visible."},
+        {"id": "severe_valgus", "display_name": "Severe hallux valgus", "definition": "Marked medial deviation; hallux overlaps or underlies second toe."}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": true, "minimum_visible_extent": "full_body"}
+    },
+    {
+      "id": "toenail_morphology",
+      "display_name": "Toenail morphology",
+      "type": "categorical",
+      "scale": "toenail_qualitative",
+      "scale_citation": "Aligned with descriptors used in dermatology and podiatry literature.",
+      "description": "Toenail shape and condition.",
+      "values": [
+        {"id": "normal", "display_name": "Normal"},
+        {"id": "groomed_pedicured", "display_name": "Groomed / pedicured", "definition": "Visible nail-care; native shape may not be directly observable."},
+        {"id": "thickened", "display_name": "Thickened", "definition": "Onychogryphosis or age-related thickening."},
+        {"id": "discolored", "display_name": "Discolored", "definition": "Onychomycosis or other discoloration visible."},
+        {"id": "not_visible", "display_name": "Not visible"}
+      ],
+      "observability": {"from_photograph": "medium", "requires_unclothed": true, "minimum_visible_extent": "full_body"}
+    }
+  ],
+
+  "aggregation_notes": {
+    "categorical_dimensions_roll_up_as": "frequency distribution",
+    "ordinal_dimensions_roll_up_as": "frequency distribution + median bucket",
+    "minimum_sample_size_for_publication": 10,
+    "small_sample_caveat_threshold": 25,
+    "low_quality_threshold": 0.3,
+    "low_confidence_threshold": 0.55
+  },
+
+  "references": [
+    "Cavanagh PR, Rodgers MM (1987). The arch index: a useful measure from footprints. Journal of Biomechanics, 20(5): 547-551.",
+    "Hawes MR, Sovak D, Miyashita M, Kang SJ, Yoshihuku Y, Tanaka S (1994). Ethnic differences in forefoot shape and the determination of shoe comfort. Ergonomics, 37(1).",
+    "Garrow AP, Papageorgiou A, Silman AJ, Thomas E, Jayson MI, Macfarlane GJ (2001). The grading of hallux valgus. The Manchester Scale. Journal of the American Podiatric Medical Association, 91(2): 74-78."
+  ]
+}

@@ -1,0 +1,194 @@
+{
+  "atlas_category": "torso",
+  "uberon_id": "UBERON:0000915",
+  "fma_id": "FMA:9576",
+  "display_name": "Torso",
+  "version": "1.0.0",
+  "license": "CC-BY-4.0",
+  "description": "Trunk soft-tissue and surface-anatomy dimensions: shoulder breadth and slope, chest morphology, abdominal shape and definition, waist definition, back morphology, navel morphology. Captures the per-region detail that body-shape.json's whole-body composite metrics do not. Dimensions draw from sports-medicine, body-contouring, and aesthetic-anatomy literature.",
+
+  "dimensions": [
+    {
+      "id": "shoulder_breadth",
+      "display_name": "Shoulder breadth (biacromial)",
+      "type": "ordinal",
+      "scale": "biacromial_breadth_qualitative",
+      "scale_citation": "Aligned with anthropometry references on biacromial breadth as a primary frame-size dimension.",
+      "description": "Width across the shoulders relative to overall body proportions.",
+      "values": [
+        {"id": "narrow", "display_name": "Narrow", "definition": "Shoulders narrow relative to hips."},
+        {"id": "balanced", "display_name": "Balanced", "definition": "Shoulders proportional."},
+        {"id": "wide", "display_name": "Wide", "definition": "Pronounced shoulder breadth; characteristic V-shape silhouette in lean subjects."}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "torso"}
+    },
+    {
+      "id": "shoulder_slope",
+      "display_name": "Shoulder slope",
+      "type": "categorical",
+      "scale": "shoulder_slope_qualitative",
+      "scale_citation": "Aligned with descriptors used in tailoring and artistic-anatomy literature.",
+      "description": "Angle of the shoulders from the base of the neck outward.",
+      "values": [
+        {"id": "square", "display_name": "Square (high)", "definition": "Shoulders nearly horizontal; minimal slope."},
+        {"id": "moderate_slope", "display_name": "Moderate slope", "definition": "Average shoulder slope."},
+        {"id": "sloped", "display_name": "Sloped", "definition": "Substantial downward slope from neck base."}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "torso"}
+    },
+    {
+      "id": "chest_morphology",
+      "display_name": "Chest morphology",
+      "type": "categorical",
+      "scale": "chest_shape_qualitative",
+      "scale_citation": "Aligned with descriptors used in thoracic-surgery and pectus-deformity literature.",
+      "description": "Anterior chest wall shape.",
+      "values": [
+        {"id": "flat", "display_name": "Flat", "definition": "Anterior chest wall approximately flat in profile."},
+        {"id": "rounded_normal", "display_name": "Rounded (normal)", "definition": "Standard anterior chest contour."},
+        {"id": "barrel_chest", "display_name": "Barrel-chested", "definition": "Increased anteroposterior chest diameter."},
+        {"id": "pectus_excavatum", "display_name": "Pectus excavatum (sunken)", "definition": "Visible sternal depression."},
+        {"id": "pectus_carinatum", "display_name": "Pectus carinatum (protruding)", "definition": "Visible sternal protrusion ('pigeon chest')."}
+      ],
+      "observability": {"from_photograph": "medium", "requires_unclothed": true, "minimum_visible_extent": "torso"}
+    },
+    {
+      "id": "pectoral_definition_male",
+      "display_name": "Pectoral definition (male)",
+      "type": "ordinal",
+      "scale": "pectoral_definition_qualitative",
+      "scale_citation": "Aligned with sports-medicine descriptors of pectoral musculature.",
+      "description": "Visible pectoral muscle definition in subjects with apparent male physiognomy.",
+      "values": [
+        {"id": "minimal", "display_name": "Minimal", "definition": "Pectorals not visible as discrete landmarks."},
+        {"id": "moderate", "display_name": "Moderate", "definition": "Pectorals visible but not prominently defined."},
+        {"id": "defined", "display_name": "Defined", "definition": "Clear pectoral definition; visible separation between pectoralis and surrounding tissue."},
+        {"id": "highly_developed", "display_name": "Highly developed", "definition": "Pronounced pectoral mass and definition."},
+        {"id": "not_applicable", "display_name": "Not applicable", "definition": "Subject not in male physiognomy or chest not visible."}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": true, "minimum_visible_extent": "torso"}
+    },
+    {
+      "id": "abdominal_shape",
+      "display_name": "Abdominal shape",
+      "type": "categorical",
+      "scale": "abdominal_shape_qualitative",
+      "scale_citation": "Aligned with body-contouring and abdominoplasty literature.",
+      "description": "Anterior abdominal contour.",
+      "values": [
+        {"id": "concave", "display_name": "Concave", "definition": "Abdominal wall sits posterior to the rib cage / pelvis line."},
+        {"id": "flat", "display_name": "Flat", "definition": "Abdominal wall in plane with rib cage / pelvis."},
+        {"id": "convex_mild", "display_name": "Convex (mild)", "definition": "Subtle anterior protrusion."},
+        {"id": "convex_pronounced", "display_name": "Convex (pronounced)", "definition": "Clearly protruding abdomen."}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "torso"}
+    },
+    {
+      "id": "abdominal_definition",
+      "display_name": "Abdominal definition (musculature)",
+      "type": "ordinal",
+      "scale": "abdominal_definition_qualitative",
+      "scale_citation": "Aligned with sports-medicine and bodybuilding descriptors of rectus abdominis visibility.",
+      "description": "Visible rectus abdominis musculature ('six-pack' visibility).",
+      "values": [
+        {"id": "none", "display_name": "None", "definition": "No visible muscular definition."},
+        {"id": "subtle", "display_name": "Subtle", "definition": "Minor definition visible at the upper abdomen only."},
+        {"id": "two_pack", "display_name": "Two-pack visible", "definition": "Upper rectus abdominis visible; lower abdomen smooth."},
+        {"id": "four_pack", "display_name": "Four-pack visible"},
+        {"id": "six_pack", "display_name": "Six-pack visible"},
+        {"id": "eight_pack", "display_name": "Eight-pack / pronounced", "definition": "Full rectus abdominis visible plus inscriptional definition between segments."}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": true, "minimum_visible_extent": "torso"}
+    },
+    {
+      "id": "waist_definition",
+      "display_name": "Waist definition",
+      "type": "ordinal",
+      "scale": "waist_definition_qualitative",
+      "scale_citation": "Aligned with body-contouring literature on the waist as a perceptual axis.",
+      "description": "Visible waist taper between the rib cage and the pelvis.",
+      "values": [
+        {"id": "absent", "display_name": "Absent", "definition": "No visible waist; rib cage to pelvis nearly straight."},
+        {"id": "subtle", "display_name": "Subtle", "definition": "Slight inward curve at waist."},
+        {"id": "defined", "display_name": "Defined", "definition": "Clear waist taper."},
+        {"id": "pronounced", "display_name": "Pronounced", "definition": "Strong hourglass-equivalent waist definition."}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "torso"}
+    },
+    {
+      "id": "back_morphology",
+      "display_name": "Back morphology",
+      "type": "categorical",
+      "scale": "back_shape_qualitative",
+      "scale_citation": "Aligned with sports-medicine and aesthetic-anatomy descriptors of dorsal-trunk silhouette.",
+      "description": "Posterior trunk silhouette.",
+      "values": [
+        {"id": "v_shape", "display_name": "V-shape", "definition": "Wide upper back tapering to narrow waist."},
+        {"id": "balanced_rectangular", "display_name": "Balanced / rectangular", "definition": "Approximately equal upper-back and waist breadth."},
+        {"id": "inverted_pear", "display_name": "Inverted pear", "definition": "Wider at hip/waist than upper back."}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "torso"}
+    },
+    {
+      "id": "lumbar_curvature",
+      "display_name": "Lumbar curvature visible",
+      "type": "categorical",
+      "scale": "lumbar_curvature_qualitative",
+      "scale_citation": "Aligned with descriptors used in posture-assessment literature; subset of the body-shape posture dimension at higher granularity.",
+      "description": "Lumbar lordosis visibility.",
+      "values": [
+        {"id": "flat", "display_name": "Flat", "definition": "Reduced lumbar curve; flattened lower back."},
+        {"id": "moderate", "display_name": "Moderate", "definition": "Standard lumbar lordosis."},
+        {"id": "pronounced_lordotic", "display_name": "Pronounced (lordotic)", "definition": "Substantial lumbar curve; sometimes called sway-back."}
+      ],
+      "observability": {"from_photograph": "medium", "requires_unclothed": false, "minimum_visible_extent": "torso"}
+    },
+    {
+      "id": "navel_morphology",
+      "display_name": "Navel (umbilicus) morphology",
+      "type": "categorical",
+      "scale": "navel_shape_qualitative",
+      "scale_citation": "Aligned with descriptors used in abdominoplasty and umbilicoplasty literature on umbilical aesthetics.",
+      "description": "Shape and orientation of the navel.",
+      "values": [
+        {"id": "vertical_oval", "display_name": "Vertical oval ('innie' vertical)", "definition": "Long axis vertical; common aesthetic reference."},
+        {"id": "horizontal_oval", "display_name": "Horizontal oval"},
+        {"id": "round", "display_name": "Round"},
+        {"id": "T_shaped", "display_name": "T-shaped"},
+        {"id": "outie_protruding", "display_name": "Outie / protruding", "definition": "Umbilicus projects outward from abdominal plane."},
+        {"id": "asymmetric", "display_name": "Asymmetric"}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": true, "minimum_visible_extent": "torso"}
+    },
+    {
+      "id": "linea_alba_visibility",
+      "display_name": "Linea alba visibility",
+      "type": "ordinal",
+      "scale": "linea_alba_qualitative",
+      "scale_citation": "Aligned with sports-medicine descriptors of midline-tendon visibility.",
+      "description": "Visibility of the linea alba — the central midline tendon between the two rectus abdominis muscles.",
+      "values": [
+        {"id": "not_visible", "display_name": "Not visible"},
+        {"id": "subtle", "display_name": "Subtle", "definition": "Visible under tension only."},
+        {"id": "defined", "display_name": "Defined", "definition": "Clear vertical midline visible at rest."},
+        {"id": "highly_defined", "display_name": "Highly defined", "definition": "Pronounced midline; common with very low body-fat percentage."}
+      ],
+      "observability": {"from_photograph": "medium", "requires_unclothed": true, "minimum_visible_extent": "torso"}
+    }
+  ],
+
+  "aggregation_notes": {
+    "categorical_dimensions_roll_up_as": "frequency distribution",
+    "ordinal_dimensions_roll_up_as": "frequency distribution + median bucket",
+    "minimum_sample_size_for_publication": 10,
+    "small_sample_caveat_threshold": 25,
+    "low_quality_threshold": 0.3,
+    "low_confidence_threshold": 0.55
+  },
+
+  "references": [
+    "Lockwood TE (1991). Superficial fascial system (SFS) of the trunk and extremities. Plastic and Reconstructive Surgery, 87(6).",
+    "Pollock H, Pollock T (2000). Progressive tension sutures: a technique to reduce local complications in abdominoplasty. Plastic and Reconstructive Surgery, 105(7).",
+    "Standring S (ed.) (2020). Gray's Anatomy: The Anatomical Basis of Clinical Practice, 42nd Edition. Elsevier."
+  ]
+}

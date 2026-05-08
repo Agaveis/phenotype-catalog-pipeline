@@ -1,0 +1,146 @@
+{
+  "atlas_category": "ears",
+  "uberon_id": "UBERON:0001690",
+  "fma_id": "FMA:52780",
+  "display_name": "Ears",
+  "version": "1.0.0",
+  "license": "CC-BY-4.0",
+  "description": "External ear anatomy: helix, antihelix, tragus, lobule, ear axis, projection. Dimensions are drawn from craniofacial anthropometry (Farkas) and otoplasty literature (McDowell, Mustardé, Furnas). The earlobe attachment dimension (free/attached/intermediate) is the canonical Mendelian-genetics teaching example, though contemporary research has shown the trait is more polygenic and continuous than the textbook treatment suggests.",
+
+  "dimensions": [
+    {
+      "id": "helix_morphology",
+      "display_name": "Helix morphology",
+      "type": "categorical",
+      "scale": "helix_qualitative",
+      "scale_citation": "Aligned with otoplasty-literature descriptors of helical-rim morphology.",
+      "description": "Curvature and prominence of the helix (the outer rim of the ear).",
+      "values": [
+        {"id": "well_curved", "display_name": "Well-curved", "definition": "Smooth, continuous helical curve from superior to lobule."},
+        {"id": "flattened_superior", "display_name": "Flattened superiorly", "definition": "Reduced curve at the superior helix; common otoplasty correction target."},
+        {"id": "stahls_ear", "display_name": "Stahl's ear", "definition": "Third crus visible; abnormal cartilage fold creating a pointed superior helix."},
+        {"id": "cup_ear_constricted", "display_name": "Cup ear / constricted", "definition": "Furled or rolled helical rim creating a cupped appearance."},
+        {"id": "asymmetric", "display_name": "Asymmetric", "definition": "Notable left-right helical morphology difference."}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_only", "notes": "Best assessed from lateral or three-quarter view; frontal view captures only ear protrusion."}
+    },
+    {
+      "id": "antihelix_definition",
+      "display_name": "Antihelix definition",
+      "type": "ordinal",
+      "scale": "antihelix_qualitative",
+      "scale_citation": "Mustardé JC (1963). The correction of prominent ears using simple mattress sutures. British Journal of Plastic Surgery, 16. Antihelix-fold definition is the central otoplasty-correction landmark.",
+      "description": "Definition of the antihelical fold. Loss of antihelix definition is the primary cause of prominent ears.",
+      "values": [
+        {"id": "well_defined", "display_name": "Well-defined", "definition": "Clear antihelical fold; ear lies close to head."},
+        {"id": "softly_defined", "display_name": "Softly defined", "definition": "Antihelix visible but fold not crisp."},
+        {"id": "absent_unfurled", "display_name": "Absent / unfurled", "definition": "Antihelical fold absent or substantially reduced; ear appears to project from head."}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_only"}
+    },
+    {
+      "id": "ear_protrusion",
+      "display_name": "Ear protrusion (auriculo-cephalic angle)",
+      "type": "ordinal",
+      "scale": "auriculocephalic_angle_categorical",
+      "scale_citation": "Furnas DW (1968). Correction of prominent ears by concha-mastoid sutures. Plastic and Reconstructive Surgery, 42(3). Reference: auriculo-cephalic angle ~20-25° aesthetic norm.",
+      "description": "Angle between the ear and the side of the head, captured ordinally.",
+      "values": [
+        {"id": "flat_against_head", "display_name": "Flat against head", "definition": "Auriculo-cephalic angle below ~15°; ear barely projects from head."},
+        {"id": "normal", "display_name": "Normal", "definition": "Angle approximately 15-25°."},
+        {"id": "prominent", "display_name": "Prominent", "definition": "Angle 25-35°; visibly prominent."},
+        {"id": "very_prominent", "display_name": "Very prominent", "definition": "Angle >35°; pronounced ear protrusion ('lop ear' / 'cup ear' in extreme cases)."}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_only", "notes": "Best assessed from frontal or posterior view; lateral view alone underestimates protrusion."}
+    },
+    {
+      "id": "lobule_attachment",
+      "display_name": "Earlobe attachment",
+      "type": "categorical",
+      "scale": "earlobe_attachment_continuum",
+      "scale_citation": "Shaffer JR et al. (2017). Genome-wide association study reveals multiple loci influencing normal human earlobe attachment. American Journal of Human Genetics, 101(6). The classic Mendelian-genetics two-state classification is now understood as a polygenic continuum; this scale uses three buckets reflecting that continuum.",
+      "description": "Degree of attachment of the earlobe to the side of the head. Classically taught as two-state (free/attached) but contemporary genetics work demonstrates a continuous distribution; three buckets capture the meaningful variation.",
+      "values": [
+        {"id": "free", "display_name": "Free / detached", "definition": "Earlobe hangs free of the head; clear gap between lobule and adjacent skin."},
+        {"id": "intermediate", "display_name": "Intermediate", "definition": "Partial attachment; lobule attaches to head along part of its edge but not fully."},
+        {"id": "attached", "display_name": "Attached", "definition": "Lobule attaches to head along its entire posterior edge; no free hanging."}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_only"}
+    },
+    {
+      "id": "lobule_size",
+      "display_name": "Earlobe size",
+      "type": "ordinal",
+      "scale": "lobule_size_qualitative",
+      "scale_citation": "Aligned with descriptors used in otoplasty and forensic-anthropology literature.",
+      "description": "Relative size of the earlobe.",
+      "values": [
+        {"id": "small", "display_name": "Small", "definition": "Limited lobule mass; minimal hanging tissue."},
+        {"id": "medium", "display_name": "Medium", "definition": "Average lobule size."},
+        {"id": "large", "display_name": "Large", "definition": "Pronounced lobule mass; large hanging tissue."},
+        {"id": "stretched", "display_name": "Stretched (gauge / piercing)", "definition": "Lobule visibly stretched from gauge piercings or repeated heavy earrings; native size not assessable."}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_only"}
+    },
+    {
+      "id": "tragus_morphology",
+      "display_name": "Tragus morphology",
+      "type": "categorical",
+      "scale": "tragus_qualitative",
+      "scale_citation": "Otologic anatomy descriptors aligned with otologic-surgery references.",
+      "description": "Shape of the tragus (the small projection anterior to the ear canal).",
+      "values": [
+        {"id": "single_pointed", "display_name": "Single-pointed", "definition": "One distinct tragal projection."},
+        {"id": "double_pointed", "display_name": "Double-pointed", "definition": "Two visible projections; common variant."},
+        {"id": "rounded", "display_name": "Rounded", "definition": "Tragus visible but rounded rather than pointed."},
+        {"id": "minimal", "display_name": "Minimal", "definition": "Tragus barely visible; small or recessed."}
+      ],
+      "observability": {"from_photograph": "medium", "requires_unclothed": false, "minimum_visible_extent": "head_only"}
+    },
+    {
+      "id": "ear_axis",
+      "display_name": "Ear axis (vertical inclination)",
+      "type": "categorical",
+      "scale": "ear_inclination_categorical",
+      "scale_citation": "Farkas LG (1994). Anthropometry of the Head and Face, 2nd Edition. Reference: ear axis approximately 15-20° posterior tilt from vertical.",
+      "description": "Inclination of the long ear axis relative to vertical, viewed laterally.",
+      "values": [
+        {"id": "vertical", "display_name": "Vertical / minimal tilt", "definition": "Ear axis nearly vertical."},
+        {"id": "moderate_posterior_tilt", "display_name": "Moderate posterior tilt (~15-25°)", "definition": "Within Farkas reference range."},
+        {"id": "marked_posterior_tilt", "display_name": "Marked posterior tilt (>25°)", "definition": "Pronounced backward inclination."}
+      ],
+      "observability": {"from_photograph": "medium", "requires_unclothed": false, "minimum_visible_extent": "head_only"}
+    },
+    {
+      "id": "ear_size_overall",
+      "display_name": "Overall ear size",
+      "type": "ordinal",
+      "scale": "ear_length_qualitative",
+      "scale_citation": "Farkas LG (1994). Reference: total ear height approximately equal to nasal length in European-population aesthetic norm.",
+      "description": "Overall ear length proportional to face.",
+      "values": [
+        {"id": "small", "display_name": "Small", "definition": "Ear length below population median."},
+        {"id": "medium", "display_name": "Medium", "definition": "Average ear length."},
+        {"id": "large", "display_name": "Large", "definition": "Ear length above population median; common with aging (ears continue growing through life)."}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_only"}
+    }
+  ],
+
+  "aggregation_notes": {
+    "categorical_dimensions_roll_up_as": "frequency distribution",
+    "ordinal_dimensions_roll_up_as": "frequency distribution + median bucket",
+    "minimum_sample_size_for_publication": 10,
+    "small_sample_caveat_threshold": 25,
+    "low_quality_threshold": 0.3,
+    "low_confidence_threshold": 0.55
+  },
+
+  "references": [
+    "Farkas LG (1994). Anthropometry of the Head and Face, 2nd Edition. Raven Press.",
+    "Mustardé JC (1963). The correction of prominent ears using simple mattress sutures. British Journal of Plastic Surgery, 16: 170-178.",
+    "Furnas DW (1968). Correction of prominent ears by concha-mastoid sutures. Plastic and Reconstructive Surgery, 42(3): 189-193.",
+    "Shaffer JR, Li J, Lee MK, et al. (2017). Genome-wide association study reveals multiple loci influencing normal human earlobe attachment. American Journal of Human Genetics, 101(6): 913-924.",
+    "McDowell AJ (1968). Goals in otoplasty for protruding ears. Plastic and Reconstructive Surgery, 41(1)."
+  ]
+}

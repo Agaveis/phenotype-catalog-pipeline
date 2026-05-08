@@ -1,0 +1,182 @@
+{
+  "atlas_category": "lips-and-mouth",
+  "uberon_id": "UBERON:0001833",
+  "fma_id": "FMA:59816",
+  "display_name": "Lips and mouth",
+  "version": "1.0.0",
+  "license": "CC-BY-4.0",
+  "description": "Lip morphology, perioral anatomy, and visible oral structures (teeth, tongue when in frame). Absorbs the original Lips, Mouth, and Tongue atlas categories per the granularity decision. Dimensions are drawn from craniofacial anthropometry (Farkas), aesthetic-medicine literature (Mallucci, Powell-Humphreys), and orofacial-anatomy references. Lip volume varies dramatically across ethnic groups; the contemporary aesthetic-medicine literature provides the relevant categorical frameworks.",
+
+  "dimensions": [
+    {
+      "id": "lip_volume_overall",
+      "display_name": "Overall lip volume",
+      "type": "ordinal",
+      "scale": "lip_volume_qualitative",
+      "scale_citation": "Aligned with the Mallucci-Branford 1:2 upper-to-lower aesthetic ratio framework and contemporary lip-augmentation literature.",
+      "description": "Combined lip volume from a frontal view. Independent ethnic-correlated dimension; West African and African-diaspora populations average higher native lip volume than European populations, with substantial individual variation.",
+      "values": [
+        {"id": "thin", "display_name": "Thin", "definition": "Minimal lip volume; lips barely project from the perioral plane."},
+        {"id": "moderate", "display_name": "Moderate", "definition": "Average volume; lips clearly visible with modest projection."},
+        {"id": "full", "display_name": "Full", "definition": "Pronounced volume; lips project substantially from the perioral plane."},
+        {"id": "very_full", "display_name": "Very full", "definition": "Very pronounced volume — either constitutional or augmented."}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_only"}
+    },
+    {
+      "id": "upper_to_lower_lip_ratio",
+      "display_name": "Upper-to-lower lip volume ratio",
+      "type": "categorical",
+      "scale": "mallucci_branford_lip_ratio",
+      "scale_citation": "Mallucci P, Branford OA (2012). Aesthetic Plastic Surgery. The 1:1.6 (upper:lower) ratio identified as the perceived-natural reference; deviations captured here as ratio buckets.",
+      "description": "Relative volume of the upper lip compared to the lower lip in frontal view.",
+      "values": [
+        {"id": "upper_dominant", "display_name": "Upper dominant", "definition": "Upper lip larger than lower; uncommon. Often a sign of cosmetic over-augmentation."},
+        {"id": "balanced", "display_name": "Balanced (~1:1)", "definition": "Upper and lower lip of approximately equal volume."},
+        {"id": "lower_dominant_natural", "display_name": "Lower dominant (natural ratio)", "definition": "Lower lip larger than upper, approximating the 1:1.6 aesthetic reference."},
+        {"id": "lower_dominant_pronounced", "display_name": "Lower dominant (pronounced)", "definition": "Lower lip substantially larger than upper, beyond the natural reference."}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_only"}
+    },
+    {
+      "id": "cupids_bow",
+      "display_name": "Cupid's bow morphology",
+      "type": "categorical",
+      "scale": "cupids_bow_qualitative",
+      "scale_citation": "Aesthetic-medicine descriptors aligned with the Niamtu lip-anatomy literature.",
+      "description": "Shape of the upper-lip vermilion border at midline (Cupid's bow).",
+      "values": [
+        {"id": "sharp_defined", "display_name": "Sharp / defined", "definition": "Crisp angular peaks at the philtral columns; clear M-shape."},
+        {"id": "soft", "display_name": "Soft / rounded", "definition": "Gentle curves at the peaks; M-shape present but rounded."},
+        {"id": "flat", "display_name": "Flat", "definition": "Minimal definition; vermilion border nearly straight at midline."},
+        {"id": "asymmetric", "display_name": "Asymmetric", "definition": "Notable left-right peak asymmetry."}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_only"}
+    },
+    {
+      "id": "philtrum",
+      "display_name": "Philtrum definition",
+      "type": "categorical",
+      "scale": "philtrum_qualitative",
+      "scale_citation": "Farkas LG (1994). Anthropometry of the Head and Face, 2nd Edition.",
+      "description": "Shape and definition of the philtrum (the vertical groove between the nose and upper lip).",
+      "values": [
+        {"id": "defined_columns", "display_name": "Defined columns", "definition": "Clear philtral columns visible; well-demarcated central groove."},
+        {"id": "soft", "display_name": "Soft", "definition": "Subtle column definition."},
+        {"id": "smooth_minimal", "display_name": "Smooth / minimal", "definition": "Philtrum nearly flat; columns not distinct."},
+        {"id": "elongated", "display_name": "Elongated (long upper lip)", "definition": "Vertical philtrum length above the aesthetic reference range."},
+        {"id": "short", "display_name": "Short upper lip", "definition": "Vertical philtrum length below the aesthetic reference range."}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_only"}
+    },
+    {
+      "id": "mouth_width",
+      "display_name": "Mouth width",
+      "type": "ordinal",
+      "scale": "mouth_width_proportional",
+      "scale_citation": "Farkas LG (1994). Reference: mouth width approximately equal to the distance between the medial limbus of each iris.",
+      "description": "Width of the mouth (cheilion to cheilion) relative to the inter-iris distance.",
+      "values": [
+        {"id": "narrow", "display_name": "Narrow", "definition": "Mouth width substantially less than inter-iris distance."},
+        {"id": "balanced", "display_name": "Balanced", "definition": "Mouth width approximately equal to inter-iris distance (Farkas reference)."},
+        {"id": "wide", "display_name": "Wide", "definition": "Mouth width substantially greater than inter-iris distance."}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_only"}
+    },
+    {
+      "id": "lip_corner_orientation",
+      "display_name": "Lip corner orientation",
+      "type": "categorical",
+      "scale": "oral_commissure_orientation",
+      "scale_citation": "Aligned with descriptors used in facial-aging literature and aesthetic-medicine commissure-correction context.",
+      "description": "Resting orientation of the oral commissures.",
+      "values": [
+        {"id": "upturned", "display_name": "Upturned", "definition": "Corners angle upward at rest; impression of a slight smile."},
+        {"id": "neutral", "display_name": "Neutral", "definition": "Corners horizontal at rest."},
+        {"id": "downturned", "display_name": "Downturned", "definition": "Corners angle downward at rest; impression of resting frown ('marionette' appearance with aging)."}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_only", "notes": "Best assessed in neutral expression; smiling photographs do not capture resting orientation."}
+    },
+    {
+      "id": "vermilion_border",
+      "display_name": "Vermilion border definition",
+      "type": "ordinal",
+      "scale": "vermilion_border_qualitative",
+      "scale_citation": "Aesthetic-medicine descriptor aligned with lip-augmentation pre-procedure assessment.",
+      "description": "Sharpness of the vermilion-cutaneous junction.",
+      "values": [
+        {"id": "sharp_defined", "display_name": "Sharp", "definition": "Crisp boundary between vermilion and surrounding skin."},
+        {"id": "soft", "display_name": "Soft", "definition": "Gradual transition; vermilion edge visible but not sharp."},
+        {"id": "indistinct", "display_name": "Indistinct", "definition": "Vermilion border barely discernible; common with lip-aging."}
+      ],
+      "observability": {"from_photograph": "medium", "requires_unclothed": false, "minimum_visible_extent": "head_only"}
+    },
+    {
+      "id": "dental_visibility",
+      "display_name": "Dental visibility (smile)",
+      "type": "categorical",
+      "scale": "smile_classification_visibility",
+      "scale_citation": "Aligned with orthodontic / smile-aesthetics literature: Liébart MF et al. (2004). Smile line and periodontium visibility. Periodontal Practice Today, 1(1).",
+      "description": "Visibility of teeth and gingiva in the photographed expression.",
+      "values": [
+        {"id": "covered", "display_name": "Covered (lips closed)", "definition": "Teeth not visible; mouth closed."},
+        {"id": "minimal_show", "display_name": "Minimal show", "definition": "Slight tooth visibility (e.g. resting parted lips)."},
+        {"id": "low_smile_line", "display_name": "Low smile line", "definition": "Smile shows less than 75% of upper anterior teeth."},
+        {"id": "average_smile_line", "display_name": "Average smile line", "definition": "Smile shows 75-100% of upper anterior teeth without gingival show."},
+        {"id": "high_smile_line", "display_name": "High smile line / gummy smile", "definition": "Smile shows full upper teeth plus a band of gingiva ('gummy smile')."}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_only"}
+    },
+    {
+      "id": "dental_alignment",
+      "display_name": "Dental alignment (when visible)",
+      "type": "categorical",
+      "scale": "dental_alignment_qualitative",
+      "scale_citation": "Aligned with orthodontic descriptors of anterior dental alignment; Angle classification is occlusion-based and not photo-assessable.",
+      "description": "Alignment of visible anterior teeth when teeth are in frame.",
+      "values": [
+        {"id": "aligned", "display_name": "Aligned", "definition": "Anterior teeth straight, evenly spaced."},
+        {"id": "mild_irregularity", "display_name": "Mild irregularity", "definition": "Subtle crowding or rotation visible."},
+        {"id": "crowded", "display_name": "Crowded", "definition": "Pronounced crowding; teeth overlap or rotate substantially."},
+        {"id": "spaced_diastema", "display_name": "Spaced / diastema", "definition": "Visible gap(s) between anterior teeth; central diastema is the most common."},
+        {"id": "missing_teeth_visible", "display_name": "Missing teeth visible"},
+        {"id": "orthodontia_visible", "display_name": "Orthodontia visible (braces / retainer)", "definition": "Active or recent orthodontic appliance visible; native alignment not directly observable."},
+        {"id": "not_visible", "display_name": "Not visible", "definition": "Teeth not in frame; alignment cannot be assessed."}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_only"}
+    },
+    {
+      "id": "tongue_morphology",
+      "display_name": "Tongue morphology (when visible)",
+      "type": "categorical",
+      "scale": "tongue_qualitative",
+      "scale_citation": "Aligned with descriptors used in the orofacial-anatomy literature; mostly observable in extended-tongue photographs.",
+      "description": "Morphology of the tongue when in frame. Most photographs do not show the tongue; this dimension is included for schema completeness and rare cases where the tongue is visible (e.g. tongue-out expressions).",
+      "values": [
+        {"id": "not_visible", "display_name": "Not visible"},
+        {"id": "normal", "display_name": "Normal"},
+        {"id": "geographic_tongue", "display_name": "Geographic tongue (visible patches)"},
+        {"id": "fissured_tongue", "display_name": "Fissured tongue"},
+        {"id": "long_anteriorly", "display_name": "Long / anteriorly extending"}
+      ],
+      "observability": {"from_photograph": "low", "requires_unclothed": false, "minimum_visible_extent": "head_only"}
+    }
+  ],
+
+  "aggregation_notes": {
+    "categorical_dimensions_roll_up_as": "frequency distribution",
+    "ordinal_dimensions_roll_up_as": "frequency distribution + median bucket",
+    "minimum_sample_size_for_publication": 10,
+    "small_sample_caveat_threshold": 25,
+    "low_quality_threshold": 0.3,
+    "low_confidence_threshold": 0.55
+  },
+
+  "references": [
+    "Farkas LG (1994). Anthropometry of the Head and Face, 2nd Edition. Raven Press.",
+    "Mallucci P, Branford OA (2012). Population analysis of the perfect breast: a morphometric analysis. Aesthetic Plastic Surgery, 36(2). [Same authors' lip-aesthetic reference work.]",
+    "Niamtu J (2011). Cosmetic Facial Surgery. Mosby. [Lip-anatomy descriptors.]",
+    "Liébart MF, Fouque-Deruelle C, Santini A et al. (2004). Smile line and periodontium visibility. Periodontal Practice Today, 1(1).",
+    "Powell N, Humphreys B (1984). Proportions of the Aesthetic Face. Thieme."
+  ]
+}

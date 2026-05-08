@@ -1,0 +1,131 @@
+{
+  "atlas_category": "hands",
+  "uberon_id": "UBERON:0002398",
+  "fma_id": "FMA:9712",
+  "display_name": "Hands",
+  "version": "1.0.0",
+  "license": "CC-BY-4.0",
+  "description": "Hand morphology: hand size, palm shape, finger length proportions (digit ratio 2D:4D), finger morphology, nail morphology, knuckle prominence. The 2D:4D digit ratio is the most-cited individual hand-anthropometry dimension; Manning's prenatal-androgen-exposure hypothesis remains debated but the ratio itself is a well-established measurement with population-level variation.",
+
+  "dimensions": [
+    {
+      "id": "hand_size_relative",
+      "display_name": "Hand size (relative to body)",
+      "type": "ordinal",
+      "scale": "hand_size_qualitative",
+      "scale_citation": "Aligned with anthropometric descriptors of hand-length proportional to height (typical ratio ~10.4-11.0%).",
+      "description": "Hand length relative to body height, captured qualitatively.",
+      "values": [
+        {"id": "small", "display_name": "Small"},
+        {"id": "average", "display_name": "Average"},
+        {"id": "large", "display_name": "Large"}
+      ],
+      "observability": {"from_photograph": "medium", "requires_unclothed": false, "minimum_visible_extent": "full_body"}
+    },
+    {
+      "id": "palm_shape",
+      "display_name": "Palm shape",
+      "type": "categorical",
+      "scale": "palm_shape_qualitative",
+      "scale_citation": "Aligned with descriptors used in chiromancy-adjacent hand-anthropometry literature.",
+      "description": "Shape of the palm in proportional terms.",
+      "values": [
+        {"id": "square", "display_name": "Square", "definition": "Palm length approximately equal to palm width."},
+        {"id": "rectangular_long", "display_name": "Rectangular / long", "definition": "Palm length substantially exceeds width."},
+        {"id": "wide_short", "display_name": "Wide / short", "definition": "Palm width approaches or exceeds length."}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "torso"}
+    },
+    {
+      "id": "digit_ratio_2D_4D",
+      "display_name": "2D:4D digit ratio",
+      "type": "categorical",
+      "scale": "manning_2D_4D",
+      "scale_citation": "Manning JT, Scutt D, Wilson J, Lewis-Jones DI (1998). The ratio of 2nd to 4th digit length: a predictor of sperm numbers and concentrations of testosterone, luteinizing hormone and oestrogen. Human Reproduction, 13(11): 3000-3004.",
+      "description": "Ratio of index-finger length (2D) to ring-finger length (4D). Sex-dimorphic on average (males ~0.95-0.98, females ~0.97-1.00) with substantial individual variation.",
+      "values": [
+        {"id": "low_4D_dominant", "display_name": "Low (ring finger longer)", "definition": "2D:4D ratio < ~0.95; ring finger clearly longer than index. More common in males."},
+        {"id": "balanced", "display_name": "Balanced", "definition": "2D:4D ratio ~0.95-1.00; subtle or no length difference."},
+        {"id": "high_2D_dominant", "display_name": "High (index finger longer)", "definition": "2D:4D ratio > ~1.00; index finger clearly longer than ring. Less common; more common in females."}
+      ],
+      "observability": {"from_photograph": "medium", "requires_unclothed": false, "minimum_visible_extent": "torso", "notes": "Best assessed when hand is open, palm-up or palm-down with extended fingers; finger curl confounds assessment."}
+    },
+    {
+      "id": "finger_morphology",
+      "display_name": "Finger morphology",
+      "type": "categorical",
+      "scale": "finger_thickness_qualitative",
+      "scale_citation": "Aligned with hand-anthropometry descriptors used in glove-fitting and ergonomics literature.",
+      "description": "Overall thickness and shape of the fingers.",
+      "values": [
+        {"id": "slender", "display_name": "Slender", "definition": "Long, thin fingers; narrow fingertips."},
+        {"id": "balanced", "display_name": "Balanced", "definition": "Average finger thickness."},
+        {"id": "thick", "display_name": "Thick", "definition": "Substantial finger girth."},
+        {"id": "tapered", "display_name": "Tapered", "definition": "Wider at the base, narrower at the tips."},
+        {"id": "spatulate", "display_name": "Spatulate", "definition": "Widening at the fingertips."}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "torso"}
+    },
+    {
+      "id": "knuckle_prominence",
+      "display_name": "Knuckle prominence",
+      "type": "ordinal",
+      "scale": "knuckle_prominence_qualitative",
+      "scale_citation": "Aligned with surface-anatomy descriptors of metacarpophalangeal-joint visibility.",
+      "description": "Visibility of the metacarpophalangeal joints as surface landmarks.",
+      "values": [
+        {"id": "subtle", "display_name": "Subtle", "definition": "Knuckles barely visible; soft-tissue coverage smooth."},
+        {"id": "moderate", "display_name": "Moderate"},
+        {"id": "prominent", "display_name": "Prominent", "definition": "Clear knuckle landmarks even at rest."}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "torso"}
+    },
+    {
+      "id": "nail_shape",
+      "display_name": "Nail shape (when ungroomed)",
+      "type": "categorical",
+      "scale": "nail_shape_qualitative",
+      "scale_citation": "Aligned with descriptors used in dermatology and manicure literature.",
+      "description": "Native fingernail shape when not artificially shaped.",
+      "values": [
+        {"id": "square", "display_name": "Square"},
+        {"id": "round", "display_name": "Round"},
+        {"id": "oval", "display_name": "Oval"},
+        {"id": "almond", "display_name": "Almond"},
+        {"id": "stiletto", "display_name": "Stiletto / pointed", "definition": "Often artificial; native nails rarely take this shape."},
+        {"id": "groomed_artificial", "display_name": "Groomed / artificial", "definition": "Visible manicure or artificial nails; native shape not assessable."},
+        {"id": "not_visible", "display_name": "Not visible"}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "torso"}
+    },
+    {
+      "id": "wrist_breadth_relative",
+      "display_name": "Wrist breadth (relative)",
+      "type": "ordinal",
+      "scale": "wrist_breadth_qualitative",
+      "scale_citation": "Aligned with frame-size literature; wrist circumference is the standard Frisancho frame-size proxy.",
+      "description": "Wrist circumference relative to body proportions. Different from but related to body-shape.json's frame_size_estimate.",
+      "values": [
+        {"id": "narrow", "display_name": "Narrow"},
+        {"id": "average", "display_name": "Average"},
+        {"id": "wide", "display_name": "Wide"}
+      ],
+      "observability": {"from_photograph": "medium", "requires_unclothed": false, "minimum_visible_extent": "torso"}
+    }
+  ],
+
+  "aggregation_notes": {
+    "categorical_dimensions_roll_up_as": "frequency distribution",
+    "ordinal_dimensions_roll_up_as": "frequency distribution + median bucket",
+    "minimum_sample_size_for_publication": 10,
+    "small_sample_caveat_threshold": 25,
+    "low_quality_threshold": 0.3,
+    "low_confidence_threshold": 0.55
+  },
+
+  "references": [
+    "Manning JT, Scutt D, Wilson J, Lewis-Jones DI (1998). The ratio of 2nd to 4th digit length: a predictor of sperm numbers and concentrations of testosterone, luteinizing hormone and oestrogen. Human Reproduction, 13(11): 3000-3004.",
+    "Frisancho AR (1984). New standards of weight and body composition by frame size and height. American Journal of Clinical Nutrition, 40(4): 808-819.",
+    "Greiner TM, Gordon CC (1990). Anthropometry and Mass Distribution for Human Analogues. US Army Natick Laboratories Technical Report."
+  ]
+}

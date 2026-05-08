@@ -1,0 +1,30 @@
+// Auto-generated from vocabularies/body-hair.json (v1.0.0). Do not edit by hand. Regenerate via: node scripts/generate-from-vocabulary.mjs
+
+model body_hair_observation {
+  id                    Int      @id @default(autoincrement())
+  example_id            Int      @unique(map: "UX_body_hair_observation_example")
+  ferriman_gallwey_visual  String?  @db.NVarChar(50)
+  facial_hair_male      String?  @db.NVarChar(100)
+  chest_hair_male       String?  @db.NVarChar(100)
+  abdominal_hair_pattern  String?  @db.NVarChar(50)
+  arm_hair_density      String?  @db.NVarChar(50)
+  leg_hair_density      String?  @db.NVarChar(50)
+  back_hair_male        String?  @db.NVarChar(50)
+  body_hair_color       String?  @db.NVarChar(50)
+  ferriman_gallwey_visual_confidence  Float?
+  facial_hair_male_confidence  Float?
+  chest_hair_male_confidence  Float?
+  abdominal_hair_pattern_confidence  Float?
+  arm_hair_density_confidence  Float?
+  leg_hair_density_confidence  Float?
+  back_hair_male_confidence  Float?
+  body_hair_color_confidence  Float?
+  vocabulary_source     String   @default("canonical") @db.NVarChar(50)
+  vocabulary_version    String   @default("1.0.0") @db.NVarChar(20)
+  analysis_model        String?  @db.NVarChar(100)
+  analyzed_at           DateTime @default(now()) @db.DateTime2
+
+  example ethnic_examples @relation(fields: [example_id], references: [id], map: "FK_body_hair_observation_example")
+
+  @@index([example_id], map: "IX_body_hair_observation_example")
+}

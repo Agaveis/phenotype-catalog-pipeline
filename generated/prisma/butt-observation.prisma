@@ -1,0 +1,28 @@
+// Auto-generated from vocabularies/butt.json (v1.0.0). Do not edit by hand. Regenerate via: node scripts/generate-from-vocabulary.mjs
+
+model butt_observation {
+  id                    Int      @id @default(autoincrement())
+  example_id            Int      @unique(map: "UX_butt_observation_example")
+  buttock_shape_mendieta  String?  @db.NVarChar(50)
+  buttock_size          String?  @db.NVarChar(50)
+  buttock_projection    String?  @db.NVarChar(50)
+  gluteal_fold_definition  String?  @db.NVarChar(50)
+  lateral_concavity     String?  @db.NVarChar(50)
+  buttock_to_hip_ratio  String?  @db.NVarChar(50)
+  asymmetry             String?  @db.NVarChar(50)
+  buttock_shape_mendieta_confidence  Float?
+  buttock_size_confidence  Float?
+  buttock_projection_confidence  Float?
+  gluteal_fold_definition_confidence  Float?
+  lateral_concavity_confidence  Float?
+  buttock_to_hip_ratio_confidence  Float?
+  asymmetry_confidence  Float?
+  vocabulary_source     String   @default("canonical") @db.NVarChar(50)
+  vocabulary_version    String   @default("1.0.0") @db.NVarChar(20)
+  analysis_model        String?  @db.NVarChar(100)
+  analyzed_at           DateTime @default(now()) @db.DateTime2
+
+  example ethnic_examples @relation(fields: [example_id], references: [id], map: "FK_butt_observation_example")
+
+  @@index([example_id], map: "IX_butt_observation_example")
+}

@@ -1,0 +1,129 @@
+{
+  "atlas_category": "neck",
+  "uberon_id": "UBERON:0000974",
+  "fma_id": "FMA:7155",
+  "display_name": "Neck",
+  "version": "1.0.0",
+  "license": "CC-BY-4.0",
+  "description": "Cervical region morphology: neck length and thickness, cervicomental angle, laryngeal prominence, sternocleidomastoid visibility, posterior neck. Dimensions are drawn from craniofacial anthropometry (Farkas) and cervicofacial-aesthetics literature (Ellenbogen-Karlin, Connell). The cervicomental angle is the central aesthetic landmark of the neck region; laryngeal prominence (Adam's apple) is sex-dimorphic.",
+
+  "dimensions": [
+    {
+      "id": "neck_length",
+      "display_name": "Neck length",
+      "type": "ordinal",
+      "scale": "neck_length_proportional",
+      "scale_citation": "Farkas LG (1994). Anthropometry of the Head and Face, 2nd Edition. Reference: cervical length (gnathion to suprasternal notch) proportional to overall facial height.",
+      "description": "Vertical neck length proportional to face height.",
+      "values": [
+        {"id": "short", "display_name": "Short", "definition": "Neck length less than approximately 70% of facial height."},
+        {"id": "average", "display_name": "Average", "definition": "Neck length approximately 70-100% of facial height (Farkas reference range)."},
+        {"id": "long", "display_name": "Long", "definition": "Neck length substantially greater than facial height; swan-neck appearance."}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_shoulders"}
+    },
+    {
+      "id": "neck_thickness",
+      "display_name": "Neck thickness",
+      "type": "ordinal",
+      "scale": "neck_thickness_proportional",
+      "scale_citation": "Aligned with sports-medicine descriptors of cervical-girth norms; reference values vary substantially with sex and training.",
+      "description": "Neck thickness relative to head width.",
+      "values": [
+        {"id": "thin", "display_name": "Thin", "definition": "Neck substantially narrower than head; minimal cervical musculature."},
+        {"id": "average", "display_name": "Average", "definition": "Neck width proportional to head width."},
+        {"id": "thick", "display_name": "Thick", "definition": "Neck width approaches or exceeds head width; pronounced cervical musculature or subcutaneous fullness."}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_shoulders"}
+    },
+    {
+      "id": "cervicomental_angle",
+      "display_name": "Cervicomental angle",
+      "type": "categorical",
+      "scale": "ellenbogen_karlin_cervicomental",
+      "scale_citation": "Ellenbogen R, Karlin JV (1980). Visual criteria for success in restoring the youthful neck. Plastic and Reconstructive Surgery, 66(6): 826-837. Reference: cervicomental angle 105-120° as the youthful aesthetic norm.",
+      "description": "Angle between the submental plane and the anterior neck.",
+      "values": [
+        {"id": "sharp_youthful", "display_name": "Sharp / youthful (~90°)", "definition": "Crisp angular transition between submental plane and neck; aesthetic ideal."},
+        {"id": "balanced", "display_name": "Balanced (~105-120°)", "definition": "Within Ellenbogen-Karlin reference range."},
+        {"id": "obtuse_aged", "display_name": "Obtuse / aged (>130°)", "definition": "Reduced angle definition; common with submental fat or platysmal banding."}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_shoulders", "notes": "Best assessed from lateral view."}
+    },
+    {
+      "id": "laryngeal_prominence",
+      "display_name": "Laryngeal prominence (Adam's apple)",
+      "type": "ordinal",
+      "scale": "thyroid_cartilage_prominence_qualitative",
+      "scale_citation": "Anatomic descriptor aligned with otolaryngology and gender-affirming-care literature on thyroid-cartilage prominence (chondrolaryngoplasty references).",
+      "description": "Visibility of the thyroid cartilage prominence. Sex-dimorphic — typically more prominent in adult-male physiognomy due to differing thyroid-cartilage angles.",
+      "values": [
+        {"id": "minimal", "display_name": "Minimal", "definition": "Thyroid cartilage barely visible; typical of female adult physiognomy."},
+        {"id": "moderate", "display_name": "Moderate", "definition": "Visible but not pronounced thyroid cartilage."},
+        {"id": "prominent", "display_name": "Prominent", "definition": "Pronounced Adam's apple; typical of male adult physiognomy."},
+        {"id": "very_prominent", "display_name": "Very prominent", "definition": "Substantial thyroid-cartilage projection."}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_shoulders"}
+    },
+    {
+      "id": "sternocleidomastoid_visibility",
+      "display_name": "Sternocleidomastoid visibility",
+      "type": "ordinal",
+      "scale": "scm_visibility_qualitative",
+      "scale_citation": "Aligned with surface-anatomy descriptors used in sports medicine and aesthetic-medicine literature.",
+      "description": "Visibility of the sternocleidomastoid muscle as a distinct surface landmark.",
+      "values": [
+        {"id": "not_visible", "display_name": "Not visible", "definition": "SCM not discernible at the skin surface; soft-tissue coverage obscures muscle outline."},
+        {"id": "subtle", "display_name": "Subtle", "definition": "SCM faintly visible during rotation or tension."},
+        {"id": "defined", "display_name": "Defined", "definition": "SCM clearly visible at rest as a distinct landmark."},
+        {"id": "highly_defined", "display_name": "Highly defined", "definition": "Pronounced SCM definition; very low body-fat percentage in the cervical region."}
+      ],
+      "observability": {"from_photograph": "medium", "requires_unclothed": false, "minimum_visible_extent": "head_shoulders"}
+    },
+    {
+      "id": "platysmal_bands",
+      "display_name": "Platysmal banding",
+      "type": "categorical",
+      "scale": "platysmal_band_classification",
+      "scale_citation": "Connell BF, Shamoun JM (1997). The significance of digastric muscle contouring for rejuvenation of the submental area of the face. Plastic and Reconstructive Surgery, 99(6).",
+      "description": "Visibility of platysmal bands — the vertical neck cords that become more visible with aging or low body-fat percentage.",
+      "values": [
+        {"id": "absent", "display_name": "Absent"},
+        {"id": "subtle", "display_name": "Subtle", "definition": "Platysmal cords barely visible at rest."},
+        {"id": "moderate", "display_name": "Moderate", "definition": "Visible cords at rest; aging-related change."},
+        {"id": "marked", "display_name": "Marked", "definition": "Pronounced cords creating a 'turkey-wattle' appearance."}
+      ],
+      "observability": {"from_photograph": "medium", "requires_unclothed": false, "minimum_visible_extent": "head_shoulders"}
+    },
+    {
+      "id": "neck_skin_quality",
+      "display_name": "Neck skin quality",
+      "type": "ordinal",
+      "scale": "neck_skin_qualitative",
+      "scale_citation": "Aligned with the Connell-Shamoun and Ellenbogen-Karlin neck-aesthetics descriptors.",
+      "description": "Skin quality in the cervical region — common site for visible aging changes.",
+      "values": [
+        {"id": "smooth_youthful", "display_name": "Smooth / youthful"},
+        {"id": "average", "display_name": "Average", "definition": "Some texture or fine lines visible."},
+        {"id": "loose_lax", "display_name": "Loose / lax", "definition": "Visible cervical skin laxity; redundant skin folds."},
+        {"id": "wrinkled", "display_name": "Wrinkled", "definition": "Pronounced cervical wrinkles or 'necklace lines'."}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_shoulders"}
+    }
+  ],
+
+  "aggregation_notes": {
+    "categorical_dimensions_roll_up_as": "frequency distribution",
+    "ordinal_dimensions_roll_up_as": "frequency distribution + median bucket",
+    "minimum_sample_size_for_publication": 10,
+    "small_sample_caveat_threshold": 25,
+    "low_quality_threshold": 0.3,
+    "low_confidence_threshold": 0.55
+  },
+
+  "references": [
+    "Farkas LG (1994). Anthropometry of the Head and Face, 2nd Edition. Raven Press.",
+    "Ellenbogen R, Karlin JV (1980). Visual criteria for success in restoring the youthful neck. Plastic and Reconstructive Surgery, 66(6): 826-837.",
+    "Connell BF, Shamoun JM (1997). The significance of digastric muscle contouring for rejuvenation of the submental area of the face. Plastic and Reconstructive Surgery, 99(6)."
+  ]
+}

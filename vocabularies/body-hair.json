@@ -1,0 +1,161 @@
+{
+  "atlas_category": "body-hair",
+  "uberon_id": "UBERON:0008811",
+  "fma_id": "FMA:54320",
+  "display_name": "Body hair",
+  "version": "1.0.0",
+  "license": "CC-BY-4.0",
+  "description": "Body- and facial-hair distribution patterns, density, color, and texture. Excludes pubic-region hair (covered in pubic-region.json) and head hair (covered in head-hair.json). The Ferriman-Gallwey scale (1961) is the canonical clinical reference for terminal-hair density across nine body regions; this vocabulary captures that pattern at observability-appropriate granularity for photograph-based assessment.",
+
+  "dimensions": [
+    {
+      "id": "ferriman_gallwey_visual",
+      "display_name": "Ferriman-Gallwey terminal-hair density (visual estimate)",
+      "type": "ordinal",
+      "scale": "ferriman_gallwey_1961",
+      "scale_citation": "Ferriman D, Gallwey JE (1961). Clinical assessment of body hair growth in women. Journal of Clinical Endocrinology and Metabolism, 21(11): 1440-1447.",
+      "description": "Visual estimate of overall terminal-hair density. The original 0-36 numeric scale (0-3 across nine body regions) summed to a clinical hirsutism cutoff; this dimension uses qualitative buckets that aggregate the per-region scores for photograph-based assessment.",
+      "values": [
+        {"id": "minimal", "display_name": "Minimal (FG estimated 0-4)", "definition": "Below clinical hirsutism threshold; minimal visible body hair."},
+        {"id": "mild", "display_name": "Mild (FG ~5-8)", "definition": "Borderline; some terminal hair across body regions."},
+        {"id": "moderate", "display_name": "Moderate (FG ~9-15)", "definition": "Above clinical hirsutism threshold for women; substantial terminal hair distribution."},
+        {"id": "marked", "display_name": "Marked (FG ~16+)", "definition": "Pronounced terminal hair distribution."},
+        {"id": "not_assessable", "display_name": "Not assessable", "definition": "Body coverage prevents assessment."}
+      ],
+      "observability": {"from_photograph": "low", "requires_unclothed": true, "minimum_visible_extent": "full_body", "notes": "Reliable visual estimation requires multiple body regions visible. Grooming/hair-removal substantially confounds native-density assessment."}
+    },
+    {
+      "id": "facial_hair_male",
+      "display_name": "Facial hair (male) — beard distribution",
+      "type": "categorical",
+      "scale": "facial_hair_distribution_qualitative",
+      "scale_citation": "Aligned with descriptors used in dermatology and trichology literature on terminal-hair distribution patterns.",
+      "description": "Distribution and density of facial hair in subjects with apparent male physiognomy.",
+      "values": [
+        {"id": "absent_clean_shaven_or_low", "display_name": "Absent / clean-shaven or low capacity"},
+        {"id": "patchy", "display_name": "Patchy", "definition": "Uneven coverage with visible bare patches."},
+        {"id": "mustache_only", "display_name": "Mustache only"},
+        {"id": "goatee_chin_only", "display_name": "Goatee / chin only"},
+        {"id": "full_beard_light", "display_name": "Full beard — light density"},
+        {"id": "full_beard_dense", "display_name": "Full beard — dense"},
+        {"id": "full_beard_very_dense", "display_name": "Full beard — very dense"},
+        {"id": "stubble_only", "display_name": "Stubble only", "definition": "Recently shaved; native density not directly assessable."},
+        {"id": "not_applicable", "display_name": "Not applicable", "definition": "Subject not in male physiognomy."}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_only"}
+    },
+    {
+      "id": "chest_hair_male",
+      "display_name": "Chest hair distribution (male)",
+      "type": "categorical",
+      "scale": "chest_hair_pattern_qualitative",
+      "scale_citation": "Aligned with descriptors used in trichology literature on chest-hair patterns.",
+      "description": "Pattern and density of terminal chest hair in subjects with apparent male physiognomy.",
+      "values": [
+        {"id": "absent_minimal", "display_name": "Absent / minimal"},
+        {"id": "central_strip_only", "display_name": "Central strip only", "definition": "Hair limited to a vertical central band."},
+        {"id": "moderate_chest_only", "display_name": "Moderate, chest only", "definition": "Hair across the chest but not extending to abdomen."},
+        {"id": "extensive_chest_to_abdomen", "display_name": "Extensive, chest extending to abdomen", "definition": "Continuous distribution from chest to abdomen."},
+        {"id": "very_dense_full", "display_name": "Very dense / full"},
+        {"id": "groomed_unclear", "display_name": "Groomed (waxed/shaved)", "definition": "Visible removal; native distribution not assessable."},
+        {"id": "not_applicable", "display_name": "Not applicable"}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": true, "minimum_visible_extent": "torso"}
+    },
+    {
+      "id": "abdominal_hair_pattern",
+      "display_name": "Abdominal hair pattern",
+      "type": "categorical",
+      "scale": "abdominal_hair_qualitative",
+      "scale_citation": "Aligned with terminal-hair distribution descriptors in dermatology literature.",
+      "description": "Pattern of abdominal hair, including the 'happy trail' linea alba pattern.",
+      "values": [
+        {"id": "absent", "display_name": "Absent"},
+        {"id": "linea_alba_strip", "display_name": "Linea alba strip ('happy trail')", "definition": "Vertical strip from navel to pubis only."},
+        {"id": "diffuse_light", "display_name": "Diffuse, light", "definition": "Light coverage spreading from midline."},
+        {"id": "diffuse_dense", "display_name": "Diffuse, dense", "definition": "Full abdominal hair coverage."},
+        {"id": "groomed_unclear", "display_name": "Groomed", "definition": "Visible removal; native pattern not assessable."}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": true, "minimum_visible_extent": "torso"}
+    },
+    {
+      "id": "arm_hair_density",
+      "display_name": "Arm hair density",
+      "type": "ordinal",
+      "scale": "arm_hair_density_qualitative",
+      "scale_citation": "Aligned with terminal-hair descriptors in dermatology literature.",
+      "description": "Density of arm hair on the dorsal forearm.",
+      "values": [
+        {"id": "minimal", "display_name": "Minimal"},
+        {"id": "light", "display_name": "Light"},
+        {"id": "moderate", "display_name": "Moderate"},
+        {"id": "dense", "display_name": "Dense"},
+        {"id": "groomed", "display_name": "Groomed (removal visible)"}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "torso"}
+    },
+    {
+      "id": "leg_hair_density",
+      "display_name": "Leg hair density",
+      "type": "ordinal",
+      "scale": "leg_hair_density_qualitative",
+      "scale_citation": "Aligned with terminal-hair descriptors in dermatology literature.",
+      "description": "Density of leg hair (anterior tibial / calf region).",
+      "values": [
+        {"id": "minimal", "display_name": "Minimal"},
+        {"id": "light", "display_name": "Light"},
+        {"id": "moderate", "display_name": "Moderate"},
+        {"id": "dense", "display_name": "Dense"},
+        {"id": "groomed", "display_name": "Groomed (removal visible)"}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "full_body"}
+    },
+    {
+      "id": "back_hair_male",
+      "display_name": "Back hair pattern (male)",
+      "type": "categorical",
+      "scale": "back_hair_qualitative",
+      "scale_citation": "Aligned with terminal-hair descriptors in dermatology literature.",
+      "description": "Distribution of back hair in subjects with apparent male physiognomy.",
+      "values": [
+        {"id": "absent_minimal", "display_name": "Absent / minimal"},
+        {"id": "shoulder_only", "display_name": "Shoulders only"},
+        {"id": "upper_back", "display_name": "Upper back"},
+        {"id": "full_back", "display_name": "Full back"},
+        {"id": "groomed", "display_name": "Groomed"},
+        {"id": "not_applicable", "display_name": "Not applicable"}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": true, "minimum_visible_extent": "torso"}
+    },
+    {
+      "id": "body_hair_color",
+      "display_name": "Body hair color",
+      "type": "categorical",
+      "scale": "body_hair_color_qualitative",
+      "scale_citation": "Aligned with trichology descriptors of differential body / scalp hair pigmentation.",
+      "description": "Body-hair color relative to scalp hair.",
+      "values": [
+        {"id": "matches_scalp", "display_name": "Matches scalp"},
+        {"id": "darker_than_scalp", "display_name": "Darker than scalp"},
+        {"id": "lighter_than_scalp", "display_name": "Lighter than scalp"},
+        {"id": "mixed_aging", "display_name": "Mixed (graying)"}
+      ],
+      "observability": {"from_photograph": "medium", "requires_unclothed": false, "minimum_visible_extent": "torso"}
+    }
+  ],
+
+  "aggregation_notes": {
+    "categorical_dimensions_roll_up_as": "frequency distribution",
+    "ordinal_dimensions_roll_up_as": "frequency distribution + median bucket",
+    "minimum_sample_size_for_publication": 10,
+    "small_sample_caveat_threshold": 25,
+    "low_quality_threshold": 0.3,
+    "low_confidence_threshold": 0.55
+  },
+
+  "references": [
+    "Ferriman D, Gallwey JE (1961). Clinical assessment of body hair growth in women. Journal of Clinical Endocrinology and Metabolism, 21(11): 1440-1447.",
+    "Hatch R, Rosenfield RL, Kim MH, Tredway D (1981). Hirsutism: implications, etiology, and management. American Journal of Obstetrics and Gynecology, 140(7).",
+    "Bouhanna P (2014). Topographic phototrichogram for follicular-unit classification. Annales de Dermatologie et de Vénéréologie, 141(11)."
+  ]
+}

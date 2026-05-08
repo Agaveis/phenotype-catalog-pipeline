@@ -1,0 +1,28 @@
+// Auto-generated from vocabularies/hands.json (v1.0.0). Do not edit by hand. Regenerate via: node scripts/generate-from-vocabulary.mjs
+
+model hands_observation {
+  id                    Int      @id @default(autoincrement())
+  example_id            Int      @unique(map: "UX_hands_observation_example")
+  hand_size_relative    String?  @db.NVarChar(50)
+  palm_shape            String?  @db.NVarChar(50)
+  digit_ratio_2D_4D     String?  @db.NVarChar(50)
+  finger_morphology     String?  @db.NVarChar(50)
+  knuckle_prominence    String?  @db.NVarChar(50)
+  nail_shape            String?  @db.NVarChar(50)
+  wrist_breadth_relative  String?  @db.NVarChar(50)
+  hand_size_relative_confidence  Float?
+  palm_shape_confidence  Float?
+  digit_ratio_2D_4D_confidence  Float?
+  finger_morphology_confidence  Float?
+  knuckle_prominence_confidence  Float?
+  nail_shape_confidence  Float?
+  wrist_breadth_relative_confidence  Float?
+  vocabulary_source     String   @default("canonical") @db.NVarChar(50)
+  vocabulary_version    String   @default("1.0.0") @db.NVarChar(20)
+  analysis_model        String?  @db.NVarChar(100)
+  analyzed_at           DateTime @default(now()) @db.DateTime2
+
+  example ethnic_examples @relation(fields: [example_id], references: [id], map: "FK_hands_observation_example")
+
+  @@index([example_id], map: "IX_hands_observation_example")
+}

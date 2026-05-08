@@ -1,0 +1,92 @@
+{
+  "atlas_category": "head-shape",
+  "uberon_id": "UBERON:0000033",
+  "fma_id": "FMA:46688",
+  "display_name": "Head shape",
+  "version": "1.0.0",
+  "license": "CC-BY-4.0",
+  "description": "Cranial morphology dimensions visible from photograph: cephalic index (head shape from above), cranial profile in sagittal view, occipital morphology, head circumference proxy. **Important framing note:** these dimensions use contemporary craniofacial-anthropology vocabulary developed for clinical applications such as craniosynostosis screening and pediatric-orthotic assessment. They are explicitly **not** the discredited 19th-century racial-typology cranial measurements that conflated cephalic index with hierarchical population claims (Boas's own 1912 work showed cephalic index changes within a generation under different environments, undermining its use as a stable racial marker). Modern usage treats cephalic index as a developmental and clinical descriptor with substantial individual variation and meaningful but partial population-level differences. The dimensions below capture the photo-observable shape variation; users should resist any interpretation that maps directly onto historical racial categorizations.",
+
+  "dimensions": [
+    {
+      "id": "cephalic_index_category",
+      "display_name": "Cephalic index category",
+      "type": "ordinal",
+      "scale": "cephalic_index_clinical",
+      "scale_citation": "Cephalic index = (maximum head breadth / maximum head length) × 100. Modern clinical use: van Vlimmeren LA et al. (2007). Effect of pediatric physical therapy on deformational plagiocephaly. Archives of Pediatric and Adolescent Medicine. Boas F (1912) demonstrated environmental variability in cephalic index that undermines its use as a stable population-classification marker; included here as a continuous developmental dimension with explicit framing.",
+      "description": "Ratio of head breadth to head length, captured as ordinal buckets aligned with the standard clinical classification thresholds. Used in pediatric orthopedics for assessing positional plagiocephaly and brachycephaly, not as a population-classification tool.",
+      "values": [
+        {"id": "dolichocephalic", "display_name": "Dolichocephalic (long)", "definition": "Cephalic index < ~76; head substantially longer than wide. Clinical context: scaphocephaly when severe in infants."},
+        {"id": "mesocephalic", "display_name": "Mesocephalic (medium)", "definition": "Cephalic index ~76-81; balanced head shape."},
+        {"id": "brachycephalic", "display_name": "Brachycephalic (short / wide)", "definition": "Cephalic index ~81-85; head substantially wider relative to length."},
+        {"id": "hyperbrachycephalic", "display_name": "Hyperbrachycephalic", "definition": "Cephalic index > ~85; pronounced width-to-length ratio. Clinical context: positional plagiocephaly in infants."},
+        {"id": "unclear", "display_name": "Unclear", "definition": "Hairstyle or framing prevents reliable head-shape assessment."}
+      ],
+      "observability": {"from_photograph": "low", "requires_unclothed": false, "minimum_visible_extent": "head_only", "notes": "Best assessed from a top-down view, which is rarely available in standard photographs. Frontal and lateral views allow only crude approximation. Hair volume substantially affects perceived width; assessment confidence should reflect this."}
+    },
+    {
+      "id": "occipital_profile",
+      "display_name": "Occipital profile",
+      "type": "categorical",
+      "scale": "occipital_qualitative",
+      "scale_citation": "Aligned with descriptors used in pediatric-craniofacial literature on occipital morphology.",
+      "description": "Shape of the occipital (back-of-head) region in lateral view.",
+      "values": [
+        {"id": "well_rounded", "display_name": "Well-rounded", "definition": "Smooth posterior curve; pronounced occipital prominence."},
+        {"id": "flat_brachycephalic", "display_name": "Flat", "definition": "Reduced posterior projection; flatter occipital silhouette. Often correlated with brachycephalic cephalic index."},
+        {"id": "occipital_bun", "display_name": "Occipital bun", "definition": "Pronounced posterior projection of the occiput; visible bulge."},
+        {"id": "asymmetric_plagiocephaly", "display_name": "Asymmetric (plagiocephalic)", "definition": "Notable left-right asymmetry of the occipital region."}
+      ],
+      "observability": {"from_photograph": "medium", "requires_unclothed": false, "minimum_visible_extent": "head_only", "notes": "Best assessed from lateral or three-quarter view; hair coverage substantially affects assessment."}
+    },
+    {
+      "id": "cranial_height",
+      "display_name": "Cranial height (vertex prominence)",
+      "type": "ordinal",
+      "scale": "cranial_height_qualitative",
+      "scale_citation": "Aligned with descriptors used in pediatric-orthotic and craniosynostosis literature.",
+      "description": "Vertical height of the cranium from the supraorbital ridge to the vertex.",
+      "values": [
+        {"id": "low", "display_name": "Low", "definition": "Reduced cranial height; vertex sits close to the level of the supraorbital ridge plus a small margin."},
+        {"id": "average", "display_name": "Average", "definition": "Standard cranial height."},
+        {"id": "tall", "display_name": "Tall", "definition": "Pronounced cranial height; vertex sits well above the supraorbital ridge. Associated with sagittal-suture craniosynostosis when extreme in infants; constitutional in adults."}
+      ],
+      "observability": {"from_photograph": "medium", "requires_unclothed": false, "minimum_visible_extent": "head_only"}
+    },
+    {
+      "id": "head_circumference_qualitative",
+      "display_name": "Head circumference (qualitative)",
+      "type": "ordinal",
+      "scale": "head_circumference_qualitative",
+      "scale_citation": "Aligned with the descriptors used in pediatric-growth-curve literature; reliable measurement requires a tape measure across the maximum circumference.",
+      "description": "Overall head circumference relative to body proportions, captured qualitatively.",
+      "values": [
+        {"id": "small", "display_name": "Small", "definition": "Head appears small relative to body; clinical microcephaly when extreme in infants."},
+        {"id": "average", "display_name": "Average", "definition": "Standard proportional head size."},
+        {"id": "large", "display_name": "Large", "definition": "Head appears large relative to body; clinical macrocephaly when extreme."}
+      ],
+      "observability": {"from_photograph": "low", "requires_unclothed": false, "minimum_visible_extent": "full_body", "notes": "Reliable assessment requires whole-body framing for proportional comparison; head-only photographs cannot resolve this dimension."}
+    }
+  ],
+
+  "aggregation_notes": {
+    "categorical_dimensions_roll_up_as": "frequency distribution",
+    "ordinal_dimensions_roll_up_as": "frequency distribution + median bucket",
+    "minimum_sample_size_for_publication": 10,
+    "small_sample_caveat_threshold": 25,
+    "low_quality_threshold": 0.3,
+    "low_confidence_threshold": 0.55
+  },
+
+  "framing_caveats": {
+    "historical_misuse": "Cranial measurements were extensively misused in 19th- and early 20th-century anthropology to support hierarchical claims about populations. Boas's 1912 study demonstrated that cephalic index responds to environment within a single generation, undermining any use of cranial morphology as a fixed population marker. Contemporary craniofacial anthropology uses these dimensions as developmental, clinical, and individual descriptors; downstream consumers of this dataset should resist mapping cephalic-index categories onto racial or population-typological claims.",
+    "intended_uses": "Pediatric craniofacial assessment (craniosynostosis screening, positional plagiocephaly), forensic anthropology (individual identification), aesthetic-medicine assessment, and clinical phenotype characterization. Population-level distributions in this dataset are documented but should not be interpreted as defining or distinguishing populations."
+  },
+
+  "references": [
+    "Boas F (1912). Changes in bodily form of descendants of immigrants. American Anthropologist, 14(3): 530-562.",
+    "van Vlimmeren LA, van der Graaf Y, Boere-Boonekamp MM, L'Hoir MP, Helders PJ, Engelbert RH (2008). Effect of pediatric physical therapy on deformational plagiocephaly in children with positional preference: a randomized controlled trial. Archives of Pediatric and Adolescent Medicine, 162(8).",
+    "Farkas LG (1994). Anthropometry of the Head and Face, 2nd Edition. Raven Press.",
+    "Argenta LC, David LR, Wilson JA, Bell WO (1996). An increase in infant cranial deformity with supine sleeping position. Journal of Craniofacial Surgery, 7(1)."
+  ]
+}

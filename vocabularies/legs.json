@@ -1,0 +1,130 @@
+{
+  "atlas_category": "legs",
+  "uberon_id": "UBERON:0000978",
+  "fma_id": "FMA:7185",
+  "display_name": "Legs",
+  "version": "1.0.0",
+  "license": "CC-BY-4.0",
+  "description": "Lower-extremity morphology: leg length, thigh and calf circumference, thigh definition, calf shape, ankle morphology. Splits the original 'Limb' atlas category from the 21-category list into separate arms.json + legs.json files. Knee alignment (genu valgum/varum) is captured in body-shape.json's `knee_alignment` dimension; this file focuses on soft-tissue and silhouette morphology.",
+
+  "dimensions": [
+    {
+      "id": "leg_length_proportional",
+      "display_name": "Leg length (proportional)",
+      "type": "ordinal",
+      "scale": "leg_length_qualitative",
+      "scale_citation": "Aligned with anthropometric descriptors of lower-extremity proportional length, related to but distinct from the trunk_to_leg_ratio dimension in body-shape.json.",
+      "description": "Total leg length (greater trochanter to floor) relative to torso length.",
+      "values": [
+        {"id": "short", "display_name": "Short", "definition": "Legs appear short relative to torso; high cormic index."},
+        {"id": "balanced", "display_name": "Balanced"},
+        {"id": "long", "display_name": "Long", "definition": "Legs appear long relative to torso; low cormic index."}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "full_body"}
+    },
+    {
+      "id": "thigh_circumference",
+      "display_name": "Thigh circumference (relative)",
+      "type": "ordinal",
+      "scale": "thigh_girth_qualitative",
+      "scale_citation": "Aligned with anthropometric descriptors of mid-thigh circumference.",
+      "description": "Thigh girth at mid-thigh, qualitative bucket.",
+      "values": [
+        {"id": "slender", "display_name": "Slender"},
+        {"id": "average", "display_name": "Average"},
+        {"id": "muscular", "display_name": "Muscular"},
+        {"id": "very_muscular", "display_name": "Very muscular"}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "full_body"}
+    },
+    {
+      "id": "thigh_definition",
+      "display_name": "Thigh muscular definition",
+      "type": "ordinal",
+      "scale": "thigh_definition_qualitative",
+      "scale_citation": "Aligned with sports-medicine descriptors of quadriceps / hamstring visibility.",
+      "description": "Visible musculature definition in the thigh region.",
+      "values": [
+        {"id": "minimal", "display_name": "Minimal"},
+        {"id": "moderate", "display_name": "Moderate"},
+        {"id": "defined", "display_name": "Defined", "definition": "Quadriceps separation visible."},
+        {"id": "highly_developed", "display_name": "Highly developed", "definition": "Pronounced quadriceps mass and definition."}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "full_body"}
+    },
+    {
+      "id": "calf_shape",
+      "display_name": "Calf shape",
+      "type": "categorical",
+      "scale": "calf_shape_qualitative",
+      "scale_citation": "Aligned with body-contouring descriptors of calf morphology.",
+      "description": "Shape of the gastrocnemius / soleus complex visible posteriorly.",
+      "values": [
+        {"id": "flat_minimal", "display_name": "Flat / minimal"},
+        {"id": "balanced", "display_name": "Balanced", "definition": "Standard calf curve."},
+        {"id": "high_muscular", "display_name": "High / muscular", "definition": "Pronounced gastrocnemius prominence high on the calf."},
+        {"id": "lower_developed", "display_name": "Lower-developed", "definition": "Calf prominence sits low on the leg."},
+        {"id": "very_developed", "display_name": "Very developed", "definition": "Pronounced calf mass with strong taper to ankle."}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "full_body"}
+    },
+    {
+      "id": "calf_circumference",
+      "display_name": "Calf circumference (relative)",
+      "type": "ordinal",
+      "scale": "calf_girth_qualitative",
+      "scale_citation": "Aligned with anthropometric descriptors of maximum calf circumference.",
+      "description": "Calf girth at maximum circumference.",
+      "values": [
+        {"id": "slender", "display_name": "Slender"},
+        {"id": "average", "display_name": "Average"},
+        {"id": "muscular", "display_name": "Muscular"},
+        {"id": "very_muscular", "display_name": "Very muscular"}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "full_body"}
+    },
+    {
+      "id": "ankle_morphology",
+      "display_name": "Ankle morphology",
+      "type": "categorical",
+      "scale": "ankle_qualitative",
+      "scale_citation": "Aligned with body-contouring descriptors of ankle taper.",
+      "description": "Ankle morphology including taper from calf and malleolar visibility.",
+      "values": [
+        {"id": "thin_tapered", "display_name": "Thin / tapered", "definition": "Pronounced taper from calf to ankle."},
+        {"id": "balanced", "display_name": "Balanced"},
+        {"id": "thick", "display_name": "Thick", "definition": "Minimal taper; ankle approaches calf circumference."},
+        {"id": "edematous", "display_name": "Edematous", "definition": "Visible swelling obscuring native morphology."}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "full_body"}
+    },
+    {
+      "id": "thigh_to_calf_ratio",
+      "display_name": "Thigh-to-calf proportion",
+      "type": "categorical",
+      "scale": "thigh_calf_proportion_qualitative",
+      "scale_citation": "Aligned with body-contouring descriptors of leg-region proportions.",
+      "description": "Relative dominance of thigh versus calf circumference.",
+      "values": [
+        {"id": "thigh_dominant", "display_name": "Thigh-dominant", "definition": "Thigh substantially thicker than calf."},
+        {"id": "balanced", "display_name": "Balanced"},
+        {"id": "calf_dominant", "display_name": "Calf-dominant", "definition": "Calf approaches or exceeds thigh in circumference."}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "full_body"}
+    }
+  ],
+
+  "aggregation_notes": {
+    "categorical_dimensions_roll_up_as": "frequency distribution",
+    "ordinal_dimensions_roll_up_as": "frequency distribution + median bucket",
+    "minimum_sample_size_for_publication": 10,
+    "small_sample_caveat_threshold": 25,
+    "low_quality_threshold": 0.3,
+    "low_confidence_threshold": 0.55
+  },
+
+  "references": [
+    "Standring S (ed.) (2020). Gray's Anatomy: The Anatomical Basis of Clinical Practice, 42nd Edition. Elsevier.",
+    "Eveleth PB, Tanner JM (1990). Worldwide Variation in Human Growth, 2nd Edition. Cambridge University Press."
+  ]
+}

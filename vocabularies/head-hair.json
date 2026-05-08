@@ -1,0 +1,177 @@
+{
+  "atlas_category": "head-hair",
+  "uberon_id": "UBERON:0001037",
+  "fma_id": "FMA:54317",
+  "display_name": "Head hair",
+  "version": "1.0.0",
+  "license": "CC-BY-4.0",
+  "description": "Scalp hair morphology: color, texture, pattern, density, hairline shape, and balding patterns. Expands the existing 3-field analysis schema (color/texture/pattern) into a comprehensive trichology-grounded vocabulary. The Andre Walker texture classification (1A-4C) is the de-facto reference for hair texture across populations; the Hamilton-Norwood (male) and Ludwig (female) scales are the canonical balding-pattern references.",
+
+  "dimensions": [
+    {
+      "id": "hair_color",
+      "display_name": "Hair color",
+      "type": "categorical",
+      "scale": "hair_color_qualitative",
+      "scale_citation": "Aligned with trichology and pigment-genetics literature (MC1R / TYR / OCA polymorphism studies).",
+      "description": "Predominant natural hair color, where determinable. Visibly dyed hair should be flagged via grooming-state metadata.",
+      "values": [
+        {"id": "black", "display_name": "Black", "definition": "Very dark hair appearing black under normal lighting; high eumelanin."},
+        {"id": "dark_brown", "display_name": "Dark brown", "definition": "Distinctly brown but darker than medium-brown."},
+        {"id": "medium_brown", "display_name": "Medium brown", "definition": "Standard brown hair."},
+        {"id": "light_brown", "display_name": "Light brown", "definition": "Light-brown to caramel range."},
+        {"id": "blonde_dark", "display_name": "Dark blonde", "definition": "Dark blonde / dirty blonde."},
+        {"id": "blonde_medium", "display_name": "Medium blonde", "definition": "Standard blonde."},
+        {"id": "blonde_platinum", "display_name": "Platinum / very light blonde", "definition": "Very light blonde, often near-white. Often dyed in adults."},
+        {"id": "red_auburn", "display_name": "Red / auburn", "definition": "Red, auburn, or copper. High pheomelanin; correlated with MC1R variants."},
+        {"id": "gray", "display_name": "Gray", "definition": "Visibly graying hair, mixed pigmented and unpigmented."},
+        {"id": "white", "display_name": "White", "definition": "Predominantly unpigmented hair."},
+        {"id": "mixed_unique", "display_name": "Mixed / unique", "definition": "Multiple distinct natural colors (e.g. natural ombre with sun-lightened tips)."},
+        {"id": "dyed_visible", "display_name": "Dyed (native color uncertain)", "definition": "Visible dye job; native color cannot be reliably inferred."}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_only", "notes": "Lighting affects perceived color substantially. Confidence should reflect lighting quality."}
+    },
+    {
+      "id": "hair_texture_walker",
+      "display_name": "Hair texture (Andre Walker)",
+      "type": "categorical",
+      "scale": "andre_walker_1990s",
+      "scale_citation": "The Andre Walker hair-typing system (developed in the 1990s for Oprah Winfrey's stylist and subsequently adopted broadly in trichology and beauty-industry literature).",
+      "description": "Andre Walker hair-texture classification covering the spectrum from straight (Type 1) to coily (Type 4), with subdivisions A-C within each numbered type.",
+      "values": [
+        {"id": "1A_straight_fine", "display_name": "1A — straight, fine", "definition": "Stick-straight, very fine; minimal body."},
+        {"id": "1B_straight_medium", "display_name": "1B — straight, medium", "definition": "Straight with medium body."},
+        {"id": "1C_straight_coarse", "display_name": "1C — straight, coarse", "definition": "Straight, thick, coarse strands."},
+        {"id": "2A_wavy_fine", "display_name": "2A — wavy, fine", "definition": "Loose S-waves; fine texture."},
+        {"id": "2B_wavy_medium", "display_name": "2B — wavy, medium", "definition": "Defined S-waves; medium texture."},
+        {"id": "2C_wavy_coarse", "display_name": "2C — wavy, coarse", "definition": "Strong S-waves transitioning to ringlets; coarse."},
+        {"id": "3A_curly_loose", "display_name": "3A — curly, loose ringlets", "definition": "Loose, soft ringlets; well-defined curl."},
+        {"id": "3B_curly_springy", "display_name": "3B — curly, springy", "definition": "Tighter, springy curls; corkscrew shape."},
+        {"id": "3C_curly_tight", "display_name": "3C — curly, tight corkscrew", "definition": "Tight corkscrew curls; densely packed."},
+        {"id": "4A_coily_S", "display_name": "4A — coily, S-pattern", "definition": "Defined small S-pattern coils."},
+        {"id": "4B_coily_Z", "display_name": "4B — coily, Z-pattern", "definition": "Sharp angular Z-pattern coils."},
+        {"id": "4C_coily_tight", "display_name": "4C — coily, tightly packed", "definition": "Tightly packed coils with little visible pattern definition; high shrinkage."},
+        {"id": "covered_unclear", "display_name": "Covered / unclear", "definition": "Hair covered by head covering or styling that prevents texture assessment."}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_only"}
+    },
+    {
+      "id": "hair_density",
+      "display_name": "Hair density",
+      "type": "ordinal",
+      "scale": "hair_density_qualitative",
+      "scale_citation": "Aligned with trichology descriptors of follicular density (typical 200-300 follicles/cm² scalp).",
+      "description": "Density of native scalp hair when ungroomed.",
+      "values": [
+        {"id": "sparse", "display_name": "Sparse", "definition": "Visible scalp through hair throughout most of the head."},
+        {"id": "thin", "display_name": "Thin", "definition": "Some visible scalp; reduced density."},
+        {"id": "average", "display_name": "Average", "definition": "Standard density; minimal visible scalp."},
+        {"id": "thick", "display_name": "Thick", "definition": "Above-average density."},
+        {"id": "very_thick", "display_name": "Very thick", "definition": "Pronounced density; voluminous appearance."}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_only", "notes": "Styling affects perceived density; volumizing products and teasing can mask sparse density."}
+    },
+    {
+      "id": "hairline_shape",
+      "display_name": "Hairline shape",
+      "type": "categorical",
+      "scale": "hairline_shape_qualitative",
+      "scale_citation": "Aligned with hair-transplant-surgery descriptors of hairline morphology.",
+      "description": "Shape of the anterior hairline.",
+      "values": [
+        {"id": "straight", "display_name": "Straight", "definition": "Approximately horizontal hairline across the forehead."},
+        {"id": "rounded", "display_name": "Rounded", "definition": "Smooth curve hairline; no peaks."},
+        {"id": "widows_peak", "display_name": "Widow's peak", "definition": "V-shaped point at the midline of the hairline."},
+        {"id": "m_shape_temporal_recession", "display_name": "M-shape (temporal recession)", "definition": "Bilateral temporal recession creating an M-shape; common male-pattern feature."},
+        {"id": "uneven_asymmetric", "display_name": "Uneven / asymmetric", "definition": "Notable left-right asymmetry."}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_only", "notes": "Hairstyle affects visibility; bangs or fringe can fully obscure hairline."}
+    },
+    {
+      "id": "hairline_position",
+      "display_name": "Hairline position (anterior)",
+      "type": "ordinal",
+      "scale": "hairline_position_qualitative",
+      "scale_citation": "Aligned with hair-transplant-surgery descriptors of hairline-height assessment.",
+      "description": "Vertical position of the anterior hairline.",
+      "values": [
+        {"id": "low", "display_name": "Low", "definition": "Hairline sits low on the forehead; reduced visible forehead."},
+        {"id": "average", "display_name": "Average", "definition": "Standard hairline position."},
+        {"id": "high", "display_name": "High", "definition": "Hairline sits high; tall visible forehead."},
+        {"id": "receded", "display_name": "Receded", "definition": "Recession beyond high-normal; balding-pattern signs visible."}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_only"}
+    },
+    {
+      "id": "balding_pattern_male",
+      "display_name": "Balding pattern (Hamilton-Norwood, male)",
+      "type": "ordinal",
+      "scale": "hamilton_norwood",
+      "scale_citation": "Hamilton JB (1951). Patterned loss of hair in man: types and incidence. Annals of the New York Academy of Sciences, 53. Norwood OT (1975). Male pattern baldness: classification and incidence. Southern Medical Journal, 68(11).",
+      "description": "Hamilton-Norwood classification of male-pattern hair loss. Applies primarily to subjects with apparent male physiognomy.",
+      "values": [
+        {"id": "type_I_no_loss", "display_name": "Type I — no recession", "definition": "No hair loss visible."},
+        {"id": "type_II_minimal_temporal", "display_name": "Type II — minimal temporal recession"},
+        {"id": "type_III_moderate_temporal", "display_name": "Type III — moderate temporal recession", "definition": "Earliest stage commonly classified as balding."},
+        {"id": "type_III_vertex", "display_name": "Type III vertex — vertex thinning"},
+        {"id": "type_IV_advanced_temporal_vertex", "display_name": "Type IV — advanced temporal recession + vertex thinning"},
+        {"id": "type_V_loss_meeting", "display_name": "Type V — frontal and vertex loss approaching"},
+        {"id": "type_VI_loss_merged", "display_name": "Type VI — frontal and vertex loss merged"},
+        {"id": "type_VII_advanced", "display_name": "Type VII — most advanced", "definition": "Only horseshoe band of hair remaining around sides and back."},
+        {"id": "not_applicable_or_female", "display_name": "Not applicable", "definition": "Subject not in male-pattern population, or no balding."}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_only"}
+    },
+    {
+      "id": "balding_pattern_female",
+      "display_name": "Balding pattern (Ludwig, female)",
+      "type": "ordinal",
+      "scale": "ludwig_classification",
+      "scale_citation": "Ludwig E (1977). Classification of the types of androgenetic alopecia (common baldness) occurring in the female sex. British Journal of Dermatology, 97(3): 247-254.",
+      "description": "Ludwig classification of female-pattern hair loss. Applies primarily to subjects with apparent female physiognomy.",
+      "values": [
+        {"id": "no_loss", "display_name": "No loss"},
+        {"id": "ludwig_I", "display_name": "Ludwig I — perceptible thinning of the crown", "definition": "Anterior hairline preserved."},
+        {"id": "ludwig_II", "display_name": "Ludwig II — pronounced central thinning", "definition": "Crown thinning pronounced; anterior hairline preserved."},
+        {"id": "ludwig_III", "display_name": "Ludwig III — full central baldness", "definition": "Crown fully bald; anterior hairline preserved."},
+        {"id": "not_applicable_or_male", "display_name": "Not applicable", "definition": "Subject not in female-pattern population, or no balding."}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_only"}
+    },
+    {
+      "id": "graying_pattern",
+      "display_name": "Graying pattern",
+      "type": "categorical",
+      "scale": "graying_pattern_qualitative",
+      "scale_citation": "Aligned with descriptors used in trichology and pigment-aging literature.",
+      "description": "Pattern and extent of visible gray / white hair.",
+      "values": [
+        {"id": "none", "display_name": "None", "definition": "No visible gray hairs."},
+        {"id": "scattered_few", "display_name": "Scattered few", "definition": "A few isolated gray hairs visible."},
+        {"id": "temple_concentrated", "display_name": "Temple-concentrated", "definition": "Graying concentrated at temples; common early-graying pattern."},
+        {"id": "salt_and_pepper", "display_name": "Salt and pepper", "definition": "Mixed gray and pigmented hair throughout; often ~50/50."},
+        {"id": "predominantly_gray", "display_name": "Predominantly gray"},
+        {"id": "fully_gray_white", "display_name": "Fully gray / white"},
+        {"id": "dyed_likely", "display_name": "Dyed (graying suggested)", "definition": "Visible dye job that likely covers gray; native graying state not directly observable."}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_only"}
+    }
+  ],
+
+  "aggregation_notes": {
+    "categorical_dimensions_roll_up_as": "frequency distribution",
+    "ordinal_dimensions_roll_up_as": "frequency distribution + median bucket",
+    "minimum_sample_size_for_publication": 10,
+    "small_sample_caveat_threshold": 25,
+    "low_quality_threshold": 0.3,
+    "low_confidence_threshold": 0.55
+  },
+
+  "references": [
+    "Hamilton JB (1951). Patterned loss of hair in man: types and incidence. Annals of the New York Academy of Sciences, 53.",
+    "Norwood OT (1975). Male pattern baldness: classification and incidence. Southern Medical Journal, 68(11).",
+    "Ludwig E (1977). Classification of the types of androgenetic alopecia (common baldness) occurring in the female sex. British Journal of Dermatology, 97(3): 247-254.",
+    "Walker A (1997). Andre Talks Hair. Simon & Schuster.",
+    "Bouhanna P (2014). Topographic phototrichogram for follicular-unit classification. Annales de Dermatologie et de Vénéréologie, 141(11)."
+  ]
+}

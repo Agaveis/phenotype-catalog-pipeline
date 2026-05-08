@@ -1,0 +1,146 @@
+{
+  "atlas_category": "jaw-and-chin",
+  "uberon_id": "UBERON:0001684",
+  "fma_id": "FMA:52748",
+  "display_name": "Jaw and chin",
+  "version": "1.0.0",
+  "license": "CC-BY-4.0",
+  "description": "Mandibular morphology and chin (mental) anatomy: jaw width, mandibular angle, masseter prominence, chin shape and projection, submental contour. Dimensions are drawn from craniofacial anthropometry (Farkas), facial-aesthetics literature (González-Ulloa, Riedel), and orthognathic-surgery references. Mandibular morphology has substantial population-level variation; East Asian populations average wider bigonial breadth and more prominent masseter musculature than European populations.",
+
+  "dimensions": [
+    {
+      "id": "jaw_width_bigonial",
+      "display_name": "Jaw width (bigonial)",
+      "type": "ordinal",
+      "scale": "bigonial_breadth_qualitative",
+      "scale_citation": "Farkas LG (1994). Anthropometry of the Head and Face, 2nd Edition. Reference: bigonial breadth (go-go) relative to bizygomatic breadth (zy-zy).",
+      "description": "Width of the lower jaw at the gonial angles (bigonial breadth) relative to the cheekbones (bizygomatic breadth).",
+      "values": [
+        {"id": "narrow", "display_name": "Narrow (tapered)", "definition": "Bigonial breadth substantially less than bizygomatic; tapered lower face."},
+        {"id": "balanced", "display_name": "Balanced", "definition": "Bigonial breadth approximately 75-85% of bizygomatic; aesthetic reference range."},
+        {"id": "wide", "display_name": "Wide", "definition": "Bigonial breadth approaches or exceeds bizygomatic; squared or wider-than-cheekbones lower face. Common in East Asian populations."}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_only"}
+    },
+    {
+      "id": "mandibular_angle",
+      "display_name": "Mandibular angle (gonial angle)",
+      "type": "categorical",
+      "scale": "gonial_angle_qualitative",
+      "scale_citation": "Aligned with orthognathic-surgery descriptors of mandibular angle morphology; reference values approximately 120-130° for the angle between the mandibular ramus and body.",
+      "description": "Sharpness of the gonial angle.",
+      "values": [
+        {"id": "sharp_angular", "display_name": "Sharp / angular", "definition": "Visible 90°-leaning angle at the gonial point; defined jawline. More common in male physiognomy and in East Asian populations."},
+        {"id": "moderate", "display_name": "Moderate", "definition": "Standard 120-130° angle; defined but rounded gonial transition."},
+        {"id": "soft_obtuse", "display_name": "Soft / obtuse", "definition": "Smooth, rounded transition with no distinct angle. More common in female physiognomy and with subcutaneous fat coverage."}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_only"}
+    },
+    {
+      "id": "masseter_prominence",
+      "display_name": "Masseter prominence",
+      "type": "ordinal",
+      "scale": "masseter_prominence_qualitative",
+      "scale_citation": "Aligned with descriptors used in masseter-reduction (botulinum toxin / surgical) literature on the East Asian face.",
+      "description": "Prominence of the masseter muscle as a visible jaw-region landmark. Hypertrophic masseter is the basis for the 'square jaw' appearance distinct from skeletal jaw width.",
+      "values": [
+        {"id": "flat_minimal", "display_name": "Flat / minimal", "definition": "Masseter not visibly contributing to jaw silhouette."},
+        {"id": "moderate", "display_name": "Moderate", "definition": "Masseter visible at clench but not at rest."},
+        {"id": "prominent", "display_name": "Prominent", "definition": "Masseter visible as a distinct landmark even at rest; squared lower face."},
+        {"id": "hypertrophic", "display_name": "Hypertrophic", "definition": "Pronounced masseter mass; visible bulge at the lower jaw."}
+      ],
+      "observability": {"from_photograph": "medium", "requires_unclothed": false, "minimum_visible_extent": "head_only"}
+    },
+    {
+      "id": "chin_projection",
+      "display_name": "Chin projection (sagittal)",
+      "type": "ordinal",
+      "scale": "riedel_pogonion_qualitative",
+      "scale_citation": "Riedel RA (1957). An analysis of dentofacial relationships. American Journal of Orthodontics, 43(2). Reference: pogonion-to-vertical-line relationship as the standard for chin projection assessment.",
+      "description": "Anterior projection of the chin (pogonion) in lateral view.",
+      "values": [
+        {"id": "retrognathic", "display_name": "Retrognathic / recessed", "definition": "Pogonion sits posterior to the Riedel reference plane; receding chin."},
+        {"id": "balanced", "display_name": "Balanced", "definition": "Pogonion approximately at the Riedel reference plane."},
+        {"id": "prognathic", "display_name": "Prognathic / projecting", "definition": "Pogonion sits anterior to the reference plane; prominent chin."}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_only", "notes": "Best assessed from lateral view."}
+    },
+    {
+      "id": "chin_shape_frontal",
+      "display_name": "Chin shape (frontal)",
+      "type": "categorical",
+      "scale": "chin_shape_qualitative",
+      "scale_citation": "Aligned with descriptors used in genioplasty literature.",
+      "description": "Shape of the chin in frontal view.",
+      "values": [
+        {"id": "pointed", "display_name": "Pointed", "definition": "V-shaped chin with narrow apex."},
+        {"id": "rounded", "display_name": "Rounded", "definition": "Smooth U-shape; no distinct point or angle."},
+        {"id": "square", "display_name": "Square", "definition": "Wide, flat chin with sharp lateral angles."},
+        {"id": "cleft", "display_name": "Cleft (dimpled)", "definition": "Visible vertical midline indentation in the chin pad."},
+        {"id": "asymmetric", "display_name": "Asymmetric", "definition": "Notable left-right chin asymmetry."}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_only"}
+    },
+    {
+      "id": "chin_height",
+      "display_name": "Chin height (vertical)",
+      "type": "ordinal",
+      "scale": "chin_height_proportional",
+      "scale_citation": "Farkas LG (1994). Reference: chin height (subnasale to menton) proportional to lower facial third.",
+      "description": "Vertical chin height proportional to the lower facial third.",
+      "values": [
+        {"id": "short", "display_name": "Short", "definition": "Chin height less than lower facial third reference."},
+        {"id": "balanced", "display_name": "Balanced", "definition": "Chin height within the reference range."},
+        {"id": "long", "display_name": "Long", "definition": "Chin height substantially above reference."}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_only"}
+    },
+    {
+      "id": "submental_definition",
+      "display_name": "Submental (under-chin) definition",
+      "type": "ordinal",
+      "scale": "ellenbogen_karlin_neck_classification",
+      "scale_citation": "Ellenbogen R, Karlin JV (1980). Visual criteria for success in restoring the youthful neck. Plastic and Reconstructive Surgery, 66(6): 826-837. The Ellenbogen-Karlin neck-aesthetics criteria include submental contour as a primary dimension.",
+      "description": "Visibility of the chin-to-neck transition; presence of submental fat or laxity ('double chin').",
+      "values": [
+        {"id": "well_defined", "display_name": "Well-defined", "definition": "Crisp transition between chin and neck; no submental fat."},
+        {"id": "softly_defined", "display_name": "Softly defined", "definition": "Visible chin-neck transition with some submental fullness."},
+        {"id": "moderate_submental_fat", "display_name": "Moderate submental fullness", "definition": "Visible submental fat pad obscuring the chin-neck angle."},
+        {"id": "marked_submental_fat", "display_name": "Marked submental fullness ('double chin')", "definition": "Pronounced submental fat creating a second visible chin contour."}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_only"}
+    },
+    {
+      "id": "mandibular_contour_definition",
+      "display_name": "Mandibular contour definition",
+      "type": "ordinal",
+      "scale": "jawline_contour_qualitative",
+      "scale_citation": "Aligned with the contemporary aesthetic-medicine literature on jawline definition (Sundaram et al., Aesthetic Surgery Journal).",
+      "description": "Visibility of the mandibular contour from gonial angle to chin.",
+      "values": [
+        {"id": "highly_defined", "display_name": "Highly defined", "definition": "Clear mandibular silhouette visible from frontal and profile views; no submental fat coverage."},
+        {"id": "defined", "display_name": "Defined", "definition": "Mandibular contour visible but soft."},
+        {"id": "soft", "display_name": "Soft", "definition": "Mandibular contour partially obscured by soft-tissue coverage."},
+        {"id": "obscured", "display_name": "Obscured", "definition": "Mandibular contour not discernible; full soft-tissue coverage of the jawline."}
+      ],
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_only"}
+    }
+  ],
+
+  "aggregation_notes": {
+    "categorical_dimensions_roll_up_as": "frequency distribution",
+    "ordinal_dimensions_roll_up_as": "frequency distribution + median bucket",
+    "minimum_sample_size_for_publication": 10,
+    "small_sample_caveat_threshold": 25,
+    "low_quality_threshold": 0.3,
+    "low_confidence_threshold": 0.55
+  },
+
+  "references": [
+    "Farkas LG (1994). Anthropometry of the Head and Face, 2nd Edition. Raven Press.",
+    "Riedel RA (1957). An analysis of dentofacial relationships. American Journal of Orthodontics, 43(2): 103-119.",
+    "Ellenbogen R, Karlin JV (1980). Visual criteria for success in restoring the youthful neck. Plastic and Reconstructive Surgery, 66(6): 826-837.",
+    "González-Ulloa M (1968). Quantitative principles in cosmetic surgery of the face: profile-plasty. Plastic and Reconstructive Surgery, 41(2).",
+    "Sundaram H, Liew S, Signorini M, et al. (2016). Global aesthetics consensus: hyaluronic acid fillers and botulinum toxin type A — recommendations for combined treatment and optimizing outcomes in diverse patient populations. Plastic and Reconstructive Surgery, 137(5)."
+  ]
+}
