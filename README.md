@@ -319,7 +319,7 @@ If you use this code or the resulting dataset, please cite the **concept DOI** b
 resolves to the newest archived version. The v1.0.0 version DOI
 ([10.5281/zenodo.20075617](https://doi.org/10.5281/zenodo.20075617)) resolves to an archive that
 predates the vocabularies and does not contain them, so cite it only if you specifically mean that
-snapshot. Version DOIs: v1.0.0 is 10.5281/zenodo.20075617, v2.0.0 is [10.5281/zenodo.22200691](https://doi.org/10.5281/zenodo.22200691).
+snapshot. Version DOIs: v1.0.0 is 10.5281/zenodo.20075617, v2.0.0 is [10.5281/zenodo.22200691](https://doi.org/10.5281/zenodo.22200691), v2.0.1 is [10.5281/zenodo.22205733](https://doi.org/10.5281/zenodo.22205733). Prefer v2.0.1: v2.0.0 carries stale corpus figures in its README.
 
 ```bibtex
 @misc{phenotype_catalog_pipeline_2026,
