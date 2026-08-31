@@ -2,10 +2,10 @@
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20075616.svg)](https://doi.org/10.5281/zenodo.20075616)
 
-Reproducibility code for the **PhenotypeCatalog** dataset — a public dataset of 5,668 per-image phenotype observations across 239 ethnic groups, constructed from public-domain Wikipedia photographs.
+Reproducibility code and controlled vocabularies for the **PhenotypeCatalog** dataset: 1,779 indexed ethnic groups, 24,406 notable-people references, and 5,478 vision-grounded per-image phenotype observations spanning 233 groups, constructed from public-domain Wikipedia photographs. Counts measured 2026-08-31; the live dataset is the authority and these move.
 
 - **Dataset (CC BY 4.0):** https://huggingface.co/datasets/EthnicErotic/phenotype-catalog
-- **Methodology paper:** [`paper/methodology-v1.pdf`](paper/methodology-v1.pdf). It documents the **14-field** vision analysis of the 5,668-image corpus. It does **not** describe the 22-vocabulary system introduced in v2.0.0; that is documented in this README and in `vocabularies/README.md`.
+- **Methodology paper:** [`paper/methodology-v1.pdf`](paper/methodology-v1.pdf). It documents the **14-field** vision analysis of the corpus as it stood in May 2026, then 5,668 images. It does **not** describe the 22-vocabulary system introduced in v2.0.0; that is documented in this README and in `vocabularies/README.md`.
 - **Archived releases (concept DOI):** [10.5281/zenodo.20075616](https://doi.org/10.5281/zenodo.20075616), which always resolves to the newest version.
 - **Live source catalog:** https://ethnicerotic.com
 - **Browse by region:** https://ethnicerotic.com/world
@@ -16,7 +16,7 @@ The pipeline runs end-to-end from a SQL Server `ethniclist` source table to four
 
 | Path | Purpose |
 |---|---|
-| `scripts/scrape-wikipedia-notable-people.mjs` | Scrape "List of {Ethnicity} people" Wikipedia articles → 13K people-rows |
+| `scripts/scrape-wikipedia-notable-people.mjs` | Scrape "List of {Ethnicity} people" Wikipedia articles into people-rows (24,406 as of 2026-08-31) |
 | `scripts/enrich-image-urls-from-wikipedia.mjs` | For each scraped person, resolve a Wikipedia infobox / OG image URL |
 | `scripts/analyze-images-via-bedrock.mjs` | Vision-LLM analysis (Claude Sonnet 4.6 on AWS Bedrock) → 14 structured fields per image |
 | `scripts/aggregate-image-observations.mjs` | Deterministic per-group SQL aggregation → group-level `image_observed_distribution` |
@@ -123,7 +123,7 @@ dominates. Those dimensions carry `estimate_is_fragile` in the JSON.
 ## What this release is honest about
 
 - **The vocabularies are a schema, not a dataset.** The published HuggingFace
-  dataset still carries the legacy 14-field analysis over 5,668 images. A
+  dataset still carries the legacy 14-field analysis over 5,478 images. A
   196-dimension corpus is not published here.
 - **The methodology paper predates the vocabularies** and describes only the
   14-field analysis. It has not been rewritten.
@@ -168,7 +168,8 @@ dominates. Those dimensions carry `estimate_is_fragile` in the JSON.
    Claude Sonnet 4.6 vision, structured JSON, 14 fields
                   │
                   ▼
-    ethnic_image_analysis (5,668 rows)
+    ethnic_image_analysis (5,668 rows)   <- row counts in this diagram are the original
+                                          May 2026 run, not the current dataset
                   │
                   ▼
    aggregate-image-observations.mjs (no LLM, deterministic)
@@ -270,14 +271,16 @@ Total: roughly half a day of wall time, ~$45 in Bedrock spend, end-to-end.
 
 ## Data outputs
 
-The `build-hf-dataset.mjs` script produces four CSV files (and matching JSONL) at `huggingface-dataset/data/`:
+The `build-hf-dataset.mjs` script produces six CSV files (and matching JSONL) at `huggingface-dataset/data/`, plus the nested `vocabularies.jsonl`. Row counts measured 2026-08-31:
 
 | Config | Rows | Description |
 |---|---|---|
-| `ethnicities.csv` | 484 | Group-level metadata + synthesized phenotype profile + aggregated image-observed distribution |
+| `ethnicities.csv` | 1,779 | Group-level metadata + synthesized phenotype profile + aggregated image-observed distribution |
 | `atlas.csv` | ~21 | Phenotype reference categories (eyes, lips, nose, hair, skin, body) — auxiliary, not produced by this pipeline |
-| `notable_people.csv` | 13,094 | Wikipedia-sourced people, ethnic-grouped, joinable to `ethnicities` via `ethnic_id` |
-| `image_observations.csv` | 5,668 | Per-image phenotype rows with 14 structured fields each |
+| `notable_people.csv` | 24,406 | Wikipedia-sourced people, ethnic-grouped, joinable to `ethnicities` via `ethnic_id` (15,228 carry an image URL) |
+| `image_observations.csv` | 5,478 | Per-image phenotype rows with 14 structured fields each, spanning 233 groups |
+| `reader_verdicts.csv` | 560 | Reader likeness judgements from 525 distinct raters, identifiers stripped |
+| `vocabulary_dimensions.csv` | 196 | Flat view of the 22 controlled vocabularies, with observability and reliability columns |
 
 See the [dataset card](https://huggingface.co/datasets/EthnicErotic/phenotype-catalog) for full column definitions and limitations.
 
@@ -320,7 +323,7 @@ snapshot. Version DOIs: v1.0.0 is 10.5281/zenodo.20075617, v2.0.0 is [10.5281/ze
 
 ```bibtex
 @misc{phenotype_catalog_pipeline_2026,
-  title         = {phenotype-catalog-pipeline: Wikipedia-sourced per-image phenotype observations across 239 ethnic groups},
+  title         = {phenotype-catalog-pipeline: controlled vocabularies and Wikipedia-sourced per-image phenotype observations},
   author        = {Jacoby, Jason},
   year          = {2026},
   publisher     = {Zenodo},
@@ -330,7 +333,7 @@ snapshot. Version DOIs: v1.0.0 is 10.5281/zenodo.20075617, v2.0.0 is [10.5281/ze
 }
 
 @misc{ethnicerotic_phenotype_catalog_2026,
-  title         = {PhenotypeCatalog: a public dataset of 5,668 per-image phenotype observations},
+  title         = {PhenotypeCatalog: controlled vocabularies and vision-grounded per-image phenotype observations},
   author        = {Jacoby, Jason},
   year          = {2026},
   publisher     = {Hugging Face},

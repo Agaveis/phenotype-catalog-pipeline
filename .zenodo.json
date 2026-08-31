@@ -1,6 +1,6 @@
 {
   "title": "phenotype-catalog-pipeline: 22 controlled vocabularies for photograph-observable human phenotype, with a measured reproducibility study",
-  "description": "Reproducibility code and controlled vocabularies for the PhenotypeCatalog dataset: 5,668 per-image phenotype observations across 239 ethnic groups, constructed from public-domain Wikipedia photographs of notable people. Version 2.0 adds the 22 controlled vocabularies that v1.0.0 did not contain, because they were pushed the day after that tag was cut: 196 dimensions and 853 named values, each dimension carrying a type (99 ordinal, 91 categorical, 6 numeric), an ordered value list with a definition per value, a scale citation on all 196, and an observability block stating how well the dimension reads from a single photograph, whether it needs an unclothed subject, and the minimum visible extent it requires. That observability contract is the part no comparable resource publishes: Elements of Morphology defines head and face terms without saying which can be coded from one image. Version 2.0 also adds a measured test-retest study over the ten head-and-neck families: 196 portraits across 29 ethnic groups re-read with the identical prompt, 92.9 percent agreement over dimensions both readings answered and 90.6 percent counting a decline as a miss, with 73 of 84 rankable dimensions at Cohen's kappa 0.60 or better and three marked uninformative because they return a single value for nearly every portrait. That study measures reproducibility and NOT validity: it is one model agreeing with itself, no human rater has scored these images, and no inter-rater agreement exists for this vocabulary. Three vocabularies covering genital anatomy are marked internal_only and are never populated from photographs. The vocabularies describe what a photograph shows and carry no population axis; running the mapping backwards, from a face to a population, is not a supported use. Code is Apache-2.0, the vocabularies and dataset are CC BY 4.0.",
+  "description": "Reproducibility code and controlled vocabularies for the PhenotypeCatalog dataset: 5,478 per-image phenotype observations spanning 233 ethnic groups, drawn from 24,406 notable-people references across 1,779 indexed groups and constructed from public-domain Wikipedia photographs. Counts measured 2026-08-31. Version 2.0 adds the 22 controlled vocabularies that v1.0.0 did not contain, because they were pushed the day after that tag was cut: 196 dimensions and 853 named values, each dimension carrying a type (99 ordinal, 91 categorical, 6 numeric), an ordered value list with a definition per value, a scale citation on all 196, and an observability block stating how well the dimension reads from a single photograph, whether it needs an unclothed subject, and the minimum visible extent it requires. That observability contract is the part no comparable resource publishes: Elements of Morphology defines head and face terms without saying which can be coded from one image. Version 2.0 also adds a measured test-retest study over the ten head-and-neck families: 196 portraits across 29 ethnic groups re-read with the identical prompt, 92.9 percent agreement over dimensions both readings answered and 90.6 percent counting a decline as a miss, with 73 of 84 rankable dimensions at Cohen's kappa 0.60 or better and three marked uninformative because they return a single value for nearly every portrait. That study measures reproducibility and NOT validity: it is one model agreeing with itself, no human rater has scored these images, and no inter-rater agreement exists for this vocabulary. Three vocabularies covering genital anatomy are marked internal_only and are never populated from photographs. The vocabularies describe what a photograph shows and carry no population axis; running the mapping backwards, from a face to a population, is not a supported use. Code is Apache-2.0, the vocabularies and dataset are CC BY 4.0.",
   "upload_type": "software",
   "access_right": "open",
   "creators": [
@@ -35,7 +35,7 @@
     },
     {
       "relation": "isNewVersionOf",
-      "identifier": "10.5281/zenodo.20075617",
+      "identifier": "10.5281/zenodo.22200691",
       "scheme": "doi"
     },
     {
@@ -49,6 +49,6 @@
       "scheme": "url"
     }
   ],
-  "version": "2.0.0",
+  "version": "2.0.1",
   "license": "Apache-2.0"
 }
