@@ -3,9 +3,29 @@
   "uberon_id": "UBERON:0001456",
   "fma_id": "FMA:24728",
   "display_name": "Face proportions",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "license": "CC-BY-4.0",
   "description": "Whole-face proportional dimensions: face shape, facial-thirds balance, cheekbone prominence, malar projection, midface morphology, forehead. Captures the macro-level face morphology that's not localized to any single feature. Dimensions draw from craniofacial anthropometry (Farkas), facial-aesthetics literature (Powell-Humphreys, Ricketts), and contemporary aesthetic-medicine references on the diverse-patient-population face.",
+
+  "reliability_studies": [
+    {
+      "id": "test-retest-2026-08-31",
+      "method": "test-retest: the identical prompt re-read against stored codings, same model, no human rater",
+      "measures": "reproducibility, NOT validity. Agreement between two readings says the instrument is stable, not that it is correct.",
+      "model": "us.anthropic.claude-sonnet-4-6",
+      "corpus": "publicly documented portraits of notable people, 39 ethnic groups, single frontal or three-quarter images",
+      "measured": "2026-08-31",
+      "portraits_read": 196,
+      "statistic": "percent agreement and Cohen's kappa over portraits where both readings gave a non-decline value",
+      "decline_handling": "A value meaning \"could not assess\" (unclear, not_visible, not_assessable, obscured, covered_unclear, not_applicable_or_*) is treated as a decline, not an answer. Scoring declines as answers makes a dimension that is never visible look perfectly reliable.",
+      "limitations": [
+        "One model, one corpus, one re-read. No human inter-rater study exists for this vocabulary.",
+        "Kappa is fragile wherever one value dominates. Measured on this corpus: six dimensions read kappa at or below zero on 78 portraits and between 0.43 and 0.66 on 196, and every one has chance agreement above 85 percent. Those carry estimate_is_fragile and should be read as a band, not a number.",
+        "Notable-people corpora skew older and are not a population sample.",
+        "A dimension can be perfectly reproducible and still not measure what its name claims."
+      ]
+    }
+  ],
 
   "dimensions": [
     {
@@ -25,7 +45,8 @@
         {"id": "triangular_inverted", "display_name": "Triangular (inverted)", "definition": "Wide jaw, narrow forehead — opposite of heart-shape."},
         {"id": "asymmetric", "display_name": "Asymmetric", "definition": "Notable left-right facial asymmetry as the dominant feature."}
       ],
-      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_only"}
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_only"},
+      "reliability": {"study": "test-retest-2026-08-31", "n": 177, "percent_agreement": 86.4, "percent_agreement_ci95": [80.6,90.7], "cohens_kappa": 0.81, "verdict": "substantial"}
     },
     {
       "id": "facial_thirds_balance",
@@ -42,7 +63,8 @@
         {"id": "short_upper", "display_name": "Short upper third", "definition": "Low hairline; reduced forehead height."},
         {"id": "short_lower", "display_name": "Short lower third", "definition": "Reduced lower-face vertical dimension; common with retrognathia."}
       ],
-      "observability": {"from_photograph": "medium", "requires_unclothed": false, "minimum_visible_extent": "head_only", "notes": "Hairline position can be obscured by hairstyle; trichion may not be reliably visible."}
+      "observability": {"from_photograph": "medium", "requires_unclothed": false, "minimum_visible_extent": "head_only", "notes": "Hairline position can be obscured by hairstyle; trichion may not be reliably visible."},
+      "reliability": {"study": "test-retest-2026-08-31", "n": 176, "percent_agreement": 84.7, "percent_agreement_ci95": [78.6,89.2], "cohens_kappa": 0.707, "verdict": "substantial"}
     },
     {
       "id": "cheekbone_prominence",
@@ -56,7 +78,8 @@
         {"id": "moderate", "display_name": "Moderate", "definition": "Cheekbones visible but not prominent."},
         {"id": "high_prominent", "display_name": "High / prominent", "definition": "Pronounced anterior projection; defined cheekbone landmarks. Common in some East Asian, indigenous American, and Slavic populations."}
       ],
-      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_only"}
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_only"},
+      "reliability": {"study": "test-retest-2026-08-31", "n": 179, "percent_agreement": 97.8, "percent_agreement_ci95": [94.4,99.1], "cohens_kappa": 0.824, "verdict": "almost-perfect", "chance_agreement_percent": 87.3, "estimate_is_fragile": true, "note": "Chance agreement is high because one value dominates this corpus, so kappa is computed on a small (1 - pe) denominator and the estimate moves a long way on a few cells. Measured: between a 78-portrait and a 196-portrait read of the same corpus, dimensions in this regime moved by up to 0.68 of a kappa point, in both directions. Read the band, not the digits."}
     },
     {
       "id": "cheekbone_width",
@@ -70,7 +93,8 @@
         {"id": "balanced", "display_name": "Balanced", "definition": "Bizygomatic breadth in proportional reference range."},
         {"id": "wide", "display_name": "Wide", "definition": "Bizygomatic breadth substantially wide; common in East Asian and indigenous populations."}
       ],
-      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_only"}
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_only"},
+      "reliability": {"study": "test-retest-2026-08-31", "n": 178, "percent_agreement": 93.8, "percent_agreement_ci95": [89.3,96.5], "cohens_kappa": 0.866, "verdict": "almost-perfect"}
     },
     {
       "id": "midface_morphology",
@@ -85,7 +109,8 @@
         {"id": "flattened_aged", "display_name": "Flattened / aged", "definition": "Reduced midface fullness; deepened nasolabial fold; visible tear-trough; mid-cheek descent."},
         {"id": "very_full", "display_name": "Very full", "definition": "Pronounced anterior midface fullness — constitutional or augmented."}
       ],
-      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_only"}
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_only"},
+      "reliability": {"study": "test-retest-2026-08-31", "n": 177, "percent_agreement": 89.3, "percent_agreement_ci95": [83.8,93], "cohens_kappa": 0.818, "verdict": "almost-perfect"}
     },
     {
       "id": "forehead_height",
@@ -99,7 +124,8 @@
         {"id": "balanced", "display_name": "Balanced", "definition": "Forehead height approximately matches other facial thirds."},
         {"id": "tall", "display_name": "Tall", "definition": "Forehead height substantially above proportional reference; high hairline or recession."}
       ],
-      "observability": {"from_photograph": "medium", "requires_unclothed": false, "minimum_visible_extent": "head_only", "notes": "Hairstyle and grooming substantially affect visible forehead height; observation should reflect visible state."}
+      "observability": {"from_photograph": "medium", "requires_unclothed": false, "minimum_visible_extent": "head_only", "notes": "Hairstyle and grooming substantially affect visible forehead height; observation should reflect visible state."},
+      "reliability": {"study": "test-retest-2026-08-31", "n": 176, "percent_agreement": 89.8, "percent_agreement_ci95": [84.4,93.4], "cohens_kappa": 0.675, "verdict": "substantial"}
     },
     {
       "id": "forehead_shape",
@@ -114,7 +140,8 @@
         {"id": "sloping", "display_name": "Sloping (posterior)", "definition": "Forehead slopes posteriorly from glabella; common in male morphology with prominent supraorbital ridges."},
         {"id": "bossing", "display_name": "Frontal bossing", "definition": "Pronounced anterior projection of the frontal bone; less common variant."}
       ],
-      "observability": {"from_photograph": "medium", "requires_unclothed": false, "minimum_visible_extent": "head_only", "notes": "Best assessed from lateral view."}
+      "observability": {"from_photograph": "medium", "requires_unclothed": false, "minimum_visible_extent": "head_only", "notes": "Best assessed from lateral view."},
+      "reliability": {"study": "test-retest-2026-08-31", "n": 176, "percent_agreement": 85.8, "percent_agreement_ci95": [79.9,90.2], "cohens_kappa": 0.671, "verdict": "substantial"}
     }
   ],
 

@@ -3,9 +3,29 @@
   "uberon_id": "UBERON:0000970",
   "fma_id": "FMA:54448",
   "display_name": "Eyes",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "license": "CC-BY-4.0",
   "description": "Periocular phenotype: eye globe, eyelid morphology, palpebral fissure metrics, epicanthic fold, brow ridge, eyebrow morphology, and tear-trough region. Absorbs the original Eyelids and Eye Color atlas categories per the granularity decision (eye color is a single dimension, eyelid morphology is tightly coupled to eye morphology, brow region is the soft-tissue continuation of orbital anatomy). Dimensions are drawn from craniofacial anthropometry (Farkas), oculoplastic surgery (Putterman, McCord), Asian-eyelid-surgery classification literature (McCurdy, Liu, Chen), and dermatology / aging-face literature for the brow and tear-trough dimensions.",
+
+  "reliability_studies": [
+    {
+      "id": "test-retest-2026-08-31",
+      "method": "test-retest: the identical prompt re-read against stored codings, same model, no human rater",
+      "measures": "reproducibility, NOT validity. Agreement between two readings says the instrument is stable, not that it is correct.",
+      "model": "us.anthropic.claude-sonnet-4-6",
+      "corpus": "publicly documented portraits of notable people, 39 ethnic groups, single frontal or three-quarter images",
+      "measured": "2026-08-31",
+      "portraits_read": 196,
+      "statistic": "percent agreement and Cohen's kappa over portraits where both readings gave a non-decline value",
+      "decline_handling": "A value meaning \"could not assess\" (unclear, not_visible, not_assessable, obscured, covered_unclear, not_applicable_or_*) is treated as a decline, not an answer. Scoring declines as answers makes a dimension that is never visible look perfectly reliable.",
+      "limitations": [
+        "One model, one corpus, one re-read. No human inter-rater study exists for this vocabulary.",
+        "Kappa is fragile wherever one value dominates. Measured on this corpus: six dimensions read kappa at or below zero on 78 portraits and between 0.43 and 0.66 on 196, and every one has chance agreement above 85 percent. Those carry estimate_is_fragile and should be read as a band, not a number.",
+        "Notable-people corpora skew older and are not a population sample.",
+        "A dimension can be perfectly reproducible and still not measure what its name claims."
+      ]
+    }
+  ],
 
   "dimensions": [
     {
@@ -34,7 +54,8 @@
         "requires_unclothed": false,
         "minimum_visible_extent": "head_only",
         "notes": "Eye color is sensitive to lighting — flash photography and bright daylight can wash out lighter colors; low-light photography can darken lighter eyes toward gray or hazel. Confidence should reflect lighting quality."
-      }
+      },
+      "reliability": {"study": "test-retest-2026-08-31", "n": 88, "percent_agreement": 86.4, "percent_agreement_ci95": [77.7,92], "cohens_kappa": 0.82, "verdict": "almost-perfect"}
     },
 
     {
@@ -59,7 +80,8 @@
         "from_photograph": "high",
         "requires_unclothed": false,
         "minimum_visible_extent": "head_only"
-      }
+      },
+      "reliability": {"study": "test-retest-2026-08-31", "n": 177, "percent_agreement": 90.4, "percent_agreement_ci95": [85.2,93.9], "cohens_kappa": 0.843, "verdict": "almost-perfect"}
     },
 
     {
@@ -83,7 +105,8 @@
         "requires_unclothed": false,
         "minimum_visible_extent": "head_only",
         "notes": "Best assessed when subject is looking straight ahead with relaxed brow; raised brow can artificially expose creases that aren't typically visible."
-      }
+      },
+      "reliability": {"study": "test-retest-2026-08-31", "n": 160, "percent_agreement": 91.9, "percent_agreement_ci95": [86.6,95.2], "cohens_kappa": 0.823, "verdict": "almost-perfect"}
     },
 
     {
@@ -105,7 +128,8 @@
         "from_photograph": "high",
         "requires_unclothed": false,
         "minimum_visible_extent": "head_only"
-      }
+      },
+      "reliability": {"study": "test-retest-2026-08-31", "n": 167, "percent_agreement": 98.8, "percent_agreement_ci95": [95.7,99.7], "cohens_kappa": 0.921, "verdict": "almost-perfect"}
     },
 
     {
@@ -127,7 +151,8 @@
         "requires_unclothed": false,
         "minimum_visible_extent": "head_only",
         "notes": "Best assessed from a directly-frontal photograph with neutral head posture; head-tilt artifacts can be misread as slant."
-      }
+      },
+      "reliability": {"study": "test-retest-2026-08-31", "n": 175, "percent_agreement": 78.9, "percent_agreement_ci95": [72.2,84.3], "cohens_kappa": 0.667, "verdict": "substantial"}
     },
 
     {
@@ -146,7 +171,8 @@
         "from_photograph": "high",
         "requires_unclothed": false,
         "minimum_visible_extent": "head_only"
-      }
+      },
+      "reliability": {"study": "test-retest-2026-08-31", "n": 171, "percent_agreement": 99.4, "percent_agreement_ci95": [96.8,99.9], "cohens_kappa": 0.855, "verdict": "almost-perfect", "chance_agreement_percent": 96, "estimate_is_fragile": true, "note": "Chance agreement is high because one value dominates this corpus, so kappa is computed on a small (1 - pe) denominator and the estimate moves a long way on a few cells. Measured: between a 78-portrait and a 196-portrait read of the same corpus, dimensions in this regime moved by up to 0.68 of a kappa point, in both directions. Read the band, not the digits."}
     },
 
     {
@@ -165,7 +191,8 @@
         "from_photograph": "high",
         "requires_unclothed": false,
         "minimum_visible_extent": "head_only"
-      }
+      },
+      "reliability": {"study": "test-retest-2026-08-31", "n": 171, "percent_agreement": 97.1, "percent_agreement_ci95": [93.3,98.7], "cohens_kappa": 0.652, "verdict": "substantial", "chance_agreement_percent": 91.6, "estimate_is_fragile": true, "note": "Chance agreement is high because one value dominates this corpus, so kappa is computed on a small (1 - pe) denominator and the estimate moves a long way on a few cells. Measured: between a 78-portrait and a 196-portrait read of the same corpus, dimensions in this regime moved by up to 0.68 of a kappa point, in both directions. Read the band, not the digits."}
     },
 
     {
@@ -185,7 +212,8 @@
         "requires_unclothed": false,
         "minimum_visible_extent": "head_only",
         "notes": "Best assessed from lateral or three-quarter view; frontal view alone can underestimate prominence."
-      }
+      },
+      "reliability": {"study": "test-retest-2026-08-31", "n": 180, "percent_agreement": 92.8, "percent_agreement_ci95": [88,95.7], "cohens_kappa": 0.844, "verdict": "almost-perfect"}
     },
 
     {
@@ -207,7 +235,8 @@
         "requires_unclothed": false,
         "minimum_visible_extent": "head_only",
         "notes": "Cosmetic shaping confounds native-density assessment. If brow shows clear evidence of grooming, observation should reflect the visible state and confidence should reflect the uncertainty about native density."
-      }
+      },
+      "reliability": {"study": "test-retest-2026-08-31", "n": 175, "percent_agreement": 91.4, "percent_agreement_ci95": [86.3,94.7], "cohens_kappa": 0.842, "verdict": "almost-perfect"}
     },
 
     {
@@ -230,7 +259,8 @@
         "requires_unclothed": false,
         "minimum_visible_extent": "head_only",
         "notes": "Cosmetic shaping affects observation; flag when shaping is visible."
-      }
+      },
+      "reliability": {"study": "test-retest-2026-08-31", "n": 177, "percent_agreement": 92.7, "percent_agreement_ci95": [87.8,95.7], "cohens_kappa": 0.812, "verdict": "almost-perfect"}
     },
 
     {
@@ -251,7 +281,8 @@
         "requires_unclothed": false,
         "minimum_visible_extent": "head_only",
         "notes": "Lighting affects assessment substantially — overhead lighting can artificially deepen tear-trough shadows."
-      }
+      },
+      "reliability": {"study": "test-retest-2026-08-31", "n": 160, "percent_agreement": 88.1, "percent_agreement_ci95": [82.2,92.3], "cohens_kappa": 0.691, "verdict": "substantial"}
     },
 
     {
@@ -271,7 +302,8 @@
         "requires_unclothed": false,
         "minimum_visible_extent": "head_only",
         "notes": "Best assessed from lateral view. Differential diagnosis between constitutional prominence and pathologic proptosis (e.g. thyroid eye disease) is outside the scope of phenotype observation."
-      }
+      },
+      "reliability": {"study": "test-retest-2026-08-31", "n": 176, "percent_agreement": 93.2, "percent_agreement_ci95": [88.5,96.1], "cohens_kappa": 0.83, "verdict": "almost-perfect"}
     }
   ],
 

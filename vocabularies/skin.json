@@ -3,9 +3,29 @@
   "uberon_id": "UBERON:0002097",
   "fma_id": "FMA:7163",
   "display_name": "Skin",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "license": "CC-BY-4.0",
   "description": "Skin pigmentation, surface morphology, and visible quality — formalizing the Fitzpatrick treatment that previously lived only as a column in the 14-field per-image analysis schema. Captures the dimensions that drive skin-related ethnic variation: Fitzpatrick skin type, undertone, pigmentation pattern, acral pigmentation differential, and visible aging. The Fitzpatrick scale (1988) is the canonical medical reference for skin classification across populations and remains the load-bearing dimension here.",
+
+  "reliability_studies": [
+    {
+      "id": "test-retest-2026-08-31",
+      "method": "test-retest: the identical prompt re-read against stored codings, same model, no human rater",
+      "measures": "reproducibility, NOT validity. Agreement between two readings says the instrument is stable, not that it is correct.",
+      "model": "us.anthropic.claude-sonnet-4-6",
+      "corpus": "publicly documented portraits of notable people, 39 ethnic groups, single frontal or three-quarter images",
+      "measured": "2026-08-31",
+      "portraits_read": 196,
+      "statistic": "percent agreement and Cohen's kappa over portraits where both readings gave a non-decline value",
+      "decline_handling": "A value meaning \"could not assess\" (unclear, not_visible, not_assessable, obscured, covered_unclear, not_applicable_or_*) is treated as a decline, not an answer. Scoring declines as answers makes a dimension that is never visible look perfectly reliable.",
+      "limitations": [
+        "One model, one corpus, one re-read. No human inter-rater study exists for this vocabulary.",
+        "Kappa is fragile wherever one value dominates. Measured on this corpus: six dimensions read kappa at or below zero on 78 portraits and between 0.43 and 0.66 on 196, and every one has chance agreement above 85 percent. Those carry estimate_is_fragile and should be read as a band, not a number.",
+        "Notable-people corpora skew older and are not a population sample.",
+        "A dimension can be perfectly reproducible and still not measure what its name claims."
+      ]
+    }
+  ],
 
   "dimensions": [
     {
@@ -33,7 +53,8 @@
         "requires_unclothed": false,
         "minimum_visible_extent": "head_only",
         "notes": "Original Fitzpatrick assessment is questionnaire-based (sunburn / tanning history); visual assessment from photograph is a proxy. Reliability decreases under poor lighting, heavy makeup, B&W photographs, and non-skin obscurations. Use 'unclear' rather than guessing."
-      }
+      },
+      "reliability": {"study": "test-retest-2026-08-31", "n": 128, "percent_agreement": 92.2, "percent_agreement_ci95": [86.2,95.7], "cohens_kappa": 0.901, "verdict": "almost-perfect"}
     },
 
     {
@@ -55,7 +76,8 @@
         "requires_unclothed": false,
         "minimum_visible_extent": "head_only",
         "notes": "Highly sensitive to color balance and lighting in the source photograph. White-balanced studio lighting yields reliable assessment; flash photography, fluorescent / mixed lighting, or filtered-image color casts substantially affect this dimension."
-      }
+      },
+      "reliability": {"study": "test-retest-2026-08-31", "n": 98, "percent_agreement": 85.7, "percent_agreement_ci95": [77.4,91.3], "cohens_kappa": 0.757, "verdict": "substantial"}
     },
 
     {
@@ -77,7 +99,8 @@
         "requires_unclothed": false,
         "minimum_visible_extent": "head_only",
         "notes": "Highly dependent on image resolution and post-processing. Flag confidence low when image is heavily filtered or low-resolution."
-      }
+      },
+      "reliability": {"study": "test-retest-2026-08-31", "n": 170, "percent_agreement": 89.4, "percent_agreement_ci95": [83.9,93.2], "cohens_kappa": 0.824, "verdict": "almost-perfect"}
     },
 
     {
@@ -101,7 +124,8 @@
         "from_photograph": "high",
         "requires_unclothed": false,
         "minimum_visible_extent": "head_only"
-      }
+      },
+      "reliability": {"study": "test-retest-2026-08-31", "n": 141, "percent_agreement": 99.3, "percent_agreement_ci95": [96.1,99.9], "cohens_kappa": 0.934, "verdict": "almost-perfect", "chance_agreement_percent": 89.2, "estimate_is_fragile": true, "note": "Chance agreement is high because one value dominates this corpus, so kappa is computed on a small (1 - pe) denominator and the estimate moves a long way on a few cells. Measured: between a 78-portrait and a 196-portrait read of the same corpus, dimensions in this regime moved by up to 0.68 of a kappa point, in both directions. Read the band, not the digits."}
     },
 
     {
@@ -121,7 +145,8 @@
         "from_photograph": "high",
         "requires_unclothed": false,
         "minimum_visible_extent": "head_only"
-      }
+      },
+      "reliability": {"study": "test-retest-2026-08-31", "n": 169, "percent_agreement": 97, "percent_agreement_ci95": [93.3,98.7], "cohens_kappa": 0.811, "verdict": "almost-perfect"}
     },
 
     {
@@ -142,7 +167,8 @@
         "requires_unclothed": false,
         "minimum_visible_extent": "torso",
         "notes": "Requires hands or feet to be visible; head/shoulders portraits cannot assess this dimension. Treat as photo-assessable only when palms or soles appear in frame."
-      }
+      },
+      "reliability": {"study": "test-retest-2026-08-31", "n": 7, "percent_agreement": 85.7, "percent_agreement_ci95": [48.7,97.4], "cohens_kappa": 0.588, "verdict": "insufficient-sample", "note": "Too few portraits carried a value in both readings to support a rate. Reported, not ranked."}
     },
 
     {
@@ -164,7 +190,8 @@
         "requires_unclothed": false,
         "minimum_visible_extent": "head_only",
         "notes": "Best assessed under neutral lighting without heavy filtering or post-processing. Heavy makeup or beauty-filtering can mask grades II-III; high-resolution unfiltered photography is required for confident assessment."
-      }
+      },
+      "reliability": {"study": "test-retest-2026-08-31", "n": 171, "percent_agreement": 94.2, "percent_agreement_ci95": [89.6,96.8], "cohens_kappa": 0.918, "verdict": "almost-perfect"}
     },
 
     {
@@ -185,7 +212,8 @@
         "requires_unclothed": false,
         "minimum_visible_extent": "head_only",
         "notes": "Highly sensitive to color balance, lighting, and post-processing. Confidence should reflect the lighting quality of the source image."
-      }
+      },
+      "reliability": {"study": "test-retest-2026-08-31", "n": 154, "percent_agreement": 96.8, "percent_agreement_ci95": [92.6,98.6], "cohens_kappa": 0.919, "verdict": "almost-perfect"}
     }
   ],
 

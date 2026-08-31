@@ -3,9 +3,29 @@
   "uberon_id": "UBERON:0001037",
   "fma_id": "FMA:54317",
   "display_name": "Head hair",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "license": "CC-BY-4.0",
   "description": "Scalp hair morphology: color, texture, pattern, density, hairline shape, and balding patterns. Expands the existing 3-field analysis schema (color/texture/pattern) into a comprehensive trichology-grounded vocabulary. The Andre Walker texture classification (1A-4C) is the de-facto reference for hair texture across populations; the Hamilton-Norwood (male) and Ludwig (female) scales are the canonical balding-pattern references.",
+
+  "reliability_studies": [
+    {
+      "id": "test-retest-2026-08-31",
+      "method": "test-retest: the identical prompt re-read against stored codings, same model, no human rater",
+      "measures": "reproducibility, NOT validity. Agreement between two readings says the instrument is stable, not that it is correct.",
+      "model": "us.anthropic.claude-sonnet-4-6",
+      "corpus": "publicly documented portraits of notable people, 39 ethnic groups, single frontal or three-quarter images",
+      "measured": "2026-08-31",
+      "portraits_read": 196,
+      "statistic": "percent agreement and Cohen's kappa over portraits where both readings gave a non-decline value",
+      "decline_handling": "A value meaning \"could not assess\" (unclear, not_visible, not_assessable, obscured, covered_unclear, not_applicable_or_*) is treated as a decline, not an answer. Scoring declines as answers makes a dimension that is never visible look perfectly reliable.",
+      "limitations": [
+        "One model, one corpus, one re-read. No human inter-rater study exists for this vocabulary.",
+        "Kappa is fragile wherever one value dominates. Measured on this corpus: six dimensions read kappa at or below zero on 78 portraits and between 0.43 and 0.66 on 196, and every one has chance agreement above 85 percent. Those carry estimate_is_fragile and should be read as a band, not a number.",
+        "Notable-people corpora skew older and are not a population sample.",
+        "A dimension can be perfectly reproducible and still not measure what its name claims."
+      ]
+    }
+  ],
 
   "dimensions": [
     {
@@ -29,7 +49,8 @@
         {"id": "mixed_unique", "display_name": "Mixed / unique", "definition": "Multiple distinct natural colors (e.g. natural ombre with sun-lightened tips)."},
         {"id": "dyed_visible", "display_name": "Dyed (native color uncertain)", "definition": "Visible dye job; native color cannot be reliably inferred."}
       ],
-      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_only", "notes": "Lighting affects perceived color substantially. Confidence should reflect lighting quality."}
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_only", "notes": "Lighting affects perceived color substantially. Confidence should reflect lighting quality."},
+      "reliability": {"study": "test-retest-2026-08-31", "n": 170, "percent_agreement": 94.7, "percent_agreement_ci95": [90.2,97.2], "cohens_kappa": 0.931, "verdict": "almost-perfect"}
     },
     {
       "id": "hair_texture_walker",
@@ -53,7 +74,8 @@
         {"id": "4C_coily_tight", "display_name": "4C — coily, tightly packed", "definition": "Tightly packed coils with little visible pattern definition; high shrinkage."},
         {"id": "covered_unclear", "display_name": "Covered / unclear", "definition": "Hair covered by head covering or styling that prevents texture assessment."}
       ],
-      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_only"}
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_only"},
+      "reliability": {"study": "test-retest-2026-08-31", "n": 157, "percent_agreement": 94.3, "percent_agreement_ci95": [89.5,97], "cohens_kappa": 0.894, "verdict": "almost-perfect"}
     },
     {
       "id": "hair_density",
@@ -69,7 +91,8 @@
         {"id": "thick", "display_name": "Thick", "definition": "Above-average density."},
         {"id": "very_thick", "display_name": "Very thick", "definition": "Pronounced density; voluminous appearance."}
       ],
-      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_only", "notes": "Styling affects perceived density; volumizing products and teasing can mask sparse density."}
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_only", "notes": "Styling affects perceived density; volumizing products and teasing can mask sparse density."},
+      "reliability": {"study": "test-retest-2026-08-31", "n": 160, "percent_agreement": 90, "percent_agreement_ci95": [84.4,93.8], "cohens_kappa": 0.848, "verdict": "almost-perfect"}
     },
     {
       "id": "hairline_shape",
@@ -85,7 +108,8 @@
         {"id": "m_shape_temporal_recession", "display_name": "M-shape (temporal recession)", "definition": "Bilateral temporal recession creating an M-shape; common male-pattern feature."},
         {"id": "uneven_asymmetric", "display_name": "Uneven / asymmetric", "definition": "Notable left-right asymmetry."}
       ],
-      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_only", "notes": "Hairstyle affects visibility; bangs or fringe can fully obscure hairline."}
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_only", "notes": "Hairstyle affects visibility; bangs or fringe can fully obscure hairline."},
+      "reliability": {"study": "test-retest-2026-08-31", "n": 152, "percent_agreement": 88.8, "percent_agreement_ci95": [82.8,92.9], "cohens_kappa": 0.799, "verdict": "substantial"}
     },
     {
       "id": "hairline_position",
@@ -100,7 +124,8 @@
         {"id": "high", "display_name": "High", "definition": "Hairline sits high; tall visible forehead."},
         {"id": "receded", "display_name": "Receded", "definition": "Recession beyond high-normal; balding-pattern signs visible."}
       ],
-      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_only"}
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_only"},
+      "reliability": {"study": "test-retest-2026-08-31", "n": 153, "percent_agreement": 93.5, "percent_agreement_ci95": [88.4,96.4], "cohens_kappa": 0.873, "verdict": "almost-perfect"}
     },
     {
       "id": "balding_pattern_male",
@@ -120,7 +145,8 @@
         {"id": "type_VII_advanced", "display_name": "Type VII — most advanced", "definition": "Only horseshoe band of hair remaining around sides and back."},
         {"id": "not_applicable_or_female", "display_name": "Not applicable", "definition": "Subject not in male-pattern population, or no balding."}
       ],
-      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_only"}
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_only"},
+      "reliability": {"study": "test-retest-2026-08-31", "n": 122, "percent_agreement": 83.6, "percent_agreement_ci95": [76,89.1], "cohens_kappa": 0.76, "verdict": "substantial"}
     },
     {
       "id": "balding_pattern_female",
@@ -136,7 +162,8 @@
         {"id": "ludwig_III", "display_name": "Ludwig III — full central baldness", "definition": "Crown fully bald; anterior hairline preserved."},
         {"id": "not_applicable_or_male", "display_name": "Not applicable", "definition": "Subject not in female-pattern population, or no balding."}
       ],
-      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_only"}
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_only"},
+      "reliability": {"study": "test-retest-2026-08-31", "n": 35, "percent_agreement": 97.1, "percent_agreement_ci95": [85.5,99.5], "cohens_kappa": 0.653, "verdict": "substantial", "chance_agreement_percent": 91.8, "estimate_is_fragile": true, "note": "Chance agreement is high because one value dominates this corpus, so kappa is computed on a small (1 - pe) denominator and the estimate moves a long way on a few cells. Measured: between a 78-portrait and a 196-portrait read of the same corpus, dimensions in this regime moved by up to 0.68 of a kappa point, in both directions. Read the band, not the digits."}
     },
     {
       "id": "graying_pattern",
@@ -154,7 +181,8 @@
         {"id": "fully_gray_white", "display_name": "Fully gray / white"},
         {"id": "dyed_likely", "display_name": "Dyed (graying suggested)", "definition": "Visible dye job that likely covers gray; native graying state not directly observable."}
       ],
-      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_only"}
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_only"},
+      "reliability": {"study": "test-retest-2026-08-31", "n": 170, "percent_agreement": 92.4, "percent_agreement_ci95": [87.4,95.5], "cohens_kappa": 0.876, "verdict": "almost-perfect"}
     }
   ],
 

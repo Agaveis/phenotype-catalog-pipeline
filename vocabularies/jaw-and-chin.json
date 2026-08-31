@@ -3,9 +3,29 @@
   "uberon_id": "UBERON:0001684",
   "fma_id": "FMA:52748",
   "display_name": "Jaw and chin",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "license": "CC-BY-4.0",
   "description": "Mandibular morphology and chin (mental) anatomy: jaw width, mandibular angle, masseter prominence, chin shape and projection, submental contour. Dimensions are drawn from craniofacial anthropometry (Farkas), facial-aesthetics literature (González-Ulloa, Riedel), and orthognathic-surgery references. Mandibular morphology has substantial population-level variation; East Asian populations average wider bigonial breadth and more prominent masseter musculature than European populations.",
+
+  "reliability_studies": [
+    {
+      "id": "test-retest-2026-08-31",
+      "method": "test-retest: the identical prompt re-read against stored codings, same model, no human rater",
+      "measures": "reproducibility, NOT validity. Agreement between two readings says the instrument is stable, not that it is correct.",
+      "model": "us.anthropic.claude-sonnet-4-6",
+      "corpus": "publicly documented portraits of notable people, 39 ethnic groups, single frontal or three-quarter images",
+      "measured": "2026-08-31",
+      "portraits_read": 196,
+      "statistic": "percent agreement and Cohen's kappa over portraits where both readings gave a non-decline value",
+      "decline_handling": "A value meaning \"could not assess\" (unclear, not_visible, not_assessable, obscured, covered_unclear, not_applicable_or_*) is treated as a decline, not an answer. Scoring declines as answers makes a dimension that is never visible look perfectly reliable.",
+      "limitations": [
+        "One model, one corpus, one re-read. No human inter-rater study exists for this vocabulary.",
+        "Kappa is fragile wherever one value dominates. Measured on this corpus: six dimensions read kappa at or below zero on 78 portraits and between 0.43 and 0.66 on 196, and every one has chance agreement above 85 percent. Those carry estimate_is_fragile and should be read as a band, not a number.",
+        "Notable-people corpora skew older and are not a population sample.",
+        "A dimension can be perfectly reproducible and still not measure what its name claims."
+      ]
+    }
+  ],
 
   "dimensions": [
     {
@@ -20,7 +40,8 @@
         {"id": "balanced", "display_name": "Balanced", "definition": "Bigonial breadth approximately 75-85% of bizygomatic; aesthetic reference range."},
         {"id": "wide", "display_name": "Wide", "definition": "Bigonial breadth approaches or exceeds bizygomatic; squared or wider-than-cheekbones lower face. Common in East Asian populations."}
       ],
-      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_only"}
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_only"},
+      "reliability": {"study": "test-retest-2026-08-31", "n": 177, "percent_agreement": 89.8, "percent_agreement_ci95": [84.5,93.5], "cohens_kappa": 0.837, "verdict": "almost-perfect"}
     },
     {
       "id": "mandibular_angle",
@@ -34,7 +55,8 @@
         {"id": "moderate", "display_name": "Moderate", "definition": "Standard 120-130° angle; defined but rounded gonial transition."},
         {"id": "soft_obtuse", "display_name": "Soft / obtuse", "definition": "Smooth, rounded transition with no distinct angle. More common in female physiognomy and with subcutaneous fat coverage."}
       ],
-      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_only"}
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_only"},
+      "reliability": {"study": "test-retest-2026-08-31", "n": 177, "percent_agreement": 87, "percent_agreement_ci95": [81.3,91.2], "cohens_kappa": 0.752, "verdict": "substantial"}
     },
     {
       "id": "masseter_prominence",
@@ -49,7 +71,8 @@
         {"id": "prominent", "display_name": "Prominent", "definition": "Masseter visible as a distinct landmark even at rest; squared lower face."},
         {"id": "hypertrophic", "display_name": "Hypertrophic", "definition": "Pronounced masseter mass; visible bulge at the lower jaw."}
       ],
-      "observability": {"from_photograph": "medium", "requires_unclothed": false, "minimum_visible_extent": "head_only"}
+      "observability": {"from_photograph": "medium", "requires_unclothed": false, "minimum_visible_extent": "head_only"},
+      "reliability": {"study": "test-retest-2026-08-31", "n": 176, "percent_agreement": 90.3, "percent_agreement_ci95": [85.1,93.9], "cohens_kappa": 0.782, "verdict": "substantial"}
     },
     {
       "id": "chin_projection",
@@ -63,7 +86,8 @@
         {"id": "balanced", "display_name": "Balanced", "definition": "Pogonion approximately at the Riedel reference plane."},
         {"id": "prognathic", "display_name": "Prognathic / projecting", "definition": "Pogonion sits anterior to the reference plane; prominent chin."}
       ],
-      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_only", "notes": "Best assessed from lateral view."}
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_only", "notes": "Best assessed from lateral view."},
+      "reliability": {"study": "test-retest-2026-08-31", "n": 180, "percent_agreement": 97.2, "percent_agreement_ci95": [93.7,98.8], "cohens_kappa": 0.432, "verdict": "moderate", "chance_agreement_percent": 95.1, "estimate_is_fragile": true, "note": "Chance agreement is high because one value dominates this corpus, so kappa is computed on a small (1 - pe) denominator and the estimate moves a long way on a few cells. Measured: between a 78-portrait and a 196-portrait read of the same corpus, dimensions in this regime moved by up to 0.68 of a kappa point, in both directions. Read the band, not the digits."}
     },
     {
       "id": "chin_shape_frontal",
@@ -79,7 +103,8 @@
         {"id": "cleft", "display_name": "Cleft (dimpled)", "definition": "Visible vertical midline indentation in the chin pad."},
         {"id": "asymmetric", "display_name": "Asymmetric", "definition": "Notable left-right chin asymmetry."}
       ],
-      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_only"}
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_only"},
+      "reliability": {"study": "test-retest-2026-08-31", "n": 175, "percent_agreement": 99.4, "percent_agreement_ci95": [96.8,99.9], "cohens_kappa": 0.95, "verdict": "almost-perfect", "chance_agreement_percent": 88.6, "estimate_is_fragile": true, "note": "Chance agreement is high because one value dominates this corpus, so kappa is computed on a small (1 - pe) denominator and the estimate moves a long way on a few cells. Measured: between a 78-portrait and a 196-portrait read of the same corpus, dimensions in this regime moved by up to 0.68 of a kappa point, in both directions. Read the band, not the digits."}
     },
     {
       "id": "chin_height",
@@ -93,7 +118,8 @@
         {"id": "balanced", "display_name": "Balanced", "definition": "Chin height within the reference range."},
         {"id": "long", "display_name": "Long", "definition": "Chin height substantially above reference."}
       ],
-      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_only"}
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_only"},
+      "reliability": {"study": "test-retest-2026-08-31", "n": 177, "percent_agreement": 93.2, "percent_agreement_ci95": [88.5,96.1], "cohens_kappa": 0.667, "verdict": "substantial"}
     },
     {
       "id": "submental_definition",
@@ -108,7 +134,8 @@
         {"id": "moderate_submental_fat", "display_name": "Moderate submental fullness", "definition": "Visible submental fat pad obscuring the chin-neck angle."},
         {"id": "marked_submental_fat", "display_name": "Marked submental fullness ('double chin')", "definition": "Pronounced submental fat creating a second visible chin contour."}
       ],
-      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_only"}
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_only"},
+      "reliability": {"study": "test-retest-2026-08-31", "n": 175, "percent_agreement": 90.9, "percent_agreement_ci95": [85.7,94.3], "cohens_kappa": 0.826, "verdict": "almost-perfect"}
     },
     {
       "id": "mandibular_contour_definition",
@@ -123,7 +150,8 @@
         {"id": "soft", "display_name": "Soft", "definition": "Mandibular contour partially obscured by soft-tissue coverage."},
         {"id": "obscured", "display_name": "Obscured", "definition": "Mandibular contour not discernible; full soft-tissue coverage of the jawline."}
       ],
-      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_only"}
+      "observability": {"from_photograph": "high", "requires_unclothed": false, "minimum_visible_extent": "head_only"},
+      "reliability": {"study": "test-retest-2026-08-31", "n": 177, "percent_agreement": 89.8, "percent_agreement_ci95": [84.5,93.5], "cohens_kappa": 0.76, "verdict": "substantial"}
     }
   ],
 

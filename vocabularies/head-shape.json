@@ -3,9 +3,29 @@
   "uberon_id": "UBERON:0000033",
   "fma_id": "FMA:46688",
   "display_name": "Head shape",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "license": "CC-BY-4.0",
   "description": "Cranial morphology dimensions visible from photograph: cephalic index (head shape from above), cranial profile in sagittal view, occipital morphology, head circumference proxy. **Important framing note:** these dimensions use contemporary craniofacial-anthropology vocabulary developed for clinical applications such as craniosynostosis screening and pediatric-orthotic assessment. They are explicitly **not** the discredited 19th-century racial-typology cranial measurements that conflated cephalic index with hierarchical population claims (Boas's own 1912 work showed cephalic index changes within a generation under different environments, undermining its use as a stable racial marker). Modern usage treats cephalic index as a developmental and clinical descriptor with substantial individual variation and meaningful but partial population-level differences. The dimensions below capture the photo-observable shape variation; users should resist any interpretation that maps directly onto historical racial categorizations.",
+
+  "reliability_studies": [
+    {
+      "id": "test-retest-2026-08-31",
+      "method": "test-retest: the identical prompt re-read against stored codings, same model, no human rater",
+      "measures": "reproducibility, NOT validity. Agreement between two readings says the instrument is stable, not that it is correct.",
+      "model": "us.anthropic.claude-sonnet-4-6",
+      "corpus": "publicly documented portraits of notable people, 39 ethnic groups, single frontal or three-quarter images",
+      "measured": "2026-08-31",
+      "portraits_read": 196,
+      "statistic": "percent agreement and Cohen's kappa over portraits where both readings gave a non-decline value",
+      "decline_handling": "A value meaning \"could not assess\" (unclear, not_visible, not_assessable, obscured, covered_unclear, not_applicable_or_*) is treated as a decline, not an answer. Scoring declines as answers makes a dimension that is never visible look perfectly reliable.",
+      "limitations": [
+        "One model, one corpus, one re-read. No human inter-rater study exists for this vocabulary.",
+        "Kappa is fragile wherever one value dominates. Measured on this corpus: six dimensions read kappa at or below zero on 78 portraits and between 0.43 and 0.66 on 196, and every one has chance agreement above 85 percent. Those carry estimate_is_fragile and should be read as a band, not a number.",
+        "Notable-people corpora skew older and are not a population sample.",
+        "A dimension can be perfectly reproducible and still not measure what its name claims."
+      ]
+    }
+  ],
 
   "dimensions": [
     {
@@ -22,7 +42,8 @@
         {"id": "hyperbrachycephalic", "display_name": "Hyperbrachycephalic", "definition": "Cephalic index > ~85; pronounced width-to-length ratio. Clinical context: positional plagiocephaly in infants."},
         {"id": "unclear", "display_name": "Unclear", "definition": "Hairstyle or framing prevents reliable head-shape assessment."}
       ],
-      "observability": {"from_photograph": "low", "requires_unclothed": false, "minimum_visible_extent": "head_only", "notes": "Best assessed from a top-down view, which is rarely available in standard photographs. Frontal and lateral views allow only crude approximation. Hair volume substantially affects perceived width; assessment confidence should reflect this."}
+      "observability": {"from_photograph": "low", "requires_unclothed": false, "minimum_visible_extent": "head_only", "notes": "Best assessed from a top-down view, which is rarely available in standard photographs. Frontal and lateral views allow only crude approximation. Hair volume substantially affects perceived width; assessment confidence should reflect this."},
+      "reliability": {"study": "test-retest-2026-08-31", "n": 171, "percent_agreement": 93.6, "percent_agreement_ci95": [88.8,96.4], "cohens_kappa": 0.868, "verdict": "almost-perfect"}
     },
     {
       "id": "occipital_profile",
@@ -37,7 +58,8 @@
         {"id": "occipital_bun", "display_name": "Occipital bun", "definition": "Pronounced posterior projection of the occiput; visible bulge."},
         {"id": "asymmetric_plagiocephaly", "display_name": "Asymmetric (plagiocephalic)", "definition": "Notable left-right asymmetry of the occipital region."}
       ],
-      "observability": {"from_photograph": "medium", "requires_unclothed": false, "minimum_visible_extent": "head_only", "notes": "Best assessed from lateral or three-quarter view; hair coverage substantially affects assessment."}
+      "observability": {"from_photograph": "medium", "requires_unclothed": false, "minimum_visible_extent": "head_only", "notes": "Best assessed from lateral or three-quarter view; hair coverage substantially affects assessment."},
+      "reliability": {"study": "test-retest-2026-08-31", "n": 88, "percent_agreement": 95.5, "percent_agreement_ci95": [88.9,98.2], "cohens_kappa": 0.577, "verdict": "moderate", "chance_agreement_percent": 89.3, "estimate_is_fragile": true, "note": "Chance agreement is high because one value dominates this corpus, so kappa is computed on a small (1 - pe) denominator and the estimate moves a long way on a few cells. Measured: between a 78-portrait and a 196-portrait read of the same corpus, dimensions in this regime moved by up to 0.68 of a kappa point, in both directions. Read the band, not the digits."}
     },
     {
       "id": "cranial_height",
@@ -51,7 +73,8 @@
         {"id": "average", "display_name": "Average", "definition": "Standard cranial height."},
         {"id": "tall", "display_name": "Tall", "definition": "Pronounced cranial height; vertex sits well above the supraorbital ridge. Associated with sagittal-suture craniosynostosis when extreme in infants; constitutional in adults."}
       ],
-      "observability": {"from_photograph": "medium", "requires_unclothed": false, "minimum_visible_extent": "head_only"}
+      "observability": {"from_photograph": "medium", "requires_unclothed": false, "minimum_visible_extent": "head_only"},
+      "reliability": {"study": "test-retest-2026-08-31", "n": 174, "percent_agreement": 98.3, "percent_agreement_ci95": [95.1,99.4], "cohens_kappa": 0.565, "verdict": "moderate", "chance_agreement_percent": 96, "estimate_is_fragile": true, "note": "Chance agreement is high because one value dominates this corpus, so kappa is computed on a small (1 - pe) denominator and the estimate moves a long way on a few cells. Measured: between a 78-portrait and a 196-portrait read of the same corpus, dimensions in this regime moved by up to 0.68 of a kappa point, in both directions. Read the band, not the digits."}
     },
     {
       "id": "head_circumference_qualitative",
@@ -65,7 +88,8 @@
         {"id": "average", "display_name": "Average", "definition": "Standard proportional head size."},
         {"id": "large", "display_name": "Large", "definition": "Head appears large relative to body; clinical macrocephaly when extreme."}
       ],
-      "observability": {"from_photograph": "low", "requires_unclothed": false, "minimum_visible_extent": "full_body", "notes": "Reliable assessment requires whole-body framing for proportional comparison; head-only photographs cannot resolve this dimension."}
+      "observability": {"from_photograph": "low", "requires_unclothed": false, "minimum_visible_extent": "full_body", "notes": "Reliable assessment requires whole-body framing for proportional comparison; head-only photographs cannot resolve this dimension."},
+      "reliability": {"study": "test-retest-2026-08-31", "n": 178, "percent_agreement": 94.9, "percent_agreement_ci95": [90.7,97.3], "cohens_kappa": 0.803, "verdict": "substantial"}
     }
   ],
 

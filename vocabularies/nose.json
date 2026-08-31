@@ -3,9 +3,29 @@
   "uberon_id": "UBERON:0000004",
   "fma_id": "FMA:46472",
   "display_name": "Nose",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "license": "CC-BY-4.0",
   "description": "External nasal anatomy: bridge, tip, nostrils, columella, alar base, and overall proportions. Dimensions are drawn primarily from craniofacial anthropometry (Farkas 1994) and rhinoplasty classification literature (Tardy, Daniel, Rohrich, Ofodile, McKinney). The nose is the facial structure with the most pronounced ethnic-group variation; this vocabulary intentionally captures the dimensions that drive that variation. Most dimensions are observable from a high-quality frontal photograph; sagittal-plane dimensions (bridge profile, tip rotation, columella, radix, nasolabial angle) benefit substantially from a side-view photograph.",
+
+  "reliability_studies": [
+    {
+      "id": "test-retest-2026-08-31",
+      "method": "test-retest: the identical prompt re-read against stored codings, same model, no human rater",
+      "measures": "reproducibility, NOT validity. Agreement between two readings says the instrument is stable, not that it is correct.",
+      "model": "us.anthropic.claude-sonnet-4-6",
+      "corpus": "publicly documented portraits of notable people, 39 ethnic groups, single frontal or three-quarter images",
+      "measured": "2026-08-31",
+      "portraits_read": 196,
+      "statistic": "percent agreement and Cohen's kappa over portraits where both readings gave a non-decline value",
+      "decline_handling": "A value meaning \"could not assess\" (unclear, not_visible, not_assessable, obscured, covered_unclear, not_applicable_or_*) is treated as a decline, not an answer. Scoring declines as answers makes a dimension that is never visible look perfectly reliable.",
+      "limitations": [
+        "One model, one corpus, one re-read. No human inter-rater study exists for this vocabulary.",
+        "Kappa is fragile wherever one value dominates. Measured on this corpus: six dimensions read kappa at or below zero on 78 portraits and between 0.43 and 0.66 on 196, and every one has chance agreement above 85 percent. Those carry estimate_is_fragile and should be read as a band, not a number.",
+        "Notable-people corpora skew older and are not a population sample.",
+        "A dimension can be perfectly reproducible and still not measure what its name claims."
+      ]
+    }
+  ],
 
   "dimensions": [
     {
@@ -28,7 +48,8 @@
         "requires_unclothed": false,
         "minimum_visible_extent": "head_only",
         "notes": "Best assessed from a side-view (lateral) photograph. Frontal view alone allows only coarse classification; supplement with three-quarter view when available."
-      }
+      },
+      "reliability": {"study": "test-retest-2026-08-31", "n": 180, "percent_agreement": 85.6, "percent_agreement_ci95": [79.7,89.9], "cohens_kappa": 0.734, "verdict": "substantial"}
     },
 
     {
@@ -48,7 +69,8 @@
         "requires_unclothed": false,
         "minimum_visible_extent": "head_only",
         "notes": "Best assessed from side view; frontal view captures only width, not height. Independent of bridge_profile — a flat bridge can still be straight, concave, or mildly convex."
-      }
+      },
+      "reliability": {"study": "test-retest-2026-08-31", "n": 180, "percent_agreement": 95, "percent_agreement_ci95": [90.8,97.3], "cohens_kappa": 0.831, "verdict": "almost-perfect"}
     },
 
     {
@@ -67,7 +89,8 @@
         "from_photograph": "high",
         "requires_unclothed": false,
         "minimum_visible_extent": "head_only"
-      }
+      },
+      "reliability": {"study": "test-retest-2026-08-31", "n": 180, "percent_agreement": 91.7, "percent_agreement_ci95": [86.7,94.9], "cohens_kappa": 0.803, "verdict": "substantial"}
     },
 
     {
@@ -87,7 +110,8 @@
         "requires_unclothed": false,
         "minimum_visible_extent": "head_only",
         "notes": "Requires lateral or three-quarter view for reliable assessment; frontal view alone is unreliable."
-      }
+      },
+      "reliability": {"study": "test-retest-2026-08-31", "n": 180, "percent_agreement": 96.1, "percent_agreement_ci95": [92.2,98.1], "cohens_kappa": 0.828, "verdict": "almost-perfect"}
     },
 
     {
@@ -108,7 +132,8 @@
         "requires_unclothed": false,
         "minimum_visible_extent": "head_only",
         "notes": "Requires lateral or three-quarter view. Difficult to distinguish neutral_male from neutral_female ranges from photo alone — confidence should be lower for that distinction."
-      }
+      },
+      "reliability": {"study": "test-retest-2026-08-31", "n": 180, "percent_agreement": 92.2, "percent_agreement_ci95": [87.4,95.3], "cohens_kappa": 0.864, "verdict": "almost-perfect"}
     },
 
     {
@@ -131,7 +156,8 @@
         "from_photograph": "high",
         "requires_unclothed": false,
         "minimum_visible_extent": "head_only"
-      }
+      },
+      "reliability": {"study": "test-retest-2026-08-31", "n": 179, "percent_agreement": 93.9, "percent_agreement_ci95": [89.3,96.5], "cohens_kappa": 0.875, "verdict": "almost-perfect"}
     },
 
     {
@@ -154,7 +180,8 @@
         "requires_unclothed": false,
         "minimum_visible_extent": "head_only",
         "notes": "Best assessed from inferior view (worm's-eye); frontal view captures shape but may compress the long-axis perception."
-      }
+      },
+      "reliability": {"study": "test-retest-2026-08-31", "n": 175, "percent_agreement": 94.3, "percent_agreement_ci95": [89.8,96.9], "cohens_kappa": 0.594, "verdict": "moderate", "chance_agreement_percent": 85.9, "estimate_is_fragile": true, "note": "Chance agreement is high because one value dominates this corpus, so kappa is computed on a small (1 - pe) denominator and the estimate moves a long way on a few cells. Measured: between a 78-portrait and a 196-portrait read of the same corpus, dimensions in this regime moved by up to 0.68 of a kappa point, in both directions. Read the band, not the digits."}
     },
 
     {
@@ -173,7 +200,8 @@
         "from_photograph": "high",
         "requires_unclothed": false,
         "minimum_visible_extent": "head_only"
-      }
+      },
+      "reliability": {"study": "test-retest-2026-08-31", "n": 177, "percent_agreement": 87.6, "percent_agreement_ci95": [81.9,91.6], "cohens_kappa": 0.745, "verdict": "substantial"}
     },
 
     {
@@ -192,7 +220,8 @@
         "from_photograph": "high",
         "requires_unclothed": false,
         "minimum_visible_extent": "head_only"
-      }
+      },
+      "reliability": {"study": "test-retest-2026-08-31", "n": 179, "percent_agreement": 96.1, "percent_agreement_ci95": [92.1,98.1], "cohens_kappa": 0.926, "verdict": "almost-perfect"}
     },
 
     {
@@ -213,7 +242,8 @@
         "requires_unclothed": false,
         "minimum_visible_extent": "head_only",
         "notes": "Best assessed from lateral view."
-      }
+      },
+      "reliability": {"study": "test-retest-2026-08-31", "n": 175, "percent_agreement": 93.7, "percent_agreement_ci95": [89.1,96.5], "cohens_kappa": 0.776, "verdict": "substantial"}
     },
 
     {
@@ -232,7 +262,8 @@
         "from_photograph": "high",
         "requires_unclothed": false,
         "minimum_visible_extent": "head_only"
-      }
+      },
+      "reliability": {"study": "test-retest-2026-08-31", "n": 180, "percent_agreement": 91.1, "percent_agreement_ci95": [86,94.5], "cohens_kappa": 0.789, "verdict": "substantial"}
     },
 
     {
@@ -253,7 +284,8 @@
         "requires_unclothed": false,
         "minimum_visible_extent": "head_only",
         "notes": "Best assessed from lateral view; frontal view alone allows only crude classification."
-      }
+      },
+      "reliability": {"study": "test-retest-2026-08-31", "n": 180, "percent_agreement": 93.9, "percent_agreement_ci95": [89.4,96.6], "cohens_kappa": 0.719, "verdict": "substantial"}
     },
 
     {
@@ -274,7 +306,8 @@
         "requires_unclothed": false,
         "minimum_visible_extent": "head_only",
         "notes": "Best assessed from lateral view; redundant with bridge_profile when bridge_profile = convex_aquiline, but distinct when small humps coexist with otherwise straight or mildly convex bridges."
-      }
+      },
+      "reliability": {"study": "test-retest-2026-08-31", "n": 180, "percent_agreement": 85, "percent_agreement_ci95": [79.1,89.5], "cohens_kappa": 0.72, "verdict": "substantial"}
     },
 
     {
@@ -297,7 +330,8 @@
         "requires_unclothed": false,
         "minimum_visible_extent": "head_only",
         "notes": "Best assessed from frontal view with neutral head posture."
-      }
+      },
+      "reliability": {"study": "test-retest-2026-08-31", "n": 179, "percent_agreement": 100, "percent_agreement_ci95": [97.9,100], "cohens_kappa": null, "verdict": "uninformative", "chance_agreement_percent": 100, "estimate_is_fragile": true, "note": "High raw agreement with chance-corrected agreement at or below zero: in this corpus the model returned a single modal value for nearly every portrait, so the two readings agree without the dimension distinguishing anything. Do not read the agreement percentage as evidence that this dimension works."}
     }
   ],
 
