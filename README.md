@@ -291,11 +291,11 @@ The HuggingFace dataset rows reference back to the live catalog at ethnicerotic.
 - https://ethnicerotic.com/ethnic/punjabis (largest sample in `image_observations`, n=146)
 - https://ethnicerotic.com/ethnic/han-chinese
 - https://ethnicerotic.com/ethnic/yoruba
-- https://ethnicerotic.com/ethnic/ashkenazi-jews
-- https://ethnicerotic.com/ethnic/quechuas
+- https://ethnicerotic.com/ethnic/ashkenazi-jewish
+- https://ethnicerotic.com/ethnic/quechua
 - https://ethnicerotic.com/ethnic/igbo
 - https://ethnicerotic.com/ethnic/persians
-- https://ethnicerotic.com/ethnic/japanese-people
+- https://ethnicerotic.com/ethnic/japanese
 
 Each page renders the synthesized phenotype profile, the aggregated observed distribution (where ≥3 images are available), and a list of notable-people references.
 
